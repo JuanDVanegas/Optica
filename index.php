@@ -20,7 +20,7 @@ include('seguridad3.php');
           <a href="#about">Acerca de</a>
           <a href="#contact">Contacto</a>
           <a href="#news">Entidades</a>
-          <a class="float-right" href="nuevoUsuarioFormulario.php">Registrarse</a>
+          <a class="float-right" href="nuevoUsuarioRol.php">Registrarse</a>
           <a href="javascript:void(0);" class="icon" onclick="myFunction()"><img src="images/menu-icon.png" width="15" height="15"></a>
       </div>
       </div>
@@ -48,15 +48,15 @@ include('seguridad3.php');
     <div class="carousel-inner">
 
       <div class="item active">
-        <img src="images/la.jpg" alt="Los Angeles" style="width:100%;">
+        <img src="images/vision20-20.jpg" alt="vision20-20" style="width:100%;">
         <div class="carousel-caption">
-          <h3>Los Angeles</h3>
+          <h3>Vision 20/20</h3>
           <p>LA is always so much fun!</p>
         </div>
       </div>
 
       <div class="item">
-        <img src="images/chicago.jpg" alt="Chicago" style="width:100%;">
+        <img src="images/abc-opticas.jpg" alt="Chicago" style="width:100%;">
         <div class="carousel-caption">
           <h3>Chicago</h3>
           <p>Thank you, Chicago!</p>

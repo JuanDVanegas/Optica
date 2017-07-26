@@ -95,6 +95,19 @@ iframe{
 	background-color: #2C71FF;
 }
 
+.carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 20px;
+    left: 15%;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 1px 2px rgb(0,0,0);
+}
+
 @media (min-width: 700px) {
   .container {
     max-width: 690px;
