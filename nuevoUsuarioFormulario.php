@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Optical All in One</title>
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 <script type="text/javascript" src="javascript/menu_responsive.js"></script>
 </head>
@@ -70,12 +71,11 @@ function agregarMedico()
     	<div class="row">
         	<div class="col-md-6">
                 <div class="row">
-                	<label for="Nombre">
                 	<div class="col-md-5">
                     	<p>Nombre</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="text" name="Nombre" id="textfield4" pattern="[A-Za-z]+" required/>
+                    	<input class="form-control" type="text" name="Nombre" id="textfield4" pattern="[A-Za-z]+" required/>
                     </div>
                 </div>
                 <br />
@@ -84,17 +84,16 @@ function agregarMedico()
                     	<p>Apellido</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="text" name="Apellidos" id="textfield5" pattern="[A-Za-z]+" required/>
+                    	<input class="form-control" type="text" name="Apellidos" id="textfield5" pattern="[A-Za-z]+" required/>
                     </div>
                 </div>
                 <br />
                 <div class="row">
-                	<label for="tipoDocumento">
                 	<div class="col-md-5">
                     	<p>Tipo de documento<p>
                     </div>
                     <div class="col-md-7">
-                    	<select class="text-box"<?php 
+                    	<select class="form-control"<?php 
 			if(isset($_SESSION["nonSelected"]))
 			{echo"style='border-color:#FF0000;'";}
 			?> name="tipoDocumento" id="select">
@@ -113,7 +112,7 @@ function agregarMedico()
                     	<p>Numero de documento</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="text" name="Documento" id="textfield8" pattern="[0-9]+" required/>
+                    	<input class="form-control" type="text" name="Documento" id="textfield8" pattern="[0-9]+" required/>
                     </div>
                 </div>
                 <br />
@@ -122,7 +121,7 @@ function agregarMedico()
                     	<p>Fecha de nacimiento</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="date" name="Fecha" id="textfield7" />
+                    	<input class="form-control" type="date" name="Fecha" id="textfield7" />
                     </div>
                 </div>
                 <br />
@@ -133,7 +132,7 @@ function agregarMedico()
                     	<p>Correo Electronico</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="text" name="CorreoElectronico" id="textfield6" required/>
+                    	<input class="form-control" type="text" name="CorreoElectronico" id="textfield6" required/>
                     </div>
                 </div>
                 <br />
@@ -142,7 +141,7 @@ function agregarMedico()
                     	<p>Contraseña</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="password" name="Contrasena" id="textfield9" required/>
+                    	<input class="form-control" type="password" name="Contrasena" id="textfield9" required/>
                     </div>
                 </div>
                 <br />
@@ -151,7 +150,7 @@ function agregarMedico()
                     	<p>Confirmar contraseña</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="password" name="Confirmar" id="textfield10" required/>
+                    	<input class="form-control" type="password" name="Confirmar" id="textfield10" required/>
                     </div>
                 </div>
                 <br />
@@ -160,7 +159,7 @@ function agregarMedico()
                     	<p>Registrarme como</p>
                     </div>
                     <div class="col-md-7">
-                    	<select class="text-box" name="rol" id="rol" >
+                    	<select class="form-control" name="rol" id="rol" >
               <option value="Medico" >Medico</option>
               <option value="Paciente" selected="selected">Paciente</option>
           </select>

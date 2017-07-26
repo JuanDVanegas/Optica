@@ -33,7 +33,7 @@ include('seguridad3.php');
 			$_SESSION["sesionError"] = "";
 		}
 		?>
-    <div class="body-content container">
+    <div class="body-content container white-transparent">
     	<div class="row">
             <div class="col-md-7">
             	<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -84,7 +84,7 @@ include('seguridad3.php');
     </a>
   </div>
             </div>
-            <div class="col-md-5 white-transparent">
+            <div class="col-md-5">
             	<div class="row">
                 	<div class="col-md-12">
                     	<h1>Iniciar Sesion</h1>
