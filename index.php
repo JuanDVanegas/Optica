@@ -2,9 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Optical All in One</title>
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/overwrite.css" type="text/css" />
+<link rel="stylesheet" href="css/site.css" type="text/css" />
 <script type="text/javascript" src="javascript/jquery.js"></script>
 <script type="text/javascript" src="javascript/bootstrap.js"></script>
 <script type="text/javascript" src="javascript/menu_responsive.js"></script>
@@ -13,7 +15,7 @@
 include('seguridad3.php');
 ?>
 <body class="fondo">
-		<div class="nav-bar">
+		<div class="navbar navbar-blue navbar-fixed-top">
       <div class="container">
         <div class="topnav" id="myTopnav">
           <a href="index.php" style="font-size: 22px; padding: 10px 14px;">Optica all in One</a>
@@ -33,7 +35,7 @@ include('seguridad3.php');
 			$_SESSION["sesionError"] = "";
 		}
 		?>
-    <div class="body-content container white-transparent">
+    <div class="container body-content white-transparent">
     	<div class="row">
             <div class="col-md-7">
             	<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -113,11 +115,11 @@ include('seguridad3.php');
                         <br />
                         <div class="row">
                             <div class="col-md-8">
-                                <a href="nuevoUsuarioRol.php" class="vinculo-sec">¿No estas registrado?</a><br /><br /><a href="restablecer.php" class="vinculo-sec">Restablecer Contraseña</a>
+                                <a href="nuevoUsuarioRol.php">¿No estas registrado?</a><br /><br /><a href="restablecer.php">Restablecer Contraseña</a>
                             </div>
                             <div class="col-md-4">
                             	<br />
-                                <input name="ingresar" type="submit" class="btn btn-primary" id="button" value="Ingresar" />
+                                <input name="ingresar" type="submit" class="btn btn-primary" id="button" value="Ingresar"/>
                             </div>
                         </div>
             	</form>
