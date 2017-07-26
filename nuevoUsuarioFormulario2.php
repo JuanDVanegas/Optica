@@ -19,29 +19,34 @@
       </div>
       </div>
     </div>
-	<?php 
-    session_start();
-	
-    if(isset($_SESSION["existDoc"]))
-    {
-        $ad = $_SESSION["existDoc"];
-        echo $ad;	
-    }
-    if(isset($_SESSION["existMail"]))
-    {
-        $ad = $_SESSION["existMail"];
-        echo $ad;
-    }
-    if(isset($_SESSION["nonSelected"]))
-    {
-        $ad = $_SESSION["nonSelected"];
-        echo $ad;
-    }
-    ?>
     <div class="body-content container">
     	<div class="row">
         	<div class="col-md-12">
-            	<h1>Nuevo Usuario</h1>
+            	<h1>Nuevo Usuario Paciente</h1>
+                <?php 
+				session_start();
+				
+				if(isset($_SESSION["existDoc"]))
+				{
+					$existDoc = $_SESSION["existDoc"];
+					echo "<h1>$existDoc</h1>";	
+				}
+				if(isset($_SESSION["existMail"]))
+				{
+					$existMail = $_SESSION["existMail"];
+					echo "<h1>$existMail</h1>";
+				}
+				if(isset($_SESSION["nonSelected"]))
+				{
+					$nonSelected = $_SESSION["nonSelected"];
+					echo "<h1>$nonSelected</h1>";
+				}
+				if(isset($_SESSION["passError"]))
+				{
+					$passError = $_SESSION["passError"];
+					echo "<h1>$passError</h1>";
+				}
+				?>
             </div>
         </div>
         <br />
@@ -54,7 +59,7 @@
                     	<p>Nombre</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="text" name="Nombre" id="textfield4" pattern="[A-Za-z]+" required/>
+                    	<input class="text-box" type="text" name="nombre" id="textfield4" pattern="[A-Za-z]+" required/>
                     </div>
                 </div>
                 <br />
@@ -63,7 +68,7 @@
                     	<p>Apellido</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="text" name="Apellidos" id="textfield5" pattern="[A-Za-z]+" required/>
+                    	<input class="text-box" type="text" name="apellido" id="textfield5" pattern="[A-Za-z]+" required/>
                     </div>
                 </div>
                 <br />
@@ -74,16 +79,16 @@
                     </div>
                     <div class="col-md-7">
                     	<select class="text-box"<?php 
-			if(isset($_SESSION["nonSelected"]))
-			{echo"style='border-color:#FF0000;'";}
-			?> name="tipoDocumento" id="select">
-              <option value="Null"  selected="selected">Seleccionar</option>
-              <option value="Tarjeta de identidad">Tarjeta de identidad</option>
-              <option value="Cedula de ciudadania" >Cedula de ciudadania</option>
-              <option value="Cedula extrajera">Cedula extrajera</option>
-              <option value="Pasaporte">Pasaporte</option>
-              <option value="Libreta Militar">Libreta Militar</option>
-          </select>
+						if(isset($_SESSION["nonSelected"]))
+						{echo"style='border-color:#FF0000;'";}
+						?> name="tipo" id="select">
+						  <option value="Null"  selected="selected">Seleccionar</option>
+						  <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+						  <option value="Cedula de ciudadania" >Cedula de ciudadania</option>
+						  <option value="Cedula extrajera">Cedula extrajera</option>
+						  <option value="Pasaporte">Pasaporte</option>
+						  <option value="Libreta Militar">Libreta Militar</option>
+					  </select>
                     </div>
                 </div>
                 <br />
@@ -92,7 +97,7 @@
                     	<p>Numero de documento</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="text" name="Documento" id="textfield8" pattern="[0-9]+" required/>
+                    	<input class="text-box" type="text" name="documento" id="textfield8" pattern="[0-9]+" required/>
                     </div>
                 </div>
             </div>
@@ -102,7 +107,7 @@
                     	<p>Fecha de nacimiento</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="date" name="Fecha" id="textfield7" />
+                    	<input class="text-box" type="date" name="fecha" id="textfield7" />
                     </div>
                 </div>
                 <br />
@@ -111,7 +116,7 @@
                     	<p>Correo Electronico</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="text" name="CorreoElectronico" id="textfield6" required/>
+                    	<input class="text-box" type="text" name="mail" id="textfield6" required/>
                     </div>
                 </div>
                 <br />
@@ -120,7 +125,7 @@
                     	<p>Contraseña</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="password" name="Contrasena" id="textfield9" required/>
+                    	<input class="text-box" type="password" name="password" id="textfield9" required/>
                     </div>
                 </div>
                 <br />
@@ -129,7 +134,7 @@
                     	<p>Confirmar contraseña</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="password" name="Confirmar" id="textfield10" required/>
+                    	<input class="text-box" type="password" name="confirmar" id="textfield10" required/>
                     </div>
                 </div>
                 <br />
@@ -139,6 +144,7 @@
         <div class="row">
         	<div class="col-md-5"></div>
             <div class="col-md-2">
+            	<input type="hidden" value="Paciente" name="rol" />
             	<input class="btn btn-primary" type="submit" name="registro" id="button2" value="Registrar" />
             </div>
             <div class="col-md-5"></div>
@@ -146,9 +152,9 @@
     </div></form>
     <?php 
         unset($_SESSION["existDoc"]);
-        unset($ad);
         unset($_SESSION["existMail"]);
         unset($_SESSION["nonSelected"]);
+		unset($_SESSION["passError"]);
     ?>
 </body>
 <footer>

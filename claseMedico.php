@@ -1,11 +1,11 @@
 <?php
 class Medico
 {
-	public function registrarMedico($codigo,$palabra,$Nombre,$Apellidos,$CorreoElectronico,$Fecha,$tipoDocumento,$Documento,$Contrasena,$rol)
+	public function registrar($codigo,$palabra,$Nombre,$Apellidos,$CorreoElectronico,$Fecha,$tipoDocumento,$Documento,$Contrasena,$rol)
 	{
 		include('database.php');
 		
-		$sql1 = "SELECT * FROM entidad WHERE codigoAcesso='$codigo'";
+		$sql1 = "SELECT * FROM entidad WHERE codigoAcesso=$codigo";
 		if(!$result = $db->query($sql1))
 		{
 			die('error al ejecutar la sentencia '. $db->error.']');
@@ -45,13 +45,15 @@ class Medico
 							Palabra Clave: $ppalabra";						
 						}
 						else
-						{echo "Error al registrar login. Failed_Login_Status";}
+						{
+							echo "Error al registrar login. Failed_Login_Status";							
+						}
 					}
 				}
 				else
-				{echo "Error al registrar nuevo usuario.";}
-				
-				
+				{
+					echo "Error al registrar nuevo usuario.";					
+				}
 			}
 			else
 			{
