@@ -113,7 +113,7 @@ include('seguridad3.php');
                         <br />
                         <div class="row">
                             <div class="col-md-8">
-                                <a href="nuevoUsuarioFormulario.php" class="vinculo-sec">¿No estas registrado?</a><br /><br /><a href="restablecer.php" class="vinculo-sec">Restablecer Contraseña</a>
+                                <a href="nuevoUsuarioRol.php" class="vinculo-sec">¿No estas registrado?</a><br /><br /><a href="restablecer.php" class="vinculo-sec">Restablecer Contraseña</a>
                             </div>
                             <div class="col-md-4">
                             	<br />
