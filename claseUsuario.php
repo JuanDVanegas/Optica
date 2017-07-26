@@ -94,7 +94,8 @@ class Usuario
 		
 		while($row5 = $result5->fetch_assoc())
 		{
-			$documentoExist=1;
+			$_SESSION["documentoExiste"] = "<b>Documento no se encuentra disponible.</b><br>";
+			header("Location: nuevoUsuarioFormulario.php");
 		}
 		
 		$sql6="SELECT * FROM login WHERE email='$CorreoElectronico'";
@@ -105,27 +106,11 @@ class Usuario
 				
 				while($row6 = $result6->fetch_assoc())
 				{
-					$emailExist=1;
+					$_SESSION["mailExiste"] = "<b>Correo electronico no disponible, intenta con otro distinto</b>";
+					header("Location: nuevoUsuarioFormulario.php");
 				}	
 					
 		if($tipoDocumento == "Null")
-		{
-			$nonSelected=1;
-		}
-		else;
-		if(isset($documentoExist) )
-		{
-			$_SESSION["existDoc"] = "<b>Documento no disponible, un usuario lo ocupa</b><br>";
-			header("Location: nuevoUsuarioFormulario.php");
-		}
-		else;
-		if(isset($emailExist) )
-		{
-			$_SESSION["existMail"] = "<b>Correo electronico no disponible, intenta con otro distinto</b>";
-			header("Location: nuevoUsuarioFormulario.php");
-		}
-		else;
-		if(isset($nonSelected) )
 		{
 			$_SESSION["nonSelected"] = "<b>Seleccione un tipo de documento</b>";
 			header("Location: nuevoUsuarioFormulario.php");

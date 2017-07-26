@@ -17,14 +17,6 @@
 session_start();
 include('database.php');
 include('claseUsuario.php');
-$Nombre = $_POST["Nombre"];
-$Apellidos = $_POST["Apellidos"];
-$CorreoElectronico = $_POST["CorreoElectronico"];
-$Fecha = $_POST["Fecha"];
-$tipoDocumento = $_POST["tipoDocumento"];
-$Documento = $_POST["Documento"];
-$Contrasena = $_POST["Contrasena"];
-$rol = $_POST["rol"];
 
 $objetoUsuario -> chequearUsuario($CorreoElectronico,$tipoDocumento,$Documento);
 

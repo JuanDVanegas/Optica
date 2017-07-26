@@ -48,6 +48,7 @@
     	<div class="row">
         	<div class="col-md-6">
                 <div class="row">
+                <form action="nuevoUsuarioRegistro2.php" method="post">
                 	<label for="Nombre">
                 	<div class="col-md-5">
                     	<p>Nombre</p>
@@ -138,11 +139,11 @@
         <div class="row">
         	<div class="col-md-5"></div>
             <div class="col-md-2">
-            	<input class="btn btn-primary" type="submit" name="registro" id="button2" value="Registrar" onclick="agregarMedico()" />
+            	<input class="btn btn-primary" type="submit" name="registro" id="button2" value="Registrar" />
             </div>
             <div class="col-md-5"></div>
         </div>
-    </div>
+    </div></form>
     <?php 
         unset($_SESSION["existDoc"]);
         unset($ad);

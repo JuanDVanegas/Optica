@@ -11,43 +11,26 @@
  <header>
       
 </header>
-<?php 
-session_start();
-if(isset($_SESSION["existDoc"]))
-{
-	$ad = $_SESSION["existDoc"];
-	echo $ad;	
-}
-if(isset($_SESSION["existMail"]))
-{
-	$ad = $_SESSION["existMail"];
-	echo $ad;
-}
-if(isset($_SESSION["nonSelected"]))
-{
-	$ad = $_SESSION["nonSelected"];
-	echo $ad;
-}
-?>
+
 	<p class="bg-info">Nuevo Usuario</p>
     
 	<p class=bg-info>Para continuar, necesitamos que nos ofrezcas los siguientes datos de la entidad oftalmologica a la cual perteneces.</p>
 	<form name="registro_medico" action="nuevoUsuarioMedico.php" method="post">
 	<table width=400 border=0>
 	  <tr>
-		<td>nombre</td>
+		<td>Nombre de la Entidad</td>
 		<td><label for="nombre"></label>
 		  <input type="text" name="null" /></td>
 	  </tr>
 	  <tr>
-		<td>codigo de acceso</td>
+		<td>Codigo de acceso</td>
 		<td><label for="codigo"></label>
-		  <input type="text" name="codigo" /></td>
+		  <input type="text" name="codigo" pattern="[0-9]+" required/></td>
 	  </tr>
 	  <tr>
-		<td>palabra clave</td>
+		<td>Palabra clave</td>
 		<td><label for="palabra"></label>
-		  <input type="text" name="palabra" /></td>
+		  <input type="text" name="palabra" pattern="[A-Za-z]+" required/></td>
 	  </tr>
 	  <tr>
 		<td>
@@ -93,12 +76,6 @@ if(isset($_SESSION["nonSelected"]))
 	  <input class="btn-primary" type="submit" name="continuar" id="continuar" value="Enviar" />
 	</form>
     <p>&nbsp;</p>
-    <?php 
-	unset($_SESSION["existDoc"]);
-	unset($ad);
-	unset($_SESSION["existMail"]);
-	unset($_SESSION["nonSelected"]);
-	?>
 </body>
 <footer>
 </footer>

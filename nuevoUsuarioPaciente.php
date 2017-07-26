@@ -1,22 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/componente.css" />
-<link rel="stylesheet" type="text/css" href="css/principal.css" />
-<title>Documento sin título</title>
-</head>
-<script>
-    window.onload=function(){
-                // Una vez cargada la página, el formulario se enviara automáticamente.
-		document.forms["continuar"].submit();
-    }
-</script>
-<body>
+
 <?php
+include('clasePaciente.php');
+$objetoMedico->registrarMedico($_POST["nombre"],$_POST["apellido"],$_POST["mail"],$_POST["fecha"],$_POST["tipo"],$_POST["documento"],$_POST["password"],$_POST["rol"]);
 
 ?>
-
-
-</body>
-</html>
