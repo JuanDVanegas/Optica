@@ -3,11 +3,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Optical All in One</title>
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="css/overwrite.css" type="text/css" />
+<link rel="stylesheet" href="css/site.css" type="text/css" />
 <script type="text/javascript" src="javascript/menu_responsive.js"></script>
 </head>
 <body>
-<div class="nav-bar">
+<div class="navbar navbar-blue navbar-fixed-top">
       <div class="container">
         <div class="topnav" id="myTopnav">
           <a href="index.php" style="font-size: 22px; padding: 10px 14px;">Optica all in One</a>
@@ -35,7 +37,7 @@
                     </div>
                     <div class="col-md-7">
                     <form method="post" action="soporteRol.php">
-                    	<select class="text-box" name="rol" id="rol" >
+                    	<select class="form-control" name="rol" id="rol" >
                           <option value="Medico" >Medico</option>
                           <option value="Paciente" selected="selected">Paciente</option>
                       </select>
@@ -43,7 +45,6 @@
                 </div> 
                 <br />
                 <div class="row">
-        	<div class="col-md-8"></div>
             <div class="col-md-4">
             	<input class="btn btn-primary" type="submit" name="registro" id="button2" value="Continuar"/>
                 </form>

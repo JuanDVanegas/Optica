@@ -3,18 +3,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Optical All in One</title>
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="css/overwrite.css" type="text/css" />
+<link rel="stylesheet" href="css/site.css" type="text/css" />
 <script type="text/javascript" src="javascript/menu_responsive.js"></script>
 </head>
 <body>
-<div class="nav-bar">
+<div class="navbar navbar-blue navbar-fixed-top">
       <div class="container">
         <div class="topnav" id="myTopnav">
           <a href="index.php" style="font-size: 22px; padding: 10px 14px;">Optica all in One</a>
           <a href="#about">Acerca de</a>
           <a href="#contact">Contacto</a>
           <a href="#news">Entidades</a>
-          <a class="float-right" href="nuevoUsuarioFormulario.php">Registrarse</a>
+          <a class="float-right" href="nuevoUsuarioRol.php">Registrarse</a>
           <a href="javascript:void(0);" class="icon" onclick="myFunction()"><img src="images/menu-icon.png" width="15" height="15"></a>
       </div>
       </div>
@@ -54,12 +56,11 @@
         	<div class="col-md-6">
                 <div class="row">
                 <form action="nuevoUsuarioRegistro2.php" method="post">
-                	<label for="Nombre">
                 	<div class="col-md-5">
                     	<p>Nombre</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="text" name="nombre" id="textfield4" pattern="[A-Za-z]+" required/>
+                    	<input class="form-control" type="text" name="nombre" id="textfield4" pattern="[A-Za-z]+" required/>
                     </div>
                 </div>
                 <br />
@@ -68,17 +69,16 @@
                     	<p>Apellido</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="text" name="apellido" id="textfield5" pattern="[A-Za-z]+" required/>
+                    	<input class="form-control" type="text" name="apellido" id="textfield5" pattern="[A-Za-z]+" required/>
                     </div>
                 </div>
                 <br />
                 <div class="row">
-                	<label for="tipoDocumento">
                 	<div class="col-md-5">
                     	<p>Tipo de documento<p>
                     </div>
                     <div class="col-md-7">
-                    	<select class="text-box"<?php 
+                    	<select class="form-control"<?php 
 						if(isset($_SESSION["nonSelected"]))
 						{echo"style='border-color:#FF0000;'";}
 						?> name="tipo" id="select">
@@ -97,7 +97,7 @@
                     	<p>Numero de documento</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="text" name="documento" id="textfield8" pattern="[0-9]+" required/>
+                    	<input class="form-control" type="text" name="documento" id="textfield8" pattern="[0-9]+" required/>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@
                     	<p>Fecha de nacimiento</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="date" name="fecha" id="textfield7" />
+                    	<input class="form-control" type="date" name="fecha" id="textfield7" />
                     </div>
                 </div>
                 <br />
@@ -116,7 +116,7 @@
                     	<p>Correo Electronico</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="text" name="mail" id="textfield6" required/>
+                    	<input class="form-control" type="text" name="mail" id="textfield6" required/>
                     </div>
                 </div>
                 <br />
@@ -125,7 +125,7 @@
                     	<p>Contraseña</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="password" name="password" id="textfield9" required/>
+                    	<input class="form-control" type="password" name="password" id="textfield9" required/>
                     </div>
                 </div>
                 <br />
@@ -134,7 +134,7 @@
                     	<p>Confirmar contraseña</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="text-box" type="password" name="confirmar" id="textfield10" required/>
+                    	<input class="form-control" type="password" name="confirmar" id="textfield10" required/>
                     </div>
                 </div>
                 <br />
