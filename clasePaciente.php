@@ -1,10 +1,10 @@
 <?php
-class Paciente
+include('claseUsuario.php');
+class Paciente extends Usuario
 {
-	public function registrar($nombre,$apellido,$mail,$fecha,$tipo,$documento,$password,$rol)
+	public function registrar($nombre,$apellido,$fecha,$tipo,$documento,$rol)
 	{
 		include('database.php');
-		
 		$sql="INSERT INTO usuario (nombre,apellido,tipoDocumento,numeroDocumento,rolUsuario,nacimiento,entidad,perfil,telefono)
 		VALUES ('$nombre', '$apellido', '$tipo','$documento','$rol','$fecha','0','profile/predeterminado.jpg','Ninguno')";
 		if ($db->query($sql) === TRUE)
@@ -18,17 +18,6 @@ class Paciente
 			while($row4 = $result4->fetch_assoc())
 			{
 				$idUsuario=stripslashes($row4["id_usuario"]);
-				$sql3="INSERT INTO login (fk_user,email,password,confirmMail)
-				VALUES ('$idUsuario', '$mail', '".md5($password)."','0')";
-				
-				if ($db->query($sql3) === TRUE)
-				{
-					echo "<h1>Se ha registrado el Usuario</h1>";				
-				}
-				else
-				{
-					echo "<h1>Error al registrar login. Fail Query</h1>";
-				}
 			}
 		}
 		else

@@ -1,4 +1,6 @@
 <?php
-include('claseUsuario.php');
-$objetoUsuario -> iniciarSesion($_POST["mail"],$_POST["contrasena"]);
+
+include('claseLogin.php');
+$objetoLogin->iniciarSesion();
+
 ?>
