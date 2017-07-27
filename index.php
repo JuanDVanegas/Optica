@@ -9,23 +9,33 @@
 <link rel="stylesheet" href="css/site.css" type="text/css" />
 <script type="text/javascript" src="javascript/jquery.js"></script>
 <script type="text/javascript" src="javascript/bootstrap.js"></script>
-<script type="text/javascript" src="javascript/menu_responsive.js"></script>
 </head>
 <?php
 include('seguridad3.php');
 ?>
 <body class="fondo">
-		<div class="navbar navbar-blue navbar-fixed-top">
-      <div class="container">
-        <div class="topnav" id="myTopnav">
-          <a href="index.php" style="font-size: 22px; padding: 10px 14px;">Optica all in One</a>
-          <a href="#about">Acerca de</a>
-          <a href="#contact">Contacto</a>
-          <a href="#news">Entidades</a>
-          <a class="float-right" href="nuevoUsuarioRol.php">Registrarse</a>
-          <a href="javascript:void(0);" class="icon" onclick="myFunction()"><img src="images/menu-icon.png" width="15" height="15"></a>
-      </div>
-      </div>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/logo.png" class="img-logo"/>
+                <a href="index.php" class="navbar-brand">Optica all in One</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="acercade.html">Acerca de</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                    <li><a href="#news">Entidades</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a class="navbar-right" href="nuevoUsuarioRol.php">Registrarse</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
 		<?php
 		if(isset($_SESSION["sesionError"])) 
