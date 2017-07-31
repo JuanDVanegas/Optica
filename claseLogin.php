@@ -24,7 +24,7 @@ class Login
 		}
 		else
 		{
-			$_SESSION["errorRegistro"] = "<b>Error en el sistema 400, intentelo de nuevo</b>";
+			$_SESSION["errorRegistro"] = "Error en el sistema 400, intentelo de nuevo";
 			if($_SESSION["reg"]==1)
 			{
 				header("Location: nuevoUsuarioFormulario1.php");
@@ -93,14 +93,14 @@ class Login
 			}
 			else
 			{
-				$_SESSION["sesionError"]="<b>Usuario y/o Contrasena incorrecto</b>";
+				$_SESSION["sesionError"]="Usuario y/o Contrasena incorrecto";
 				echo $_SESSION["sesionError"];
 				header("Location: index.php");
 			}
 		}
 		if(!isset($contador))
 		{
-			$_SESSION["sesionError"]="<b>Usuario y/o Contrasena incorrecto</b>";
+			$_SESSION["sesionError"]="Usuario y/o Contrasena incorrecto";
 			echo $_SESSION["sesionError"];
 			header("Location: index.php");
 		}

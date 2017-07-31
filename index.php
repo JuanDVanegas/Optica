@@ -113,6 +113,7 @@ include('seguridad3.php');
                             <div class="col-md-8">
                                 <input class="form-control" type="password" name="contrasena" id="contrasena"  required/>
                                 <?php
+								
 								if(!isset($_SESSION["status"]))
 								{
 									$_SESSION["status"] = 0;
@@ -120,7 +121,7 @@ include('seguridad3.php');
 								if(isset($_SESSION["sesionError"])) 
 								{
 									$error = $_SESSION["sesionError"];
-									echo $error;
+									echo "<p class=text-danger >$error</p>";
 									unset($_SESSION["sesionError"]);
 								}
 								?>
