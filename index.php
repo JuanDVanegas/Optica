@@ -14,28 +14,7 @@
 include('seguridad3.php');
 ?>
 <body class="fondo">
-	<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <img src="images/logo.png" class="img-logo"/>
-                <a href="index.php" class="navbar-brand">Optica all in One</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="acercade.html">Acerca de</a></li>
-                    <li><a href="#contact">Contacto</a></li>
-                    <li><a href="#news">Entidades</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a class="navbar-right" href="nuevoUsuarioRol.php">Registrarse</a></li>
-                </ul>
-            </div>
-        </div>
+	<?php include ('modules/navbar.php'); ?>
     </div>
 		<?php
 		if(isset($_SESSION["sesionError"])) 
@@ -135,8 +114,7 @@ include('seguridad3.php');
             	</form>
             </div>
     	</div>
-        <footer>
-		</footer>
+        <?php include('modules/footer.php');?>
     </div>
 </body>
 

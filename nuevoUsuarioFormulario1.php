@@ -9,18 +9,7 @@
 <script type="text/javascript" src="javascript/menu_responsive.js"></script>
 </head>
 <body>
-<div class="navbar navbar-blue navbar-fixed-top">
-      <div class="container">
-        <div class="topnav" id="myTopnav">
-          <a href="index.php" style="font-size: 22px; padding: 10px 14px;">Optica all in One</a>
-          <a href="#about">Acerca de</a>
-          <a href="#contact">Contacto</a>
-          <a href="#news">Entidades</a>
-          <a class="float-right" href="nuevoUsuarioRol.php">Registrarse</a>
-          <a href="javascript:void(0);" class="icon" onclick="myFunction()"><img src="images/menu-icon.png" width="15" height="15"></a>
-      </div>
-      </div>
-    </div>
+	<?php include ('modules/navbar.php'); ?>
     <div class="body-content container">
     	<div class="row">
         	<div class="col-md-12">
@@ -169,6 +158,7 @@
             </div>
             <div class="col-md-5"></div>
         </div>
+        <?php include ('modules/footer.php'); ?>
     </div></form>
     <?php 
         unset($_SESSION["mailExiste"]);

@@ -8,21 +8,11 @@
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="css/overwrite.css" type="text/css" />
   <link rel="stylesheet" href="css/site.css" type="text/css" />
-  <script type="text/javascript" src="javascript/menu_responsive.js"></script>
+	<script type="text/javascript" src="javascript/jquery.js"></script>
+	<script type="text/javascript" src="javascript/bootstrap.js"></script>
   </head>
   <body>
-    <div class="navbar navbar-blue navbar-fixed-top">
-      <div class="container">
-        <div class="topnav" id="myTopnav">
-          <a href="#index" style="font-size: 22px; padding: 10px 14px;">Optica all in One</a>
-          <a href="#about">Acerca de</a>
-          <a href="#contact">Contacto</a>
-          <a href="#news">Entidades</a>
-          <a class="float-right" href="#news">Cerrar Sesion</a>
-          <a href="javascript:void(0);" class="icon" onclick="myFunction()"><img src="images/menu-icon.png" width="15" height="15"></a>
-      </div>
-      </div>
-    </div>
+    <?php include ('modules/navbar.php'); ?>
     <div class="body-content container">
          <div class="row">
          <div class="col-md-2 hidden-sm hidden-xs"> 
@@ -42,11 +32,10 @@
              </div>
             </div>
             <div class="col-md-9"> 
-              <br />
             	<iframe src="bienvenido.html" width="100%" height="600" scrolling="no" name="content">
            	</div>
          </div>
      </div>
-  <footer>
+     <?php include ('modules/footer.php'); ?>
   </body>
 </html>
