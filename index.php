@@ -141,8 +141,7 @@ include('seguridad3.php');
             	</form>
             </div>
     	</div>
-        <footer>
-		</footer>
+        <?php include('modules/footer.php'); ?>
     </div>
 </body>
 
