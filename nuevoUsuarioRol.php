@@ -34,7 +34,7 @@
                 <br />
                 <div class="row">
             <div class="col-md-4">
-            	<input class="btn btn-primary" type="submit" name="registro" id="button2" value="Continuar"/>
+            	<input class="btn btn-default" type="submit" name="registro" id="button2" value="Continuar"/>
                 </form>
             </div>
             <div class="col-md-5"></div>
