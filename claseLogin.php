@@ -1,28 +1,38 @@
 <?php
 class Login
 {
-	public $fk_user = 0;
-	public $email;
-	public $password;
+	private $fk_user = 0;
+	private $email = 0;
+	private $password = 0;
 	
-	public function __construct($Email,$Password)
+	public function __construct($Email,$Password,$Fk_user)
 	{
 		$this->email = $Email;
 		$this->password = $Password;
+		$this->fk_user = $Fk_user;
 	}
 	
-	public function registrar($Fk_user)
+	public function registrar()	
 	{
-		$this->fk_user = $Fk_user;
+		include('database.php');
+		
 		$sql5="INSERT INTO login (fk_user,email,password,confirmMail)
 		VALUES ('$this->fk_user', '$this->email', '".md5($this->password)."','0')";
 		if ($db->query($sql5) === TRUE)
 		{
-			echo "<h1>Se ha registrado el Usuario</h1>";				
+			header("Location: index.php");				
 		}
 		else
 		{
-			echo "<h1>Error al registrar login. Fail Query</h1>";
+			$_SESSION["errorRegistro"] = "<b>Error en el sistema 400, intentelo de nuevo</b>";
+			if($_SESSION["reg"]==1)
+			{
+				header("Location: nuevoUsuarioFormulario1.php");
+			}
+			else
+			{
+				header("Location: nuevoUsuarioFormulario2.php");
+			}
 		}
 		
 	}
@@ -72,7 +82,7 @@ class Login
 					if($rolUsuario=="Medico")
 					{
 						$_SESSION["status"]="1";
-						//header("Location: cuentaMedico.php");
+						header("Location: cuentaMedico.php");
 					}
 					else
 					{
@@ -85,25 +95,26 @@ class Login
 			{
 				$_SESSION["sesionError"]="<b>Usuario y/o Contrasena incorrecto</b>";
 				echo $_SESSION["sesionError"];
-				//header("Location: index.php");
+				header("Location: index.php");
 			}
 		}
 		if(!isset($contador))
 		{
 			$_SESSION["sesionError"]="<b>Usuario y/o Contrasena incorrecto</b>";
 			echo $_SESSION["sesionError"];
-			//header("Location: index.php");
+			header("Location: index.php");
 		}
 		else;
 	}
 	public function cerrarSesion()
 	{
+		session_start();
 		$_SESSION["status"]="0";
-		header ("Location: index.php");
-		unset($this->idUsuario);	
+		header("Location: index.php");
 	}
 	public function validarCorreoElectronico()
 	{
+		include('database.php');
 		$sql6="SELECT * FROM login WHERE email='$this->email'";
 		if(!$result6 = $db->query($sql6))
 		{
@@ -112,9 +123,17 @@ class Login
 		
 		if($result6->fetch_assoc())
 		{
-			$_SESSION["mailExiste"] = "<b>Correo electronico no disponible, intenta con otro distinto</b>";
-			header("Location: nuevoUsuarioFormulario.php");
-		}	
+			$_SESSION["errorRegistro"] = "<b>Correo electronico no disponible, intenta con otro distinto</b>";
+			if($_SESSION["reg"]==1)
+			{
+				header("Location: nuevoUsuarioFormulario1.php");
+			}
+			else
+			{
+				header("Location: nuevoUsuarioFormulario2.php");
+			}
+		}
+		else;	
 	}
 }
 

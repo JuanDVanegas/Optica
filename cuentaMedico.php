@@ -12,7 +12,9 @@
 	<script type="text/javascript" src="javascript/bootstrap.js"></script>
   </head>
   <body>
+  	
     <?php include ('modules/navbar.php'); ?>
+    <?php include('seguridad.php'); ?>
     <div class="body-content container">
          <div class="row">
          <div class="col-md-2 hidden-sm hidden-xs"> 

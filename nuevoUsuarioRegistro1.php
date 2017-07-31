@@ -1,13 +1,23 @@
 <?php
 session_start();
-
+$_SESSION["reg"] = 1;
+include('claseMedico.php');
 include('claseUsuario.php');
+include('claseLogin.php');
 
 if($_POST["password"] == $_POST["confirmar"])
 {
-	$objetoUsuario -> chequearUsuario($_POST["mail"],$_POST["tipo"],$_POST["documento"]);
+	
+	$entidad = new Medico($_POST["nombreEntidad"],$_POST["codigo"]);
+	$entidad->confirmarEntidad();
+	
+	$correo = new Login($_POST["mail"],"",0);
+	$correo->validarCorreoElectronico();
+	
+	$doc = new Usuario("","","",$_POST["tipo"],$_POST["documento"],"","","");
+	$doc->validarDocumento();
 
-	if(!isset($_SESSION["mailExiste"]) && !isset($_SESSION["documentoExiste"]) && !isset($_SESSION["nonSelected"]))
+	if(!isset($_SESSION["errorRegistro"]))
 	{
 		include('nuevoUsuarioMedico.php');
 	}
@@ -18,7 +28,7 @@ if($_POST["password"] == $_POST["confirmar"])
 }
 else
 {
-	$_SESSION["passError"]= "<h2>Las contraseñas no coinciden</h2>";
+	$_SESSION["errorRegistro"]= "<h2>Las contraseñas no coinciden</h2>";
 	header('Location: nuevoUsuarioFormulario1.php');
 }
 ?>

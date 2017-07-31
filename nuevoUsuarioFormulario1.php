@@ -15,27 +15,10 @@
         	<div class="col-md-12">
             	<h1>Nuevo Usuario Medico</h1>
                 <?php 
-				session_start();
-				
-				if(isset($_SESSION["documentoExiste"]))
+				if(isset($_SESSION["errorRegistro"]))
 				{
-					$existDoc = $_SESSION["documentoExiste"];
-					echo "<h3>$existDoc</h3>";	
-				}
-				if(isset($_SESSION["mailExiste"]))
-				{
-					$existMail = $_SESSION["mailExiste"];
-					echo "<h3>$existMail</h3>";
-				}
-				if(isset($_SESSION["nonSelected"]))
-				{
-					$nonSelected = $_SESSION["nonSelected"];
-					echo "<h3>$nonSelected</h3>";
-				}
-				if(isset($_SESSION["passError"]))
-				{
-					$passError = $_SESSION["passError"];
-					echo "<h3>$passError</h3>";
+					$errorRegistro = $_SESSION["errorRegistro"];
+					echo "<h3>$errorRegistro</h3>";
 				}
 				?>
             </div>
@@ -67,10 +50,7 @@
                     	<p>Tipo de documento<p>
                     </div>
                     <div class="col-md-7">
-                    	<select class="form-control"<?php 
-						if(isset($_SESSION["nonSelected"]))
-						{echo"style='border-color:#FF0000;'";}
-						?> name="tipo" id="select">
+                    	<select class="form-control" name="tipo" id="select">
 						  <option value="Null"  selected="selected">Seleccionar</option>
 						  <option value="Tarjeta de identidad">Tarjeta de identidad</option>
 						  <option value="Cedula de ciudadania" >Cedula de ciudadania</option>
@@ -131,19 +111,19 @@
                 <br />
                 <div class="row">
                 	<div class="col-md-5">
-                    	<p>Codigo de Entidad Optica</p>
+                    	<p>Nombre Entidad Optica</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="text" name="codigo" id="textfield10" required/>
+                    	<input class="form-control" type="text" name="nombreEntidad" id="textfield10" required/>
                     </div>
                 </div>
                 <br />
                 <div class="row">
                 	<div class="col-md-5">
-                    	<p>Lema de la Entidad Optica</p>
+                    	<p>Codigo Entidad Optica</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="text" name="palabra" id="textfield10" required/>
+                    	<input class="form-control" type="text" name="codigo" id="textfield10" required/>
                     </div>
                 </div>
                 <br />
@@ -161,10 +141,10 @@
         <?php include ('modules/footer.php'); ?>
     </div></form>
     <?php 
-        unset($_SESSION["mailExiste"]);
-        unset($_SESSION["documentoExiste"]);
-        unset($_SESSION["nonSelected"]);
-		unset($_SESSION["passError"]);
+        unset($_SESSION["errorRegistro"]);
+		unset($_SESSION["reg"]);
+		unset($_SESSION["next"]);
+		unset($_SESSION["entidad"]);
     ?>
 </body>
 <footer>

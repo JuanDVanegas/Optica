@@ -24,9 +24,10 @@ class Usuario
 	
 	public function registrar()
 	{
+		
 		include('database.php');
 		$sql="INSERT INTO usuario (nombre,apellido,tipoDocumento,numeroDocumento,rolUsuario,nacimiento,entidad,telefono)
-		VALUES ($this->nombre,$this->apellido,$this->tipoDocumento,$this->numeroDocumento,$this->rolUsuario,$this->nacimiento,$this->entidad,$this->telefono)";
+		VALUES ('$this->nombre','$this->apellido','$this->tipoDocumento','$this->numeroDocumento','$this->rolUsuario','$this->nacimiento','$this->entidad','$this->telefono')";
 		if ($db->query($sql) === TRUE)
 		{
 			$sql4="SELECT * FROM usuario WHERE tipoDocumento='$this->tipoDocumento' AND numeroDocumento='$this->numeroDocumento'";
@@ -35,16 +36,37 @@ class Usuario
 				die('error al ejecutar la sentencia '. $db->error.']');
 			}
 			
-			while($row4 = $result4->fetch_assoc())
+			if($row4 = $result4->fetch_assoc())
 			{
 				session_start();
 				$idUsuario=stripslashes($row4["id_usuario"]);
 				$_SESSION["fk_user"] = $idUsuario;
+				$_SESSION["next"] = 1;
+			}
+			else
+			{
+				$_SESSION["errorRegistro"] = "<b>Error en el sistema 402, intentelo de nuevo</b>";
+				if($_SESSION["reg"]==1)
+				{
+					header("Location: nuevoUsuarioFormulario1.php");
+				}
+				else
+				{
+					header("Location: nuevoUsuarioFormulario2.php");
+				}
 			}
 		}
 		else
 		{
-			echo "<h1>Error al registrar nuevo Usuario. Fail Query</h1>";
+			$_SESSION["errorRegistro"] = "<b>Error en el sistema 401, intentelo de nuevo</b>";
+			if($_SESSION["reg"]==1)
+			{
+				header("Location: nuevoUsuarioFormulario1.php");
+			}
+			else
+			{
+				header("Location: nuevoUsuarioFormulario2.php");
+			}
 		}
 	}
 	
@@ -60,8 +82,15 @@ class Usuario
 		
 		if($row5 = $result5->fetch_assoc())
 		{
-			$_SESSION["documentoExiste"] = "<b>Documento no se encuentra disponible.</b><br>";
-			header("Location: nuevoUsuarioFormulario.php");
+			$_SESSION["errorRegistro"] = "<b>Documento no se encuentra disponible.</b>";
+			if($_SESSION["reg"]==1)
+			{
+				header("Location: nuevoUsuarioFormulario1.php");
+			}
+			else
+			{
+				header("Location: nuevoUsuarioFormulario2.php");
+			}
 		}
 		else;
 	}

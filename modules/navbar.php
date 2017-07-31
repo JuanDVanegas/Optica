@@ -16,7 +16,17 @@
                     <li><a href="#news">Entidades</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="navbar-right" href="nuevoUsuarioRol.php">Registrarse</a></li>
+                <?php
+				session_start();
+					if($_SESSION["status"]!=0)
+					{
+						echo"<li><a class=navbar-right href=cerrar_sesion.php>Cerrar Sesión</a></li>";
+					}
+					else
+					{
+						echo"<li><a class=navbar-right href=nuevoUsuarioRol.php>Registrarse</a></li>";					
+					}
+				?>
                 </ul>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 //Cuenta Medico
 if($_SESSION["status"]!=1)
 {

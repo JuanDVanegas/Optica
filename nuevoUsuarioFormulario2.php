@@ -15,27 +15,10 @@
         	<div class="col-md-12">
             	<h1>Nuevo Usuario Paciente</h1>
                 <?php 
-				session_start();
-				
-				if(isset($_SESSION["existDoc"]))
+				if(isset($_SESSION["errorRegistro"]))
 				{
-					$existDoc = $_SESSION["existDoc"];
-					echo "<h1>$existDoc</h1>";	
-				}
-				if(isset($_SESSION["existMail"]))
-				{
-					$existMail = $_SESSION["existMail"];
-					echo "<h1>$existMail</h1>";
-				}
-				if(isset($_SESSION["nonSelected"]))
-				{
-					$nonSelected = $_SESSION["nonSelected"];
-					echo "<h1>$nonSelected</h1>";
-				}
-				if(isset($_SESSION["passError"]))
-				{
-					$passError = $_SESSION["passError"];
-					echo "<h1>$passError</h1>";
+					$errorRegistro = $_SESSION["errorRegistro"];
+					echo "<h3>$errorRegistro</h3>";
 				}
 				?>
             </div>
@@ -67,10 +50,7 @@
                     	<p>Tipo de documento<p>
                     </div>
                     <div class="col-md-7">
-                    	<select class="form-control"<?php 
-						if(isset($_SESSION["nonSelected"]))
-						{echo"style='border-color:#FF0000;'";}
-						?> name="tipo" id="select">
+                    	<select class="form-control" name="tipo" id="select">
 						  <option value="Null"  selected="selected">Seleccionar</option>
 						  <option value="Tarjeta de identidad">Tarjeta de identidad</option>
 						  <option value="Cedula de ciudadania" >Cedula de ciudadania</option>
@@ -141,10 +121,9 @@
         <?php include ('modules/footer.php'); ?>
     </div></form>
     <?php 
-        unset($_SESSION["existDoc"]);
-        unset($_SESSION["existMail"]);
-        unset($_SESSION["nonSelected"]);
-		unset($_SESSION["passError"]);
+        unset($_SESSION["errorRegistro"]);
+		unset($_SESSION["reg"]);
+		unset($_SESSION["next"]);
     ?>
 </body>
 <footer>
