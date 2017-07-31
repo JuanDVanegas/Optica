@@ -1,15 +1,22 @@
 <?php
 class Login
 {
-	private $fk_user;
-	private $email;
-	private $password;
-	public function __construct($Fk_user,$Email,$Password)
+	public $fk_user = 0;
+	public $email;
+	public $password;
+	
+	public function __construct($Email,$Password,$Fk_user)
 	{
+		$this->email = $Email;
+		$this->password = $Password;
 		$this->fk_user = $Fk_user;
+	}
+	public function __construct2($Email,$Password)
+	{
 		$this->email = $Email;
 		$this->password = $Password;
 	}
+	
 	public function registrar()
 	{
 		$sql5="INSERT INTO login (fk_user,email,password,confirmMail)
@@ -24,6 +31,7 @@ class Login
 		}
 		
 	}
+	
 	public function iniciarSesion()
 	{
 		include('database.php');
@@ -82,13 +90,15 @@ class Login
 			else
 			{
 				$_SESSION["sesionError"]="<b>Usuario y/o Contrasena incorrecto</b>";
-				header("Location: index.php");
+				echo $_SESSION["sesionError"];
+				//header("Location: index.php");
 			}
 		}
 		if(!isset($contador))
 		{
 			$_SESSION["sesionError"]="<b>Usuario y/o Contrasena incorrecto</b>";
-			header("Location: index.php");
+			echo $_SESSION["sesionError"];
+			//header("Location: index.php");
 		}
 		else;
 		if(isset($usuario))
@@ -117,7 +127,7 @@ class Login
 		}	
 	}
 }
-$objetoLogin = new Login();
+
 
 
 ?>

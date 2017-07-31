@@ -2,6 +2,10 @@
 include('claseUsuario.php');
 class Paciente extends Usuario
 {
+	public function __construct($RolUsuario,$Nombre,$Apellido,$TipoDocumento,$NumeroDocumento,$Telefono,$Nacimiento,$Entidad)
+	{
+		
+	}
 	public function registrar($nombre,$apellido,$fecha,$tipo,$documento,$rol)
 	{
 		include('database.php');

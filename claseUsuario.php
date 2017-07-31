@@ -9,6 +9,7 @@ class Usuario
 	private $telefono;
 	private $nacimiento;
 	private $entidad;
+	
 	public function __construct($RolUsuario,$Nombre,$Apellido,$TipoDocumento,$NumeroDocumento,$Telefono,$Nacimiento,$Entidad)
 	{
 		$this->rolUsuario = $RolUsuario;
@@ -21,10 +22,36 @@ class Usuario
 		$this->entidad = $Entidad;
 	}
 	
-	public function validarDocumento($CorreoElectronico,$tipoDocumento,$Documento)
+	public function registrar()
 	{
 		include('database.php');
-		$sql5="SELECT * FROM usuario WHERE tipoDocumento='$tipoDocumento' AND numeroDocumento='$Documento'";
+		$sql="INSERT INTO usuario (nombre,apellido,tipoDocumento,numeroDocumento,rolUsuario,nacimiento,entidad,telefono)
+		VALUES ($this->nombre,$this->apellido,$this->tipoDocumento,$this->numeroDocumento,$this->rolUsuario,$this->nacimiento,$this->entidad,$this->telefono)";
+		if ($db->query($sql) === TRUE)
+		{
+			$sql4="SELECT * FROM usuario WHERE tipoDocumento='$this->tipoDocumento' AND numeroDocumento='$this->numeroDocumento'";
+			if(!$result4 = $db->query($sql4))
+			{
+				die('error al ejecutar la sentencia '. $db->error.']');
+			}
+			
+			while($row4 = $result4->fetch_assoc())
+			{
+				session_start();
+				$idUsuario=stripslashes($row4["id_usuario"]);
+				$_SESSION["fk_user"] = $idUsuario;
+			}
+		}
+		else
+		{
+			echo "<h1>Error al registrar nuevo Usuario. Fail Query</h1>";
+		}
+	}
+	
+	public function validarDocumento()
+	{
+		include('database.php');
+		$sql5="SELECT * FROM usuario WHERE tipoDocumento='$this->tipoDocumento' AND numeroDocumento='$this->numeroDocumento'";
 		if(!$result5 = $db->query($sql5))
 		{
 			die('error al ejecutar la sentencia '. $db->error.']');
@@ -40,5 +67,5 @@ class Usuario
 	}
 	
 }
-$objetoUsuario = new Usuario();
+
 ?>
