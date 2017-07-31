@@ -16,5 +16,4 @@ if (isset($_SESSION["status"]))
 	else;
 }
 else;
-
 ?>
