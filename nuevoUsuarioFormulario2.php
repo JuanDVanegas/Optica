@@ -50,7 +50,7 @@
                     	<p>Tipo de documento<p>
                     </div>
                     <div class="col-md-7">
-                    	<select class="form-control" name="tipo" id="select">
+                      <select class="form-control" name="tipo" id="select">
 						  <option value="Null"  selected="selected">Seleccionar</option>
 						  <option value="Tarjeta de identidad">Tarjeta de identidad</option>
 						  <option value="Cedula de ciudadania" >Cedula de ciudadania</option>

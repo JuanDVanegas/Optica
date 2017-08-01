@@ -15,7 +15,7 @@ class Login
 	public function registrar()	
 	{
 		include('database.php');
-		
+		session_start();
 		$sql5="INSERT INTO login (fk_user,email,password,confirmMail)
 		VALUES ('$this->fk_user', '$this->email', '".md5($this->password)."','0')";
 		if ($db->query($sql5) === TRUE)
@@ -55,31 +55,46 @@ class Login
 			$contador = 1;
 			if(md5($this->password)==$password)
 			{
-				
-				$_SESSION["user_id"]=$usuario;
+				$_SESSION["correoElectronico"]=$email;
+				$_SESSION["id_usuario"]=$usuario;
+				$_SESSION["contrasena"]=$password;
 				
 				$sql1="SELECT * FROM usuario WHERE id_usuario='$usuario'";
 				if(!$result1 = $db->query($sql1))
 				{
 					die('error al ejecutar la sentencia '. $db->error.']');
 				}
+				else;
 				
-				while($row1 = $result1->fetch_assoc())
+				if($row1 = $result1->fetch_assoc())
 				{
-					$rolUsuario=stripslashes($row1["rolUsuario"]);
-					$nombre=stripslashes($row1["nombre"]);
-					$apellido=stripslashes($row1["apellido"]);
-					$numeroDocumento=stripslashes($row1["numeroDocumento"]);
-					$entidad=stripslashes($row1["entidad"]);
+					$_SESSION["rolUsuario"]=stripslashes($row1["rolUsuario"]);
+					$_SESSION["nacimiento"]=stripslashes($row1["nacimiento"]);
+					$_SESSION["nombre"]=stripslashes($row1["nombre"]);
+					$_SESSION["apellido"]=stripslashes($row1["apellido"]);
+					$_SESSION["tipoDocumento"]=stripslashes($row1["tipoDocumento"]);
+					$_SESSION["numeroDocumento"]=stripslashes($row1["numeroDocumento"]);
+					$_SESSION["id_entidad"]=stripslashes($row1["entidad"]);
+					$_SESSION["telefono"]=stripslashes($row1["telefono"]);
+					
+					$sql2="SELECT * FROM entidad WHERE id_entidad='".$_SESSION["id_entidad"]."'";
+					if(!$result2 = $db->query($sql2))
+					{
+						die('error al ejecutar la sentencia ['. $db->error.']');
+					}
+					
+					if($row2 = $result2->fetch_assoc())
+					{
+						$_SESSION["nombreEntidad"]=stripslashes($row2["nombre"]);
+					}
+					else
+					{
+						echo "Fallo en la entidad";
+					}
 					
 					
-					$_SESSION["nombre"]=$nombre;
-					$_SESSION["apellido"]=$apellido;
-					$_SESSION["numeroDocumento"]=$numeroDocumento;
-					$_SESSION["entidad"]=$entidad;
 					
-					
-					if($rolUsuario=="Medico")
+					if($_SESSION["rolUsuario"]=="Medico")
 					{
 						$_SESSION["status"]="1";
 						header("Location: cuentaMedico.php");
@@ -90,6 +105,7 @@ class Login
 						header("Location: cuentaPaciente.php");
 					}
 				}
+				else;
 			}
 			else
 			{
@@ -118,7 +134,7 @@ class Login
 		$sql6="SELECT * FROM login WHERE email='$this->email'";
 		if(!$result6 = $db->query($sql6))
 		{
-			die('error al ejecutar la sentencia '. $db->error.']');
+			die('error al ejecutar la sentencia ['. $db->error.']');
 		}
 		
 		if($result6->fetch_assoc())
@@ -134,6 +150,21 @@ class Login
 			}
 		}
 		else;	
+	}
+	public function actualizarPassword()
+	{
+		include('database.php');
+		$sql="UPDATE login SET password = '$this->password' WHERE email = '$this->email'";
+		if($db->query($sql) == true)
+		{
+			$_SESSION["resultActualizar"] = "su contraseña ha sido modificada exitosamente";
+			header("Location: actualizarPassword.php");
+		}
+		else
+		{
+			$_SESSION["resultActualizar"] = "Error al actualizar la contraseña";
+			header("Location: actualizarPassword.php");
+		}
 	}
 }
 

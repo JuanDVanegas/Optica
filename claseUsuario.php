@@ -95,6 +95,30 @@ class Usuario
 		else;
 	}
 	
+	public function actualizarDatos()
+	{
+		include('database.php');
+		$sql="UPDATE `usuario` SET nombre = '$this->nombre', apellido = '$this->apellido', tipoDocumento = '$this->tipoDocumento', numeroDocumento = '$this->numeroDocumento', telefono = '$this->telefono', nacimiento = '$this->nacimiento' WHERE id_usuario = '".$_SESSION["id_usuario"]."'";
+		if($db->query($sql) == true)
+		{
+			$_SESSION["resultActualizar"] = "su información personal ha sido modificada";
+			
+			$_SESSION["nacimiento"] = $this->nacimiento;
+			$_SESSION["nombre"] = $this->nombre;
+			$_SESSION["apellido"] = $this->apellido;
+			$_SESSION["tipoDocumento"] = $this->tipoDocumento;
+			$_SESSION["numeroDocumento"]= $this->numeroDocumento;
+			$_SESSION["telefono"] = $this->telefono;
+			
+			header("Location: actualizarDatosUsuario.php");
+		}
+		else
+		{
+			$_SESSION["resultActualizar"] = "Error al actualizar sus información personal";
+			header("Location: actualizarDatosUsuario.php");
+		}
+	}
+	
 }
 
 ?>

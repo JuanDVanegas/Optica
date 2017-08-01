@@ -21,15 +21,16 @@
              <img src="images/medico.png" width="100%" height="10%0" style="float: left; padding-right: 10px; padding-top:12px">
            </div>
            <div class="col-md-10"> 
-             <h1>Bienvenido!</h1>
-             <h2>Juan David Vanegas</h2>
+             <h1><?php echo $_SESSION["nombre"].' '.$_SESSION["apellido"];?></h1>
+             <h3><?php echo $_SESSION["nombreEntidad"];?></h3>
            </div>
          </div>
          <div class="row">
             <div class="col-md-3">
               <br />
               <div class="vertical-menu">
-                 <a href="perfilMedico.php" target="content">Perfil</a>
+              	 <a href="bienvenido.html" target="content">Inicio</a>
+                 <a href="actualizarDatosUsuario.php" target="content">Perfil</a>
                  <a href="historialMedico.php" target="content">Historial</a>
              </div>
             </div>

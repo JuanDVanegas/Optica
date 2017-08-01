@@ -6,62 +6,54 @@
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 <link rel="stylesheet" href="css/overwrite.css" type="text/css" />
 <link rel="stylesheet" href="css/site.css" type="text/css" />
-<title>Perfil</title>
+<title>Actualizar Contraseña</title>
 </head>
+<?php session_start(); ?>
 <body>
+<form action="actualizarPasswordConfirm.php" method="post" name="formActualizarPassword">
+
+	<div class="row">
+    	<div class="col-sm-offset-3 col-sm-4">
+        	<p class="text-danger"><?php if(isset($_SESSION["resultActualizar"])){echo $_SESSION["resultActualizar"];unset($_SESSION["resultActualizar"]);}?></p>
+        </div>
+    </div>
 	<div class="row">
     	<div class="col-sm-3">
-        	<p>Nombre</p>
+        	<p>Contraseña actual</p>
         </div>
         <div class="col-sm-9">
-        	<input class="form-control" type="text" name="nombre"  readonly/>
+        	<input class="form-control" type="password" name="actualPass"  required/>
         </div>
     </div>
     <br />
     <div class="row">
     	<div class="col-sm-3">
-        	<p>Apellido</p>
+        	<p>Nueva Contraseña</p>
         </div>
         <div class="col-sm-9">
-        	<input class="form-control" type="text" name="apellido"  readonly/>
+        	<input class="form-control" type="password" name="nuevoPass"  required/>
         </div>
     </div>
     <br />
     <div class="row">
         <div class="col-sm-3">
-            <p>Documento</p>
+            <p>Confirmar Contraseña</p>
         </div>
         <div class="col-sm-9">
-            <input class="form-control" type="text" name="nombre"  readonly/>
+            <input class="form-control" type="password" name="confirmarPass" required/>
         </div>
     </div>
     <br />
     <div class="row">
-    	<div class="col-sm-3">
-        	<p>Fecha de nacimiento</p>
-        </div>
-        <div class="col-sm-9">
-        	<input class="form-control" type="date" name="fechaNacimiento"  readonly/>
-        </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-sm-3">
-            <p>Correo electronico</p>
-        </div>
-        <div class="col-sm-9">
-            <input class="form-control" type="email" name="correo"/>
-        </div>
-    </div>
-    <br />
-    <div class="row">
-        <div class="col-sm-3">
-            <a href="#CambiarContraseña">Cambiar Contraseña</a>
+        <div class="col-sm-4">
+        	<br />
+            <a href="actualizarDatosUsuario.php" target="content">Regresar</a>
         </div>
         <div class="col-sm-4">
         	<br />
-            <input class="btn btn-default" type="submit" name="correo" value="Actualizar" />
+            <input class="btn btn-default" type="submit" name="confirmar" value="Actualizar" />
         </div>
     </div>
+</form>
 </body>
 </html>
