@@ -29,8 +29,8 @@
             <div class="col-md-3">
               <br />
               <div class="vertical-menu">
-                 <a href="perfilMedico.html" target="content">Perfil</a>
-                 <a href="historialMedico.html" target="content">Historial</a>
+                 <a href="perfilMedico.php" target="content">Perfil</a>
+                 <a href="historialMedico.php" target="content">Historial</a>
              </div>
             </div>
             <div class="col-md-9"> 
