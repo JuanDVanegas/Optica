@@ -9,63 +9,94 @@
 <title>Perfil</title>
 </head>
 <body>
-	<table class="table table-hover">
-    	<tr class="active">
+<?php 
+session_start();
+include('database.php');
+$sql1 = "SELECT * FROM historial WHERE fk_medico='".$_SESSION["id_usuario"]."'";
+if(!$result1 = $db->query($sql1))
+{
+	die('error al ejecutar la sentencia ['. $db->error.']');
+}
+else;
+
+echo "<table class=table table-hover>
+    	<tr class=active>
         	<td>
-            	<b>Pasiente</b>
+            	<b>Paciente</b>
+            </td>
+            <td>
+            	<b>Lugar</b>
             </td>
             <td>
             	<b>Fecha</b>
             </td>
             <td>
-            	<b>Fecha</b>
+            	<b>Detalles</b>
             </td>
-            <td>
-            	<b>Pasiente</b>
-            </td>
-        </tr>
-        <tr>
+        </tr>";
+$contador = 0;	
+while($row1 = $result1->fetch_assoc())
+{
+	$contador++;
+	$id_historial = stripslashes($row1["id_historial"]);
+	$fk_paciente = stripslashes($row1["fk_paciente"]);
+	$fk_medico = stripslashes($row1["fk_medico"]);
+	$lugar = stripslashes($row1["lugar"]);
+	$fecha = stripslashes($row1["fecha"]);
+	
+	$sql2 = "SELECT * FROM usuario WHERE id_usuario = 'fk_paciente'";
+	if(!$result2 = $db->query($sql2))
+	{
+		die('error al ejecutar la sentencia ['. $db->error.']');
+	}
+	else;
+	while($row2 = $result2->fetch_assoc())
+	{
+		$nombre = stripslashes($row2["nombre"]);
+		$apellido = stripslashes($row2["apellido"]);
+		$paciente = $nombre.' '.$apellido;
+		
+		echo "<tr>
         	<td>
-            	Pasiente
+            	$paciente
             </td>
             <td>
-            	Fecha
+            	$lugar
             </td>
             <td>
-            	Fecha
+            	$fecha
             </td>
             <td>
-            	Pasiente
+            	<a href=historialMedicoDetalle.php?idHistorial=$id_historial >Ver</a>
             </td>
-        </tr>
-        <tr>
-        	<td>
-            	Pasiente
-            </td>
-            <td>
-            	Fecha
-            </td>
-            <td>
-            	Fecha
-            </td>
-            <td>
-            	Pasiente
-            </td>
-        </tr>
-        <tr>
-        	<td>
-            	Pasiente
-            </td>
-            <td>
-            	Fecha
-            </td>
-            <td>
-            	Fecha
-            </td>
-            <td>
-            	Pasiente
-            </td>
-        </tr>
-    </table>
+        </tr>";
+	}
+	echo "</table>";
+}
+?>
+<div class="row">
+    <div class="col-sm-offset-1  col-sm-3">
+        <?php if($contador == 0)
+		{
+			echo "No se encontraron resultados";
+		}
+		else
+		{
+			if($contador > 1)
+			{
+				echo "Se han encontrado $contador resultados";
+			}
+			else
+			{
+				echo "Se ha encontrado $contador resultado";
+			}
+		}
+		?>
+    </div>
+    <div class="col-sm-offset-4 col-sm-3">
+        <a href="nuevoRegistro.php">Agregar Nuevo</a>
+    </div>
+ </div>
+
 </body>
 </html>

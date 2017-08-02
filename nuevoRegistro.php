@@ -13,35 +13,34 @@
 <form action="actualizarDatosConfirm.php" method="post" name="formActualizarDatos">
 	<div class="row">
     	<div class="col-sm-offset-3 col-sm-4">
-        	<p class="text-danger"><?php if(isset($_SESSION["resultActualizar"])){echo $_SESSION["resultActualizar"];unset($_SESSION["resultActualizar"]);}?></p>
+        	<p class="text-danger"><?php if(isset($_SESSION["resultAgregar"])){echo $_SESSION["resultAgregar"];unset($_SESSION["resultAgregar"]);}?></p>
         </div>
     </div>
 	<div class="row">
     	<div class="col-sm-3">
-        	<p>Nombre</p>
+        	<p>Lugar</p>
         </div>
         <div class="col-sm-9">
-        	<input class="form-control" type="text" name="nombre" value="<?php echo $_SESSION["nombre"];?>" />
+        	<input class="form-control" type="text" name="nombre"/>
         </div>
     </div>
     <br />
     <div class="row">
     	<div class="col-sm-3">
-        	<p>Apellido</p>
+        	<p>Fecha</p>
         </div>
         <div class="col-sm-9">
-        	<input class="form-control" type="text" name="apellido" value="<?php echo $_SESSION["apellido"];?>" />
+        	<input class="date" type="text" name="apellido"/>
         </div>
     </div>
     <br />
      <div class="row">
         <div class="col-sm-3">
-            <p>Tipo de documento</p>
+            <p>Tipo de documento paciente</p>
         </div>
         <div class="col-sm-9">
         	<select class="form-control" name="tipoDocumento" id="select">
-						  <option value="<?php echo $_SESSION["tipoDocumento"];?>"  selected="selected"><?php echo $_SESSION["tipoDocumento"];?></option>
-						  <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+						  <option value="Tarjeta de identidad" selected="selected">Tarjeta de identidad</option>
 						  <option value="Cedula de ciudadania" >Cedula de ciudadania</option>
 						  <option value="Cedula extrajera">Cedula extrajera</option>
 						  <option value="Pasaporte">Pasaporte</option>
@@ -52,47 +51,47 @@
     <br />
     <div class="row">
         <div class="col-sm-3">
-            <p>Documento</p>
+            <p>Documento paciente</p>
         </div>
         <div class="col-sm-9">
-            <input class="form-control" type="text" name="numeroDocumento" pattern="+[0-9]" value="<?php echo $_SESSION["numeroDocumento"];?>" />
+            <input class="form-control" type="text" name="numeroDocumento" pattern="+[0-9]"/>
         </div>
     </div>
     <br />
     <div class="row">
     	<div class="col-sm-3">
-        	<p>Fecha de nacimiento</p>
+        	<p>Descripcion</p>
         </div>
         <div class="col-sm-9">
-        	<input class="form-control" type="date" name="nacimiento" value="<?php echo $_SESSION["nacimiento"];?>" />
+        	<input class="form-control" type="text" name="nacimiento"/>
         </div>
     </div>
     <br />
     <div class="row">
         <div class="col-sm-3">
-            <p>Correo electronico</p>
+            <p>Resultado</p>
         </div>
         <div class="col-sm-9">
-            <input class="form-control" type="text" name="correo" value="<?php echo $_SESSION["correoElectronico"];?>"/>
+            <input class="form-control" type="text" name="correo" />
         </div>
     </div>
     <br />
      <div class="row">
         <div class="col-sm-3">
-            <p>Telefono</p>
+            <p>Tratamiento</p>
         </div>
         <div class="col-sm-9">
-            <input class="form-control" type="text" name="telefono" pattern="+[0-9]" value="<?php echo $_SESSION["telefono"];?>"/>
+            <input class="form-control" type="text" name="telefono" pattern="+[0-9]" />
         </div>
     </div>
     <br />
     <div class="row">
         <div class="col-sm-3">
-            <a href="actualizarPassword.php" target="content">Cambiar Contraseña</a>
+            <a href="historialMedico.php" target="content">Regresar</a>
         </div>
         <div class="col-sm-4">
         	<br />
-            <input class="btn btn-primary" type="submit" name="correo" value="Actualizar" />
+            <input class="btn btn-primary" type="submit" name="add" value="Agregar Registro" />
         </div>
     </div>
 </form>
