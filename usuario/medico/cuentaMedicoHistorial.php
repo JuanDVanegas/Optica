@@ -117,7 +117,7 @@
 								echo "Se ha encontrado $contador resultado";
 							}
 						}
-						if(isset($_SESSION["resultRegistro"])
+						if(isset($_SESSION["resultRegistro"]))
 						{
 							$fail =  $_SESSION["resultRegistro"];
 							echo "<h3 class=text-danger>$fail</h3>";
