@@ -6,26 +6,33 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="images/logo.png" class="img-logo"/>
-                <a href="index.php" class="navbar-brand">Optica all in One</a>
+                <img src="<?php echo $logo; ?>" class="img-logo"/>
+                <a href="<?php echo $inicio;?>" class="navbar-brand">Optica all in One</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="acercade.php">Acerca de</a></li>
-                    <li><a href="#contact">Contacto</a></li>
-                    <li><a href="#news">Entidades</a></li>
+                    <li><a href="<?php echo $acercade;?>">Acerca de</a></li>
+                    <li><a href="<?php echo $contacto;?>">Contacto</a></li>
+                    <li><a href="<?php echo $entidad;?>">Entidades</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                 <?php
-				session_start();
-					if($_SESSION["status"]!=0)
+					session_start();
+					if(isset($_SESSION["status"]))
 					{
-						echo"<li><a class=navbar-right href=cerrar_sesion.php>Cerrar Sesión</a></li>";
+						if($_SESSION["status"]!=0)
+						{
+							echo"<li><a class=navbar-right href=$cerrar >Cerrar Sesión</a></li>";
+						}
+						else
+						{
+							echo"<li><a class=navbar-right href=$usuarioRol >Registrarse</a></li>";					
+						}
 					}
 					else
 					{
-						echo"<li><a class=navbar-right href=nuevoUsuarioRol.php>Registrarse</a></li>";					
-					}
+						echo"<li><a class=navbar-right href=$usuarioRol >Registrarses</a></li>";
+					}					
 				?>
                 </ul>
             </div>

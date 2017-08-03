@@ -10,11 +10,18 @@
 <script type="text/javascript" src="javascript/jquery.js"></script>
 <script type="text/javascript" src="javascript/bootstrap.js"></script>
 </head>
-<?php
-include('seguridad3.php');
-?>
 <body class="fondo">
+	<?php
+	$logo = "images/logo.png";
+	$inicio = "index.php";
+	$acercade = "modules/menuAcercade.php";
+	$contacto = "modules/menuContacto.php";
+	$entidad = "modules/menuEntidades.php";	
+	$cerrar = "usuario/cerrar_sesion.php";
+	$usuarioRol = "usuario/nuevoUsuarioRol.php";
+	?>
 	<?php include("modules/navbar.php");?>
+    <?php include('seguridad/sesionActiva.php');?>
     <div class="container body-content white-transparent">
     	<div class="row">
             <div class="col-md-7">
@@ -72,7 +79,7 @@ include('seguridad3.php');
                     	<h1>Iniciar Sesion</h1>
                     </div>
                 </div>
-            	<form action="iniciar_sesion.php" method="post" name="iniciar_sesion" target="_parent" id="iniciar_sesion">
+            	<form action="usuario/iniciar_sesion.php" method="post" name="iniciar_sesion" target="_parent" id="iniciar_sesion">
                         <div class="row">
                         	<label for="mail"></label>
                             <div class="col-md-4">
@@ -109,7 +116,7 @@ include('seguridad3.php');
                         <br />
                         <div class="row">
                             <div class="col-md-5">
-                                <a href="nuevoUsuarioRol.php">¿No estas registrado?</a><br /><br /><a href="restablecer.php">Restablecer Contraseña</a>
+                                <a href="usuario/nuevoUsuarioRol.php">¿No estas registrado?</a><br /><br /><a href="usuario/restablecerPassword.php">Olvide mi Contraseña</a>
                             </div>
                             <div class="col-md-4">
                             	<br />
@@ -122,5 +129,4 @@ include('seguridad3.php');
         <?php include('modules/footer.php'); ?>
     </div>
 </body>
-
 </html>
