@@ -38,7 +38,6 @@ class Usuario
 			
 			if($row4 = $result4->fetch_assoc())
 			{
-				session_start();
 				$idUsuario=stripslashes($row4["id_usuario"]);
 				$_SESSION["fk_user"] = $idUsuario;
 				$_SESSION["next"] = 1;

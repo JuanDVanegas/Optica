@@ -28,7 +28,7 @@
 				if(isset($_SESSION["errorRegistro"]))
 				{
 					$errorRegistro = $_SESSION["errorRegistro"];
-					echo "<h3>$errorRegistro</h3>";
+					echo '<h3 class="text-danger">$errorRegistro</h3>';
 				}
 				?>
             </div>
@@ -42,7 +42,7 @@
                     	<p>Nombre</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="text" name="nombre" id="textfield4" pattern="[A-Za-z]+" required/>
+                    	<input class="form-control" type="text" name="nombre" id="textfield4" pattern="[A-Za-z ]+" required/>
                     </div>
                 </div>
                 <br />
@@ -51,7 +51,7 @@
                     	<p>Apellido</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="text" name="apellido" id="textfield5" pattern="[A-Za-z]+" required/>
+                    	<input class="form-control" type="text" name="apellido" id="textfield5" pattern="[A-Za-z ]+" required/>
                     </div>
                 </div>
                 <br />

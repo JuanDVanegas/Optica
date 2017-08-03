@@ -15,7 +15,6 @@ class Login
 	public function registrar()	
 	{
 		include('../database/conexion.php');
-		session_start();
 		$sql5="INSERT INTO login (fk_user,email,password,confirmMail)
 		VALUES ('$this->fk_user', '$this->email', '".md5($this->password)."','0')";
 		if ($db->query($sql5) === TRUE)
