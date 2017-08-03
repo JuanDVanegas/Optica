@@ -116,7 +116,14 @@
 							{
 								echo "Se ha encontrado $contador resultado";
 							}
-						}?>
+						}
+						if(isset($_SESSION["resultRegistro"])
+						{
+							$fail =  $_SESSION["resultRegistro"];
+							echo "<h3 class=text-danger>$fail</h3>";
+							unset($_SESSION["resultRegistro"]);
+						}
+						?>
 					</div>
                     <div class="col-sm-offset-4  col-sm-3">
 						<a href="cuentaMedicoHistorialAgregar.php">Agregar Registro</a>

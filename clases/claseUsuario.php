@@ -20,7 +20,7 @@ class Usuario
 		$this->telefono = $Telefono;
 		$this->nacimiento = $Nacimiento;
 		$this->entidad = $Entidad;
-	}
+	}	
 	
 	public function registrar()
 	{
@@ -38,6 +38,7 @@ class Usuario
 			
 			if($row4 = $result4->fetch_assoc())
 			{
+				session_start();
 				$idUsuario=stripslashes($row4["id_usuario"]);
 				$_SESSION["fk_user"] = $idUsuario;
 				$_SESSION["next"] = 1;
@@ -92,6 +93,27 @@ class Usuario
 			}
 		}
 		else;
+	}
+	
+	public function validarUsuario()
+	{
+		include('../../database/conexion.php');		
+		
+		$sql5="SELECT * FROM usuario WHERE tipoDocumento='$this->tipoDocumento' AND numeroDocumento='$this->numeroDocumento'";
+		if(!$result5 = $db->query($sql5))
+		{
+			die('error al ejecutar la sentencia '. $db->error.']');
+		}
+		else;
+		
+		if($row5 = $result5->fetch_assoc())
+		{
+			$_SESSION["paciente"] = stripslashes($row5["id_usuario"]);
+		}
+		else
+		{
+			echo "sin resultados";
+		}
 	}
 	
 	public function actualizarDatos()
