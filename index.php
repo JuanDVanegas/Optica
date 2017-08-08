@@ -82,6 +82,12 @@
 									$success = $_SESSION["success"];
 									echo "<h3 class='text-success' >$success</h3>";
 									unset($_SESSION["success"]);
+								}
+							if(isset($_SESSION["error"])) 
+								{
+									$error = $_SESSION["error"];
+									echo "<h3 class='text-success' >$error</h3>";
+									unset($_SESSION["error"]);
 								}?>
                     </div>
                 </div>

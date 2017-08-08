@@ -52,9 +52,11 @@ class Login
 			$usuario=stripslashes($row["fk_user"]);
 			$email=stripslashes($row["email"]);
 			$password=stripslashes($row["password"]);
+			$confirmarCorreo=stripslashes($row["confirmMail"]);
 			$contador = 1;
 			if(md5($this->password)==$password)
 			{
+				$_SESSION["estadoCorreo"]=$confirmarCorreo;
 				$_SESSION["correoElectronico"]=$email;
 				$_SESSION["id_usuario"]=$usuario;
 				$_SESSION["contrasena"]=$password;

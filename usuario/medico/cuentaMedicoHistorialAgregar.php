@@ -22,7 +22,8 @@
 	$usuarioRol = "../nuevoUsuarioRol.php";
 	?>
     <?php include ('../../modules/navbar.php'); ?>
-    <?php include('../../seguridad/UsuarioMedico.php'); ?>
+    <?php include('../../seguridad/UsuarioMedico.php');
+		  include('../../seguridad/ConfirmarCorreo.php');?>
     <div class="body-content container">
          <div class="row">
          	<?php include('cuentaMedicoBanner.php');?>
@@ -45,7 +46,7 @@
                                 <p>Lugar</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" name="lugar"/>
+                                <input class="form-control" type="text" name="lugar" required="required"/>
                             </div>
                         </div>
                         <br />
@@ -54,7 +55,7 @@
                                 <p>Fecha</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="date" name="fecha"/>
+                                <input class="form-control" type="date" name="fecha" required="required"/>
                             </div>
                         </div>
                         <br />
@@ -78,7 +79,7 @@
                                 <p>Documento paciente</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" name="numeroDocumento" pattern="+[0-9]"/>
+                                <input class="form-control" type="text" name="numeroDocumento" pattern="+[0-9]" required="required"/>
                             </div>
                         </div>
                         <br />
@@ -87,7 +88,7 @@
                                 <p>Descripcion</p>
                             </div>
                             <div class="col-sm-9">
-                                <textarea class="form-control" rows="4" name="descripcion"></textarea>
+                                <textarea class="form-control" rows="4" name="descripcion" pattern="+[a-zA-Z ]" required="required"></textarea>
                             </div>
                         </div>
                         <br />
@@ -96,7 +97,7 @@
                                 <p>Resultado</p>
                             </div>
                             <div class="col-sm-9">
-                                <textarea class="form-control" rows="4" name="resultado"></textarea>
+                                <textarea class="form-control" rows="4" name="resultado" pattern="+[a-zA-Z ]" required="required"></textarea>
                             </div>
                         </div>
                         <br />
@@ -105,7 +106,7 @@
                                 <p>Tratamiento</p>
                             </div>
                             <div class="col-sm-9">
-                                <textarea class="form-control" rows="4" name="tratamiento"/></textarea>
+                                <textarea class="form-control" rows="4" name="tratamiento" pattern="+[a-zA-Z ]" required="required"/></textarea>
                             </div>
                         </div>
                         <br />

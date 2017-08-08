@@ -22,7 +22,8 @@
 	$usuarioRol = "../nuevoUsuarioRol.php";
 	?>
     <?php include ('../../modules/navbar.php'); ?>
-    <?php include('../../seguridad/UsuarioMedico.php'); ?>
+    <?php include('../../seguridad/UsuarioMedico.php');
+		  include('../../seguridad/ConfirmarCorreo.php');?>
     <div class="body-content container">
          <div class="row">
          	<?php include('cuentaMedicoBanner.php');?>
@@ -34,7 +35,7 @@
             </div>
             <div class="col-md-9"> 
                 <!--Nueva Insersion-->
-                    <form action="actualizarDatosConfirm.php" method="post" name="formActualizarDatos">
+                    <form action="../actualizarDatos.php" method="post" name="formActualizarDatos">
                         <div class="row">
                             <div class="col-sm-offset-3 col-sm-4">
                                 <p class="text-danger"><?php if(isset($_SESSION["resultActualizar"])){echo $_SESSION["resultActualizar"];unset($_SESSION["resultActualizar"]);}?></p>

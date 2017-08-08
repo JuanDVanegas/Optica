@@ -22,7 +22,8 @@
 	$usuarioRol = "../nuevoUsuarioRol.php";
 	?>
     <?php include ('../../modules/navbar.php'); ?>
-    <?php include('../../seguridad/UsuarioMedico.php'); ?>
+    <?php include('../../seguridad/UsuarioMedico.php');
+		  include('../../seguridad/ConfirmarCorreo.php');?>
     <div class="body-content container">
          <div class="row">
          	<?php include('cuentaMedicoBanner.php');?>
@@ -45,7 +46,27 @@
                 <!--Nueva Insersion-->
                 <?php 
 				include('../../database/conexion.php');
-				$sql1 = "SELECT * FROM historial WHERE fk_medico='".$_SESSION["id_usuario"]."'";
+				
+				$cant_pagina = 10;
+				if(isset($_GET["pagina"]))
+				{
+					$pagina = $_GET["pagina"];
+				}
+				else
+				{
+					$pagina = 1;
+				}
+				//pagina empieza en 0
+				$empieza = ($pagina-1) * $cant_pagina;
+				
+				$sql1 = "SELECT * FROM historial WHERE fk_medico='".$_SESSION["id_usuario"]."' LIMIT $empieza,$cant_pagina";
+				$query = "SELECT * FROM historial WHERE fk_medico='".$_SESSION["id_usuario"]."'";
+				$result = mysqli_query($db,$query);
+				$total_registro = mysqli_num_rows($result);
+				$total_pagina = ceil($total_registro/$cant_pagina);
+				//-------------------------------------------------------------------------
+				
+				
 				if(!$result1 = $db->query($sql1))
 				{
 					die('error al ejecutar la sentencia ['. $db->error.']');
@@ -70,10 +91,10 @@
 				$contador = 0;	
 				while($row1 = $result1->fetch_assoc())
 				{
-					$contador++;
 					$id_historial = stripslashes($row1["id_historial"]);
 					$fk_paciente = stripslashes($row1["fk_paciente"]);
 					$fk_medico = stripslashes($row1["fk_medico"]);
+					$fk_registro = stripslashes($row1["fk_registro"]);
 					$lugar = stripslashes($row1["lugar"]);
 					$fecha = stripslashes($row1["fecha"]);
 					
@@ -99,7 +120,7 @@
 								$fecha
 							</td>
 							<td>
-								<a href=cuentaMedicoHistorialDetalle.php?idHistorial=$id_historial >Ver</a>
+								<a href=cuentaMedicoHistorialDetalle.php?idHistorial=$fk_registro >Ver</a>
 							</td>
 						</tr>";
 					}
@@ -107,29 +128,59 @@
 				}
 				echo "</table>";
 				?>
+                
 				<div class="row">
-					<div class="col-sm-offset-1  col-sm-3">
-						<?php if($contador == 0)
+					<div class="col-sm-offset-1  col-sm-4">
+						<?php if($total_registro == 0)
 						{
 							echo "No se encontraron resultados";
 						}
 						else
 						{
-							if($contador > 1)
+							if($total_registro > 1)
 							{
-								echo "Se han encontrado $contador resultados";
+								echo "Se han encontrado $total_registro resultados";
 							}
 							else
 							{
-								echo "Se ha encontrado $contador resultado";
+								echo "Se ha encontrado $total_registro resultado";
 							}
 						}
 						?>
 					</div>
-                    <div class="col-sm-offset-4  col-sm-3">
+                    <div class="col-sm-offset-3  col-sm-3">
 						<a href="cuentaMedicoHistorialAgregar.php">Agregar Registro</a>
 					</div>
 				</div>
+                <div class="row">
+                	<div class="col-sm-offset-4  col-sm-4">
+                    	<?php
+						//------------------------------------------
+						echo "<nav aria-label='Page navigation'>
+						  <ul class='pagination'>
+							<li>
+							  <a href='cuentaMedicoHistorial.php?pagina=1' aria-label='Previous'>
+								<span aria-hidden='true'>&laquo;</span>
+							  </a>
+							</li>";
+							for($i=1; $i<=$total_pagina;$i++)
+							{
+								echo"<li><a href='cuentaMedicoHistorial.php?pagina=".$i."'>".$i."</a> ";
+							}
+							echo"							
+							<li>
+							  <a href='cuentaMedicoHistorial.php?pagina=$total_pagina' aria-label='Next'>
+								<span aria-hidden='true'>&raquo;</span>
+							  </a>
+							</li>
+						  </ul>
+						</nav>";
+						//-----------------------------------------
+                    
+                        
+						?>
+					</div>
+                </div>
             </div>
         </div><?php include ('../../modules/footer.php'); ?>
      </div>     

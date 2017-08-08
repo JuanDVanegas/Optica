@@ -22,7 +22,8 @@
 	$usuarioRol = "../nuevoUsuarioRol.php";
 	?>
     <?php include ('../../modules/navbar.php'); ?>
-    <?php include('../../seguridad/UsuarioMedico.php'); ?>
+    <?php include('../../seguridad/UsuarioMedico.php');
+		  include('../../seguridad/ConfirmarCorreo.php');?>
     <div class="body-content container">
          <div class="row">
          	<?php include('cuentaMedicoBanner.php');?>
@@ -66,13 +67,13 @@
 							</tr>
 							<tr>
 								<td>
-									<b>$descripcion</b>
+									$descripcion
 								</td>
 								<td>
-									<b>$resultado</b>
+									$resultado
 								</td>
 								<td>
-									<b>$tratamiento</b>
+									$tratamiento
 								</td>
 							</tr>
 							</table>";

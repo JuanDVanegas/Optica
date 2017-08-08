@@ -22,7 +22,8 @@
 	$usuarioRol = "../nuevoUsuarioRol.php";
 	?>
     <?php include ('../../modules/navbar.php'); ?>
-    <?php include('../../seguridad/UsuarioMedico.php'); ?>
+    <?php include('../../seguridad/UsuarioMedico.php');
+		  include('../../seguridad/ConfirmarCorreo.php');?>
     <div class="body-content container">
          <div class="row">
          	<?php include('cuentaMedicoBanner.php');?>

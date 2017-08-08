@@ -131,6 +131,7 @@ class Usuario
 			$_SESSION["tipoDocumento"] = $this->tipoDocumento;
 			$_SESSION["numeroDocumento"]= $this->numeroDocumento;
 			$_SESSION["telefono"] = $this->telefono;
+			
 			if($_SESSION["rolUsuario"] == "Medico")
 			{
 				header("Location: ../usuario/medico/cuentaMedicoPerfil.php");
