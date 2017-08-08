@@ -36,7 +36,7 @@
                         	<p>Correo Electronico</p>
                         </div>
                     	<div class="col-md-7">
-          					<input class="text-box" type="text" name="textfield" id="textfield" />
+          					<input class="form-control" type="text" name="textfield" id="textfield" />
                         </div>
                     </div>
                     <br />
