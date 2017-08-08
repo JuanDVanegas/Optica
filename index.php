@@ -77,6 +77,12 @@
             	<div class="row">
                 	<div class="col-md-12">
                     	<h1>Iniciar Sesion</h1>
+                        <?php if(isset($_SESSION["success"])) 
+								{
+									$success = $_SESSION["success"];
+									echo "<h3 class='text-success' >$success</h3>";
+									unset($_SESSION["success"]);
+								}?>
                     </div>
                 </div>
             	<form action="usuario/iniciar_sesion.php" method="post" name="iniciar_sesion" target="_parent" id="iniciar_sesion">

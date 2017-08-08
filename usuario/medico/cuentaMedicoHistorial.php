@@ -33,7 +33,15 @@
                 <?php include('cuentaMedicoMenu.php')?>
             </div>
             <div class="col-md-9"> 
-            
+            	<?php
+					if(isset($_SESSION["resultAgregar"]))
+					{
+						echo "<h3 class='text-success'>".$_SESSION["resultAgregar"]."</h3>";
+						unset($_SESSION["resultAgregar"]);
+					}
+				?>
+                
+                
                 <!--Nueva Insersion-->
                 <?php 
 				include('../../database/conexion.php');
@@ -69,7 +77,7 @@
 					$lugar = stripslashes($row1["lugar"]);
 					$fecha = stripslashes($row1["fecha"]);
 					
-					$sql2 = "SELECT * FROM usuario WHERE id_usuario = 'fk_paciente'";
+					$sql2 = "SELECT * FROM usuario WHERE id_usuario = '$fk_paciente'";
 					if(!$result2 = $db->query($sql2))
 					{
 						die('error al ejecutar la sentencia ['. $db->error.']');
@@ -80,7 +88,6 @@
 						$nombre = stripslashes($row2["nombre"]);
 						$apellido = stripslashes($row2["apellido"]);
 						$paciente = $nombre.' '.$apellido;
-						
 						echo "<tr>
 							<td>
 								$paciente
@@ -92,7 +99,7 @@
 								$fecha
 							</td>
 							<td>
-								<a href=historialMedicoDetalle.php?idHistorial=$id_historial >Ver</a>
+								<a href=cuentaMedicoHistorialDetalle.php?idHistorial=$id_historial >Ver</a>
 							</td>
 						</tr>";
 					}
@@ -116,12 +123,6 @@
 							{
 								echo "Se ha encontrado $contador resultado";
 							}
-						}
-						if(isset($_SESSION["resultRegistro"]))
-						{
-							$fail =  $_SESSION["resultRegistro"];
-							echo "<h3 class=text-danger>$fail</h3>";
-							unset($_SESSION["resultRegistro"]);
 						}
 						?>
 					</div>

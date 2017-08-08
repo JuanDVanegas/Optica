@@ -35,7 +35,7 @@
             <div class="col-md-9"> 
                 <!--Nueva Insersion-->
                     <?php
-					include('../database/conexion.php'); 
+					include('../../database/conexion.php'); 
 					$idRegistro = $_GET["idHistorial"];
 					$sql1 = "SELECT * FROM registro WHERE id_registro = '$idRegistro'";
 					if(!$result1 = $db->query($sql1))
@@ -49,7 +49,7 @@
 					{
 						$id_registro = stripslashes($row1["id_registro"]);
 						$descripcion = stripslashes($row1["descripcion"]);
-						$resultado = stripslashes($row1["resultado"]);
+						$resultado = stripslashes($row1["resultados"]);
 						$tratamiento = stripslashes($row1["tratamiento"]);
 						
 						echo "<table class=table table-hover>

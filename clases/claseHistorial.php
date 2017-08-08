@@ -16,20 +16,21 @@ class Historial
 		$this->fecha = $Fecha;
 	}
 	
-	public function agregarRegistro()
+	public function agregarHistorial()
 	{
 		include('../../database/conexion.php');
 		$sql = "INSERT INTO historial(fk_paciente,fk_medico,fk_registro,lugar,fecha)
 		VALUES ('$this->fk_paciente','$this->fk_medico','$this->fk_registro','$this->lugar','$this->fecha')";
 		if($db->query($sql) == true)
 		{
-			$_SESSION["resultRegistro"] = "se ha agregar un nuevo registro exitosamente";
-			header('Location: cuentaMedicoHistorial.php');
+			$_SESSION["resultAgregar"] = "Se ha agregar el nuevo registro al usuario";
+			header("Location: cuentaMedicoHistorial.php");
+			
 		}
 		else
 		{
-			$_SESSION["resultAgregar"] = 'error al agregar reporte ['. $db->error.']';
-			header('Location: ');
+			$_SESSION["resultAgregar"] = 'error H32 agregar reporte ['. $db->error.']';
+			header('Location: cuentaMedicoHistorial.php');
 		}		
 	}
 	

@@ -112,7 +112,7 @@
                         <br />
                         <div class="row">
                             <div class="col-sm-3">
-                                <a href="cuentaMedicoPerfilPassword.php" target="content">Cambiar Contraseña</a>
+                                <a href="cuentaMedicoPerfilPassword.php" target="_parent">Cambiar Contraseña</a>
                             </div>
                             <div class="col-sm-4">
                                 <br />

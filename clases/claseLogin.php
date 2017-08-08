@@ -19,7 +19,7 @@ class Login
 		VALUES ('$this->fk_user', '$this->email', '".md5($this->password)."','0')";
 		if ($db->query($sql5) === TRUE)
 		{
-			$_SESSION["sesionError"] = "Se ha registrado el nuevo usuario";
+			$_SESSION["success"] = "Se ha registrado el nuevo usuario";
 			header("Location: ../index.php");				
 		}
 		else

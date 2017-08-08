@@ -112,7 +112,7 @@ class Usuario
 		}
 		else
 		{
-			$_SESSION["resultRegistro"] = "El usuario no se encuentra";
+			$_SESSION["resultAgregar"] = "El usuario no se encuentra";
 			header("Location: cuentaMedicoHistorial.php");
 		}
 	}
