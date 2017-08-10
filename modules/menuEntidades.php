@@ -21,29 +21,121 @@
 	?>
 	<?php include ('navbar.php'); ?>
 	<div class="body-content container">
-		<h2>Acerca de</h2>
-		<h3>Introduccion</h3>
-		<p>Optical all in one es un sistema que tiene como función principal almacenar y gestionar las historias clinicas de los pacientes con problemas
-			visuales y enfermedades referentes a su sentido visual. En el sistema de información se puede compartir los reportes generados por cada entidad
-			asociada al proyecto, con el fin de encontrar un metodo más practico de transmitir una estadistica de las diferentes entidades, además, almacenar 
-			cada diagnostico con sus respectivos resultados obtenidos, en lo cuales encontramos la formula y tratamientos obtenidos.<br />
-		  <br />
-		  Disminuir el consumo de estadisticas concurrentes no es factible para un paciente, teniendo en cuenta un resultado obtenido recientemente proveniente
-	  de otra entidad optica, la cual genera un nuevo usuario con ninguna información respecto al paciente. </p>
-		
-		<h3>Misión</h3>
-		<p>Facilitar a los clientes un acceso simple de cada paciente con quíen cuenta actualmente proveniente de otra entidad óptica, </p>
-		
-		<h3>Visión</h3>
-		<p>Alcanzar la maxima cantidad de entidades asociadas en nuestro proyecto para promocionarlo, asi todos los usuarios con problemas visuales
-			tengan la oportunidad de utilizar los servicios que ofrece un Sistema de información tán practico como esté.</p>
-		
-		<h3>Grupo de desarrollo</h3>
-          <p>Leyder Mendieta Paéz<br/>
-          Jesus David Perdomo Mateus <br />
-          Katherine Gissell Rodriguez<br />
-          Juan David Vanegas Rodriguez</p>
-      <?php include ('footer.php'); ?>
-	  </div>	
+    	<div class="row">
+            <div class="col-md-offset-1 col-md-8">
+                <h2>Entidades Opticas u oftalmologicas</h2>
+                <h4>Lista de entidades vinculadas al sistema de información</h4>
+            </div>
+        </div>
+		<div class="row">
+        	<br />
+        	<div class="col-md-offset-1 col-md-8">
+            	<?php 
+				include('../database/conexion.php');
+				
+				$cant_pagina = 10;
+				if(isset($_GET["pagina"]))
+				{
+					$pagina = $_GET["pagina"];
+				}
+				else
+				{
+					$pagina = 1;
+				}
+				//pagina empieza en 0
+				$empieza = ($pagina-1) * $cant_pagina;
+				
+				$sql1 = "SELECT * FROM entidad LIMIT $empieza,$cant_pagina";
+				$query = "SELECT * FROM entidad";
+				$result = mysqli_query($db,$query);
+				$total_registro = mysqli_num_rows($result);
+				$total_pagina = ceil($total_registro/$cant_pagina);
+				//-------------------------------------------------------------------------
+				
+				
+				if(!$result1 = $db->query($sql1))
+				{
+					die('error al ejecutar la sentencia ['. $db->error.']');
+				}
+				else;
+				
+				echo "<table class=table table-hover>
+						<tr class=active>
+							<td>
+                            	<b>Nombre Entidad</b>
+							</td>
+							<td>
+								<b>Sede Principal</b>
+							</td>
+							<td>
+								<b>Dirección</b>
+							</td>
+							<td>
+								<b>Detalles</b>
+							</td>
+						</tr>";
+				$contador = 0;	
+				while($row1 = $result1->fetch_assoc())
+				{
+					$nombreEntidad = stripslashes($row1["nombre"]);
+					$direccion = stripslashes($row1["address"]);
+					$codigo = stripslashes($row1["codigo"]);
+					$sedePrincipal = stripslashes($row1["sedePrincipal"]);
+					$detalles = stripslashes($row1["detalles"]);
+					echo "<tr>
+						<td>
+							$nombreEntidad
+						</td>
+						<td>
+							$sedePrincipal
+						</td>
+						<td>
+							$direccion
+						</td>
+						<td>
+							$detalles
+						</td>
+					</tr>";
+					
+				}
+				echo "</table>";
+				?>
+                <br />
+                <div class="col-sm-offset-4  col-sm-4">
+                    <?php
+                    //------------------------------------------
+                    echo "<nav aria-label='Page navigation'>
+                      <ul class='pagination'>
+                        <li>
+                          <a href='menuEntidades.php?pagina=1' aria-label='Previous'>
+                            <span aria-hidden='true'>&laquo;</span>
+                          </a>
+                        </li>";
+                        for($i=1; $i<=$total_pagina;$i++)
+                        {
+                            echo"<li><a href='menuEntidades.php?pagina=".$i."'>".$i."</a> ";
+                        }
+                        echo"							
+                        <li>
+                          <a href='menuEntidades.php?pagina=$total_pagina' aria-label='Next'>
+                            <span aria-hidden='true'>&raquo;</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>";
+                    //-----------------------------------------
+                
+                    
+                    ?>
+                 </div>          
+            </div>
+             <div class="row">
+                    <h4 class="text-info">¿tu entidad de confianza no esta vinculada?</h4>
+                    <p>Estoy interesado en agregar una nueva entidad optica u oftalmologica a este sitio web</p>
+                    <a href="">Postular Nueva</a>
+             </div>
+        </div>
+	<?php include ('footer.php'); ?>
+	 </div>	
 </body>
 </html>

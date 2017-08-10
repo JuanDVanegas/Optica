@@ -23,33 +23,28 @@
     <div class="body-content container">
          <div class="row">
            <div class="col-md-12"> 
-             <h1>Confirmar Correo electronico</h1>
+             <h1>Actualizar correo electronico</h1>
              
-             <p>verifique su correo electronico para enviar mensaje confirmacion.</p>
+             <p>digite su nuevo correo electronico</p>
            </div>
          </div>
          <div class="row">
             <div class="col-md-6">
-            	<form id="form1" name="form1" method="post" action="../_lib/sendEmail.php">
+            	<form id="form1" name="form1" method="post" action="actualizandoCorreo.php">
                 	<br />
-                	<br />
-                    <?php if(isset($_SESSION["errorActualizar"])){echo "<h5 class='text-danger'>".$_SESSION["errorActualizar"]."</h5>";unset($_SESSION["errorActualizar"]);}?>
-                    <?php if(isset($_SESSION["resultActualizar"])){echo "<h5 class='text-success'>".$_SESSION["resultActualizar"]."</h5>";unset($_SESSION["resultActualizar"]);}?>
                 	<div class="row">
                     	<div class="col-md-5">
                         	<p>Correo Electronico</p>
                         </div>
                     	<div class="col-md-7">
-                        	<?php if(isset($_SESSION["resultActualizar"])){echo "<h5 class='text-success'>".$_SESSION["resultActualizar"]."</h5>";unset($_SESSION["resultActualizar"]);}?>
-          					<input class="form-control" type="text" name="correoElectronico" value="<?php echo $_SESSION["correoElectronico"];?>" readonly="readonly" />
-                            <a href="actualizarCorreo.php">Modificar mi correo electronico</a>
+          					<input class="form-control" type="text" name="correoElectronico" value="<?php echo $_SESSION["correoElectronico"];?>"/>
                         </div>
                     </div>
                     <br />
                     <div class="row">
                     	<div class="col-md-8"></div>
                     	<div class="col-md-4">
-          					<input name="send" type="submit" class="btn btn-primary" id="send" value="Enviar Mensaje" />
+          					<input name="send" type="submit" class="btn btn-primary" id="send" value="Actualizar" />
                         </div>
                     </div>
 				</form>

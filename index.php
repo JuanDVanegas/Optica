@@ -86,7 +86,7 @@
 							if(isset($_SESSION["error"])) 
 								{
 									$error = $_SESSION["error"];
-									echo "<h3 class='text-success' >$error</h3>";
+									echo "<h3 class='text-danger' >$error</h3>";
 									unset($_SESSION["error"]);
 								}?>
                     </div>

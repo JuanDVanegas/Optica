@@ -182,6 +182,40 @@ class Login
 			}
 		}
 	}
+	public function actualizarCorreo()
+	{
+		include('../database/conexion.php');
+		$sql6="SELECT * FROM login WHERE email='$this->email'";
+		if(!$result6 = $db->query($sql6))
+		{
+			die('error al ejecutar la sentencia ['. $db->error.']');
+		}
+		
+		if($result6->fetch_assoc())
+		{
+			$_SESSION["errorActualizar"] = "Correo electronico no disponible, intenta con otro distinto";
+			header("Location: usuarioConfirmarCorreo.php");
+		}
+		else
+		{
+			$sql="UPDATE login SET email = '$this->email' WHERE fk_user = '$this->fk_user'";
+			if($db->query($sql) == true)
+			{
+				$_SESSION["resultActualizar"] = "su correo ha sido modificado exitosamente";
+				$_SESSION["correoElectronico"] = "$this->email";
+				header("Location: usuarioConfirmarCorreo.php");
+			}
+			else
+			{
+				$_SESSION["resultActualizar"] = "Error al actualizar correo electronico";
+				header("Location: usuarioConfirmarCorreo.php");
+			}
+		}
+		
+		
+		
+		
+	}
 }
 
 

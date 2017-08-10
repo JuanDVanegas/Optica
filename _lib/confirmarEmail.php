@@ -13,6 +13,7 @@
 <body>
     <div class="container body-content">
     	<?php
+			session_start();
 			include("../database/conexion.php");	
 			$correo=$_GET["correo"];
 			$codigo=$_GET["codigo"];
@@ -33,20 +34,20 @@
 					if($db->query($sql2) == true)
 					{
 						$_SESSION["status"] = 0;
-						$_SESSION["error"] = "Se ha confirmado el correo electronico";
+						$_SESSION["success"] = "Se ha confirmado el correo electronico";
 						header("Location: ../index.php");
 					}
 					else
 					{
 						$_SESSION["status"] = 0;
-						$_SESSION["error"] = "error al correo electronico";
+						$_SESSION["error"] = "Error modificar accesso code: confirmar correo";
 						header("Location: ../index.php");
 					}
 				}
 				else
 				{
 					$_SESSION["status"] = 0;
-					$_SESSION["error"] = "error al correo electronico";
+					$_SESSION["error"] = "Error al confirmar Correo electronico";
 					header("Location: ../index.php");
 				}
 			}
