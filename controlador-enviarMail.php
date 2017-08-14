@@ -13,6 +13,9 @@ if(mail($correo,$asunto,$body,$header))
 	$sql2="INSERT INTO codigo (numero,tipo)
 	VALUES ('$codigo','$tipo')";
 	$db->query($sql2);
+	$_SESSION["success"] = "Mensaje enviado con exito, importante chequear la bandeja de spam";
+	$_SESSION["status"] = 0;
+	header("Location: index.php");
 }
 else
 {

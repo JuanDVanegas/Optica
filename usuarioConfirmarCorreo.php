@@ -24,7 +24,7 @@
          </div>
          <div class="row">
             <div class="col-md-6">
-            	<form id="form1" name="form1" method="post" action="../_lib/sendEmail.php">
+            	<form id="form1" name="form1" method="post" action="controlador_enviarMail.php">
                 	<br />
                 	<br />
                     <?php if(isset($_SESSION["error"])){echo "<h5 class='text-danger'>".$_SESSION["error"]."</h5>";unset($_SESSION["error"]);}?>
