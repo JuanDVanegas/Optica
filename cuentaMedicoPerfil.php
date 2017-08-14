@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-9"> 
                 <!--Nueva Insersion-->
-                    <form action="../actualizarDatos.php" method="post" name="formActualizarDatos">
+                    <form action="actualizarDatos.php" method="post" name="formActualizarDatos">
                         <div class="row">
                             <div class="col-sm-offset-3 col-sm-4">
                                 <p class="text-danger"><?php if(isset($_SESSION["resultActualizar"])){echo $_SESSION["resultActualizar"];unset($_SESSION["resultActualizar"]);}?></p>

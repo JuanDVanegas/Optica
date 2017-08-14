@@ -62,7 +62,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <br />
-                            <a href="cuentaMedicoPerfil.php" target="content">Regresar</a>
+                            <a href="cuentaMedicoPerfil.php" target="_parent">Regresar</a>
                         </div>
                         <div class="col-sm-4">
                             <br />
