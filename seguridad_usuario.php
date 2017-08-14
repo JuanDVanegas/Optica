@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION["status"]!=1 || $_SESSION["status"]!=2)
+if($_SESSION["status"]==0)
 {
 	header("Location: index.php");
 }
