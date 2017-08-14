@@ -4,21 +4,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Optical All in One</title>
-<link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
-<link rel="stylesheet" href="../css/overwrite.css" type="text/css" />
-<link rel="stylesheet" href="../css/site.css" type="text/css" />
-<script type="text/javascript" src="../javascript/jquery.js"></script>
-<script type="text/javascript" src="../javascript/bootstrap.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="css/overwrite.css" type="text/css" />
+<link rel="stylesheet" href="css/site.css" type="text/css" />
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/bootstrap.js"></script>
 <body>
-	<?php
-	$logo = "../images/logo.png";
-	$inicio = "../index.php";
-	$acercade = "menuAcercade.php";
-	$contacto = "menuContacto.php";
-	$entidad = "menuEntidades.php";
-	$cerrar = "../usuario/cerrar_sesion.php";
-	$usuarioRol = "../usuario/nuevoUsuarioRol.php";	
-	?>
 	<?php include ('navbar.php'); ?>
 	<div class="body-content container">
     	<div class="row">
