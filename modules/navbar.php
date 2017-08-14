@@ -11,9 +11,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="modules/menuAcercade.php">Acerca de</a></li>
-                    <li><a href="modules/menuContacto.php">Contacto</a></li>
-                    <li><a href="modules/menuEntidades.php">Entidades</a></li>
+                    <li><a href="menuAcercade.php">Acerca de</a></li>
+                    <li><a href="menuContacto.php">Contacto</a></li>
+                    <li><a href="menuEntidades.php">Entidades</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                 <?php
