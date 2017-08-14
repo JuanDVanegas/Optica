@@ -1,3 +1,4 @@
+<?php include('seguridad_usuario.php');
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -24,15 +25,13 @@
             	<form id="form1" name="form1" method="post" action="../_lib/sendEmail.php">
                 	<br />
                 	<br />
-                    <?php if(isset($_SESSION["errorActualizar"])){echo "<h5 class='text-danger'>".$_SESSION["errorActualizar"]."</h5>";unset($_SESSION["errorActualizar"]);}?>
-                    <?php if(isset($_SESSION["resultActualizar"])){echo "<h5 class='text-success'>".$_SESSION["resultActualizar"]."</h5>";unset($_SESSION["resultActualizar"]);}?>
+                    <?php if(isset($_SESSION["error"])){echo "<h5 class='text-danger'>".$_SESSION["error"]."</h5>";unset($_SESSION["error"]);}?>
                 	<div class="row">
                     	<div class="col-md-5">
                         	<p>Correo Electronico</p>
                         </div>
                     	<div class="col-md-7">
-                        	<?php if(isset($_SESSION["resultActualizar"])){echo "<h5 class='text-success'>".$_SESSION["resultActualizar"]."</h5>";unset($_SESSION["resultActualizar"]);}?>
-          					<input class="form-control" type="text" name="correoElectronico" value="<?php echo $_SESSION["correoElectronico"];?>" readonly="readonly" />
+          					<input class="form-control" type="mail" name="correoElectronico" value="<?php echo $_SESSION["correoElectronico"];?>" readonly="readonly" />
                             <a href="actualizarCorreo.php">Modificar mi correo electronico</a>
                         </div>
                     </div>

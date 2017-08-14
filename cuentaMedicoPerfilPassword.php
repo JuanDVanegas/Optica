@@ -1,3 +1,5 @@
+<?php include('seguridad_usuarioMedico.php');
+		  include('seguridad_confirmarCorreo.php');?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -13,8 +15,6 @@
   </head>
   <body>
     <?php include ('modules/navbar.php'); ?>
-    <?php include('seguridad/UsuarioMedico.php');
-		  include('seguridad/ConfirmarCorreo.php');?>
     <div class="body-content container">
          <div class="row">
          	<?php include('cuentaMedicoBanner.php');?>
