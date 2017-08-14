@@ -31,7 +31,7 @@
 					}
 					else
 					{
-						echo"<li><a class=navbar-right href='nuevoUsuarioRol.php'>Registrarses</a></li>";
+						echo"<li><a class=navbar-right href='nuevoUsuarioRol.php'>Registrarse</a></li>";
 					}					
 				?>
                 </ul>

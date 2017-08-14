@@ -22,6 +22,7 @@
         	<br />
         	<div class="col-md-8">
             	<?php 
+				sleep(4);
 				include('database/conexion.php');
 				
 				$cant_pagina = 10;
