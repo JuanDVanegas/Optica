@@ -17,7 +17,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                 <?php
-					session_start();
+					
 					if(isset($_SESSION["status"]))
 					{
 						if($_SESSION["status"]!=0)
