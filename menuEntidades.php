@@ -22,7 +22,7 @@
         	<br />
         	<div class="col-md-offset-1 col-md-8">
             	<?php 
-				include('../database/conexion.php');
+				include('database/conexion.php');
 				
 				$cant_pagina = 10;
 				if(isset($_GET["pagina"]))

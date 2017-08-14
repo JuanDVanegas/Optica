@@ -83,7 +83,7 @@
 								}?>
                     </div>
                 </div>
-            	<form action="usuario/iniciar_sesion.php" method="post" name="iniciar_sesion" target="_parent" id="iniciar_sesion">
+            	<form action="iniciar_sesion.php" method="post" name="iniciar_sesion" target="_parent" id="iniciar_sesion">
                         <div class="row">
                         	<label for="mail"></label>
                             <div class="col-md-4">
@@ -120,7 +120,7 @@
                         <br />
                         <div class="row">
                             <div class="col-md-5">
-                                <a href="usuario/nuevoUsuarioRol.php">¿No estas registrado?</a><br /><br /><a href="usuario/restablecerPassword.php">Olvide mi Contraseña</a>
+                                <a href="nuevoUsuarioRol.php">¿No estas registrado?</a><br /><br /><a href="restablecerPassword.php">Olvide mi Contraseña</a>
                             </div>
                             <div class="col-md-4">
                             	<br />
