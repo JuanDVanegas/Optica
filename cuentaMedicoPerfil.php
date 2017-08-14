@@ -89,7 +89,7 @@
                                 <p>Correo electronico</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" name="correo" value="<?php echo $_SESSION["correoElectronico"];?>"/>
+                                <input class="form-control" type="mail" name="correo" value="<?php echo $_SESSION["correoElectronico"];?>"/>
                             </div>
                         </div>
                         <br />

@@ -22,14 +22,14 @@
          </div>
          <div class="row">
             <div class="col-md-6">
-            	<form id="form1" name="form1" method="post" action="">
+            	<form id="form1" name="form1" method="post" action="controlador-enviarRestablecer.php">
                 	<br />
                 	<div class="row">
                     	<div class="col-md-5">
                         	<p>Correo Electronico</p>
                         </div>
                     	<div class="col-md-7">
-          					<input class="form-control" type="text" name="textfield" id="textfield" />
+          					<input class="form-control" type="mail" name="textfield" id="textfield" />
                         </div>
                     </div>
                     <br />

@@ -88,7 +88,7 @@
                     	<p>Correo Electronico</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="text" name="mail" id="textfield6" required/>
+                    	<input class="form-control" type="mail" name="mail" id="textfield6" required/>
                     </div>
                 </div>
                 <br />

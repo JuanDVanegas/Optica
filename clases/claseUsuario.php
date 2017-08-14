@@ -131,14 +131,30 @@ class Usuario
 			$_SESSION["tipoDocumento"] = $this->tipoDocumento;
 			$_SESSION["numeroDocumento"]= $this->numeroDocumento;
 			$_SESSION["telefono"] = $this->telefono;
+			if($_SESSION["rolUsuario"] = "Medico")
+			{
+				header("Location: cuentaMedicoPerfil.php");
+			}
+			else
+			{
+				header("Location: cuentaPacientePerfil.php");
+			}
 			
-			header("Location: index.php");
 			
 		}
 		else
 		{
 			$_SESSION["resultActualizar"] = "Error al actualizar sus información personal";
 			header("Location: index.php");
+			if($_SESSION["rolUsuario"] = "Medico")
+			{
+				header("Location: cuentaMedicoPerfil.php");
+			}
+			else
+			{
+				header("Location: cuentaPacientePerfil.php");
+			}
+			
 		}
 	}
 	

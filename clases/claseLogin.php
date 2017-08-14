@@ -137,14 +137,23 @@ class Login
 		if($result6->fetch_assoc())
 		{
 			$_SESSION["errorRegistro"] = "<b>Correo electronico no disponible, intenta con otro distinto</b>";
-			if($_SESSION["reg"]==1)
+			if(isset($_SESSION["reg"]==1));
 			{
-				header("Location: nuevoUsuarioFormulario1.php");
+				if($_SESSION["reg"]==1)
+				{
+					header("Location: nuevoUsuarioFormulario1.php");
+				}
+				else
+				{
+					header("Location: nuevoUsuarioFormulario2.php");
+				}
 			}
-			else
+			else;
+			if(isset($_SESSION["restablecer"]))
 			{
-				header("Location: nuevoUsuarioFormulario2.php");
+				$_SESSION["next"] = 2;
 			}
+			
 		}
 		else;	
 	}
