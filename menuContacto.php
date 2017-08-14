@@ -10,7 +10,7 @@
 <script type="text/javascript" src="javascript/jquery.js"></script>
 <script type="text/javascript" src="javascript/bootstrap.js"></script>
 <body>
-	<?php include ('navbar.php'); ?>
+	<?php include ('modules/navbar.php'); ?>
 	<div class="body-content container">
 		<h2>Acerca de</h2>
 		<h3>Introduccion</h3>
@@ -34,7 +34,7 @@
           Jesus David Perdomo Mateus <br />
           Katherine Gissell Rodriguez<br />
           Juan David Vanegas Rodriguez</p>
-      <?php include ('footer.php'); ?>
+      <?php include ('modules/footer.php'); ?>
 	  </div>	
 </body>
 </html>
