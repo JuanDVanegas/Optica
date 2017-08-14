@@ -94,12 +94,12 @@ class Login
 					if($_SESSION["rolUsuario"]=="Medico")
 					{
 						$_SESSION["status"]="1";
-						header("Location: ../index.php");
+						header("Location: index.php");
 					}
 					else
 					{
 						$_SESSION["status"]="2";
-						header("Location: ../index.php");
+						header("Location: index.php");
 					}
 				}
 				else;
@@ -108,14 +108,14 @@ class Login
 			{
 				$_SESSION["sesionError"]="Usuario y/o Contrasena incorrecto";
 				echo $_SESSION["sesionError"];
-				header("Location: ../index.php");
+				header("Location: index.php");
 			}
 		}
 		if(!isset($contador))
 		{
 			$_SESSION["sesionError"]="Usuario y/o Contrasena incorrecto";
 			echo $_SESSION["sesionError"];
-			header("Location: ../index.php");
+			header("Location: index.php");
 		}
 		else;
 	}
@@ -123,7 +123,7 @@ class Login
 	{
 		session_start();
 		$_SESSION["status"]="0";
-		header("Location: ../index.php");
+		header("Location: index.php");
 	}
 	public function validarCorreoElectronico()
 	{
@@ -139,11 +139,11 @@ class Login
 			$_SESSION["errorRegistro"] = "<b>Correo electronico no disponible, intenta con otro distinto</b>";
 			if($_SESSION["reg"]==1)
 			{
-				header("Location: ../usuario/nuevoUsuarioFormulario1.php");
+				header("Location: nuevoUsuarioFormulario1.php");
 			}
 			else
 			{
-				header("Location: ../usuario/nuevoUsuarioFormulario2.php");
+				header("Location: nuevoUsuarioFormulario2.php");
 			}
 		}
 		else;	
