@@ -25,7 +25,7 @@ class Usuario
 	public function registrar()
 	{
 		
-		include('../database/conexion.php');
+		include('database/conexion.php');
 		$sql="INSERT INTO usuario (nombre,apellido,tipoDocumento,numeroDocumento,rolUsuario,nacimiento,entidad,telefono)
 		VALUES ('$this->nombre','$this->apellido','$this->tipoDocumento','$this->numeroDocumento','$this->rolUsuario','$this->nacimiento','$this->entidad','$this->telefono')";
 		if ($db->query($sql) === TRUE)
@@ -48,11 +48,11 @@ class Usuario
 				$_SESSION["errorRegistro"] = "<b>Error en el sistema 402, intentelo de nuevo</b>";
 				if($_SESSION["reg"]==1)
 				{
-					header("Location: ../usuario/nuevoUsuarioFormulario1.php");
+					header("Location: nuevoUsuarioFormulario1.php");
 				}
 				else
 				{
-					header("Location: ../usuario/nuevoUsuarioFormulario2.php");
+					header("Location: nuevoUsuarioFormulario2.php");
 				}
 			}
 		}
@@ -61,22 +61,22 @@ class Usuario
 			$_SESSION["errorRegistro"] = "<b>Error en el sistema 401, intentelo de nuevo</b>";
 			if($_SESSION["reg"]==1)
 			{
-				header("Location: ../usuario/nuevoUsuarioFormulario1.php");
+				header("Location: nuevoUsuarioFormulario1.php");
 			}
 			else
 			{
-				header("Location: ../usuario/nuevoUsuarioFormulario2.php");
+				header("Location: nuevoUsuarioFormulario2.php");
 			}
 		}
 	}
 	
 	public function validarDocumento()
 	{
-		include('../database/conexion.php');
+		include('database/conexion.php');
 		$sql5="SELECT * FROM usuario WHERE tipoDocumento='$this->tipoDocumento' AND numeroDocumento='$this->numeroDocumento'";
 		if(!$result5 = $db->query($sql5))
 		{
-			die('error al ejecutar la sentencia '. $db->error.']');
+			die('error al ejecutar la sentencia ['. $db->error.']');
 		}
 		else;
 		
@@ -85,11 +85,11 @@ class Usuario
 			$_SESSION["errorRegistro"] = "<b>Documento no se encuentra disponible.</b>";
 			if($_SESSION["reg"]==1)
 			{
-				header("Location: ../usuario/nuevoUsuarioFormulario1.php");
+				header("Location: nuevoUsuarioFormulario1.php");
 			}
 			else
 			{
-				header("Location: ../usuario/nuevoUsuarioFormulario2.php");
+				header("Location: nuevoUsuarioFormulario2.php");
 			}
 		}
 		else;
@@ -97,7 +97,7 @@ class Usuario
 	
 	public function validarUsuario()
 	{
-		include('../../database/conexion.php');		
+		include('database/conexion.php');		
 		
 		$sql5="SELECT * FROM usuario WHERE tipoDocumento='$this->tipoDocumento' AND numeroDocumento='$this->numeroDocumento'";
 		if(!$result5 = $db->query($sql5))
@@ -119,7 +119,7 @@ class Usuario
 	
 	public function actualizarDatos()
 	{
-		include('../database/conexion.php');
+		include('database/conexion.php');
 		$sql="UPDATE `usuario` SET nombre = '$this->nombre', apellido = '$this->apellido', tipoDocumento = '$this->tipoDocumento', numeroDocumento = '$this->numeroDocumento', telefono = '$this->telefono', nacimiento = '$this->nacimiento' WHERE id_usuario = '".$_SESSION["id_usuario"]."'";
 		if($db->query($sql) == true)
 		{
@@ -134,11 +134,11 @@ class Usuario
 			
 			if($_SESSION["rolUsuario"] == "Medico")
 			{
-				header("Location: ../usuario/medico/cuentaMedicoPerfil.php");
+				header("Location: cuentaMedicoPerfil.php");
 			}
 			else
 			{
-				header("Location: ../usuario/medico/cuentaPacientePerfil.php");
+				header("Location: cuentaPacientePerfil.php");
 			}
 			
 		}
@@ -147,11 +147,11 @@ class Usuario
 			$_SESSION["resultActualizar"] = "Error al actualizar sus información personal";
 			if($_SESSION["rolUsuario"] == "Medico")
 			{
-				header("Location: ../usuario/medico/cuentaMedicoPerfil.php");
+				header("Location: cuentaMedicoPerfil.php");
 			}
 			else
 			{
-				header("Location: ../usuario/medico/cuentaPacientePerfil.php");
+				header("Location: cuentaPacientePerfil.php");
 			}
 		}
 	}

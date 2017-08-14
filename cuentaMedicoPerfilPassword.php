@@ -5,25 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/logo.png" />
   <title>Optica All in One</title>
-  <link rel="stylesheet" href="../../css/bootstrap.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/overwrite.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/site.css" type="text/css" />
-	<script type="text/javascript" src="../../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../../javascript/bootstrap.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="css/overwrite.css" type="text/css" />
+  <link rel="stylesheet" href="css/site.css" type="text/css" />
+	<script type="text/javascript" src="javascript/jquery.js"></script>
+	<script type="text/javascript" src="javascript/bootstrap.js"></script>
   </head>
   <body>
-  	<?php
-	$logo = "../../images/logo.png";
-	$inicio = "../../index.php";
-	$acercade = "../../modules/menuAcercade.php";
-	$contacto = "../../modules/menuContacto.php";
-	$entidad = "../../modules/menuEntidades.php";	
-	$cerrar = "../cerrar_sesion.php";
-	$usuarioRol = "../nuevoUsuarioRol.php";
-	?>
-    <?php include ('../../modules/navbar.php'); ?>
-    <?php include('../../seguridad/UsuarioMedico.php');
-		  include('../../seguridad/ConfirmarCorreo.php');?>
+    <?php include ('modules/navbar.php'); ?>
+    <?php include('seguridad/UsuarioMedico.php');
+		  include('seguridad/ConfirmarCorreo.php');?>
     <div class="body-content container">
          <div class="row">
          	<?php include('cuentaMedicoBanner.php');?>
@@ -81,7 +72,7 @@
                 </form>
                     <!-- --------- -->
             </div>
-        </div><?php include ('../../modules/footer.php'); ?>
+        </div><?php include ('modules/footer.php'); ?>
      </div>     
   </body>
 </html>

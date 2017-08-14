@@ -13,7 +13,7 @@ class Medico
 	public function confirmarEntidad()
 	{
 		
-		include('../database/conexion.php');
+		include('database/conexion.php');
 		$sql="SELECT * FROM entidad WHERE nombre='$this->nombreEntidad' AND codigo='$this->codigo'";
 		if(!$result = $db->query($sql))
 		{

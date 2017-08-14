@@ -1,3 +1,4 @@
+<?php include('seguridad_sesionActiva.php');?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,17 +12,7 @@
 <script type="text/javascript" src="javascript/bootstrap.js"></script>
 </head>
 <body class="fondo">
-	<?php
-	$logo = "images/logo.png";
-	$inicio = "index.php";
-	$acercade = "modules/menuAcercade.php";
-	$contacto = "modules/menuContacto.php";
-	$entidad = "modules/menuEntidades.php";	
-	$cerrar = "usuario/cerrar_sesion.php";
-	$usuarioRol = "usuario/nuevoUsuarioRol.php";
-	?>
-	<?php include("modules/navbar.php");?>
-    <?php include('seguridad/sesionActiva.php');?>
+	<?php include("modules/navbar.php");?>    
     <div class="container body-content white-transparent">
     	<div class="row">
             <div class="col-md-7">

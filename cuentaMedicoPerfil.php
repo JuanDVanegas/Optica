@@ -5,25 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/logo.png" />
   <title>Optica All in One</title>
-  <link rel="stylesheet" href="../../css/bootstrap.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/overwrite.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/site.css" type="text/css" />
-	<script type="text/javascript" src="../../javascript/jquery.js"></script>
-	<script type="text/javascript" src="../../javascript/bootstrap.js"></script>
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="css/overwrite.css" type="text/css" />
+  <link rel="stylesheet" href="css/site.css" type="text/css" />
+	<script type="text/javascript" src="javascript/jquery.js"></script>
+	<script type="text/javascript" src="javascript/bootstrap.js"></script>
   </head>
   <body>
-  	<?php
-	$logo = "../../images/logo.png";
-	$inicio = "../../index.php";
-	$acercade = "../../modules/menuAcercade.php";
-	$contacto = "../../modules/menuContacto.php";
-	$entidad = "../../modules/menuEntidades.php";	
-	$cerrar = "../cerrar_sesion.php";
-	$usuarioRol = "../nuevoUsuarioRol.php";
-	?>
-    <?php include ('../../modules/navbar.php'); ?>
-    <?php include('../../seguridad/UsuarioMedico.php');
-		  include('../../seguridad/ConfirmarCorreo.php');?>
+    <?php include ('modules/navbar.php'); ?>
+    <?php include('seguridad/UsuarioMedico.php');
+		  include('seguridad/ConfirmarCorreo.php');?>
     <div class="body-content container">
          <div class="row">
          	<?php include('cuentaMedicoBanner.php');?>
@@ -35,38 +26,39 @@
             </div>
             <div class="col-md-9"> 
                 <!--Nueva Insersion-->
-                    <form action="agregarRegistro.php" method="post" name="formActualizarDatos">
+                    <form action="../actualizarDatos.php" method="post" name="formActualizarDatos">
                         <div class="row">
                             <div class="col-sm-offset-3 col-sm-4">
-                                <p class="text-danger"><?php if(isset($_SESSION["resultAgregar"])){echo $_SESSION["resultAgregar"];unset($_SESSION["resultAgregar"]);}?></p>
+                                <p class="text-danger"><?php if(isset($_SESSION["resultActualizar"])){echo $_SESSION["resultActualizar"];unset($_SESSION["resultActualizar"]);}?></p>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-3">
-                                <p>Lugar</p>
+                                <p>Nombre</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" name="lugar" required="required"/>
+                                <input class="form-control" type="text" name="nombre" value="<?php echo $_SESSION["nombre"];?>" />
                             </div>
                         </div>
                         <br />
                         <div class="row">
                             <div class="col-sm-3">
-                                <p>Fecha</p>
+                                <p>Apellido</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="date" name="fecha" required="required"/>
+                                <input class="form-control" type="text" name="apellido" value="<?php echo $_SESSION["apellido"];?>" />
                             </div>
                         </div>
                         <br />
                          <div class="row">
                             <div class="col-sm-3">
-                                <p>Tipo de documento paciente</p>
+                                <p>Tipo de documento</p>
                             </div>
                             <div class="col-sm-9">
-                                <select class="form-control" name="tipoDocumento" id="select">						  
-                                              <option value="Cedula de ciudadania" selected="selected">Cedula de ciudadania</option>
+                                <select class="form-control" name="tipoDocumento" id="select">
+                                              <option value="<?php echo $_SESSION["tipoDocumento"];?>"  selected="selected"><?php echo $_SESSION["tipoDocumento"];?></option>
                                               <option value="Tarjeta de identidad">Tarjeta de identidad</option>
+                                              <option value="Cedula de ciudadania" >Cedula de ciudadania</option>
                                               <option value="Cedula extrajera">Cedula extrajera</option>
                                               <option value="Pasaporte">Pasaporte</option>
                                               <option value="Libreta Militar">Libreta Militar</option>
@@ -76,53 +68,53 @@
                         <br />
                         <div class="row">
                             <div class="col-sm-3">
-                                <p>Documento paciente</p>
+                                <p>Documento</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" name="numeroDocumento" pattern="+[0-9]" required="required"/>
+                                <input class="form-control" type="text" name="numeroDocumento" pattern="+[0-9]" value="<?php echo $_SESSION["numeroDocumento"];?>" />
                             </div>
                         </div>
                         <br />
                         <div class="row">
                             <div class="col-sm-3">
-                                <p>Descripcion</p>
+                                <p>Fecha de nacimiento</p>
                             </div>
                             <div class="col-sm-9">
-                                <textarea class="form-control" rows="4" name="descripcion" pattern="+[a-zA-Z ]" required="required"></textarea>
+                                <input class="form-control" type="date" name="nacimiento" value="<?php echo $_SESSION["nacimiento"];?>" />
                             </div>
                         </div>
                         <br />
                         <div class="row">
                             <div class="col-sm-3">
-                                <p>Resultado</p>
+                                <p>Correo electronico</p>
                             </div>
                             <div class="col-sm-9">
-                                <textarea class="form-control" rows="4" name="resultado" pattern="+[a-zA-Z ]" required="required"></textarea>
+                                <input class="form-control" type="text" name="correo" value="<?php echo $_SESSION["correoElectronico"];?>"/>
                             </div>
                         </div>
                         <br />
                          <div class="row">
                             <div class="col-sm-3">
-                                <p>Tratamiento</p>
+                                <p>Telefono</p>
                             </div>
                             <div class="col-sm-9">
-                                <textarea class="form-control" rows="4" name="tratamiento" pattern="+[a-zA-Z ]" required="required"/></textarea>
+                                <input class="form-control" type="text" name="telefono" pattern="+[0-9]" value="<?php echo $_SESSION["telefono"];?>"/>
                             </div>
                         </div>
                         <br />
                         <div class="row">
                             <div class="col-sm-3">
-                                <a href="cuentaMedicoHistorial.php" target="content">Regresar</a>
+                                <a href="cuentaMedicoPerfilPassword.php" target="_parent">Cambiar Contraseña</a>
                             </div>
                             <div class="col-sm-4">
                                 <br />
-                                <input class="btn btn-primary" type="submit" name="add" value="Agregar Registro" />
+                                <input class="btn btn-primary" type="submit" name="correo" value="Actualizar" />
                             </div>
                         </div>
-                    </form>
+                    </form> 
                     <!-- --------- -->
             </div>
-        </div><?php include ('../../modules/footer.php'); ?>
+        </div><?php include ('modules/footer.php'); ?>
      </div>     
   </body>
 </html>

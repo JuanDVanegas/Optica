@@ -18,7 +18,7 @@ class Historial
 	
 	public function agregarHistorial()
 	{
-		include('../../database/conexion.php');
+		include('database/conexion.php');
 		$sql = "INSERT INTO historial(fk_paciente,fk_medico,fk_registro,lugar,fecha)
 		VALUES ('$this->fk_paciente','$this->fk_medico','$this->fk_registro','$this->lugar','$this->fecha')";
 		if($db->query($sql) == true)

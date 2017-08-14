@@ -1,7 +1,7 @@
 <?php
 session_start();
-include("../database/conexion.php");
-include("../clases/claseLogin.php");
+include("database/conexion.php");
+include("clases/claseLogin.php");
 $correo = $_POST["correoElectronico"];
 if($correo == $_SESSION["correoElectronico"])
 {

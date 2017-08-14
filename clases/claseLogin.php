@@ -14,24 +14,24 @@ class Login
 	
 	public function registrar()	
 	{
-		include('../database/conexion.php');
+		include('database/conexion.php');
 		$sql5="INSERT INTO login (fk_user,email,password,confirmMail)
 		VALUES ('$this->fk_user', '$this->email', '".md5($this->password)."','0')";
 		if ($db->query($sql5) === TRUE)
 		{
 			$_SESSION["success"] = "Se ha registrado el nuevo usuario";
-			header("Location: ../index.php");				
+			header("Location: index.php");				
 		}
 		else
 		{
 			$_SESSION["errorRegistro"] = "Error en el sistema 400, intentelo de nuevo";
 			if($_SESSION["reg"]==1)
 			{
-				header("Location: ../usuario/nuevoUsuarioFormulario1.php");
+				header("Location: nuevoUsuarioFormulario1.php");
 			}
 			else
 			{
-				header("Location: ../usuario/nuevoUsuarioFormulario2.php");
+				header("Location: nuevoUsuarioFormulario2.php");
 			}
 		}
 		
@@ -40,7 +40,7 @@ class Login
 	public function iniciarSesion()
 	{
 		session_start();
-		include('../database/conexion.php');
+		include('database/conexion.php');
 		$sql="SELECT * FROM login WHERE email='$this->email'";
 		if(!$result = $db->query($sql))
 		{
@@ -89,12 +89,7 @@ class Login
 					{
 						$_SESSION["nombreEntidad"]=stripslashes($row2["nombre"]);
 					}
-					else
-					{
-						echo "Fallo en la entidad";
-					}
-					
-					
+					else;
 					
 					if($_SESSION["rolUsuario"]=="Medico")
 					{
@@ -132,7 +127,7 @@ class Login
 	}
 	public function validarCorreoElectronico()
 	{
-		include('../database/conexion.php');
+		include('database/conexion.php');
 		$sql6="SELECT * FROM login WHERE email='$this->email'";
 		if(!$result6 = $db->query($sql6))
 		{
@@ -155,18 +150,18 @@ class Login
 	}
 	public function actualizarPassword()
 	{
-		include('../database/conexion.php');
+		include('database/conexion.php');
 		$sql="UPDATE login SET password = '$this->password' WHERE email = '$this->email'";
 		if($db->query($sql) == true)
 		{
 			$_SESSION["resultActualizar"] = "su contraseña ha sido modificada exitosamente";
 			if($_SESSION["rolUsuario"] == "Medico")
 			{
-				header("Location: ../usuario/medico/cuentaMedicoPerfilPassword.php");
+				header("Location: cuentaMedicoPerfilPassword.php");
 			}
 			else
 			{
-				header("Location: ../usuario/medico/cuentaPacientePerfilPassword.php");
+				header("Location: cuentaPacientePerfilPassword.php");
 			}
 		}
 		else
@@ -174,17 +169,17 @@ class Login
 			$_SESSION["resultActualizar"] = "Error al actualizar la contraseña";
 			if($_SESSION["rolUsuario"] == "Medico")
 			{
-				header("Location: ../usuario/medico/cuentaMedicoPerfilPassword.php");
+				header("Location: cuentaMedicoPerfilPassword.php");
 			}
 			else
 			{
-				header("Location: ../usuario/medico/cuentaPacientePerfilPassword.php");
+				header("Location: cuentaPacientePerfilPassword.php");
 			}
 		}
 	}
 	public function actualizarCorreo()
 	{
-		include('../database/conexion.php');
+		include('database/conexion.php');
 		$sql6="SELECT * FROM login WHERE email='$this->email'";
 		if(!$result6 = $db->query($sql6))
 		{

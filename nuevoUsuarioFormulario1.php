@@ -3,32 +3,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Optical All in One</title>
-<link rel="stylesheet" href="../css/bootstrap.css" type="text/css" />
-<link rel="stylesheet" href="../css/overwrite.css" type="text/css" />
-<link rel="stylesheet" href="../css/site.css" type="text/css" />
-<script type="text/javascript" src="../javascript/jquery.js"></script>
-<script type="text/javascript" src="../javascript/bootstrap.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+<link rel="stylesheet" href="css/overwrite.css" type="text/css" />
+<link rel="stylesheet" href="css/site.css" type="text/css" />
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/bootstrap.js"></script>
 </head>
 <body>
-	<?php
-	$logo = "../images/logo.png";
-	$inicio = "../index.php";
-	$acercade = "../modules/menuAcercade.php";
-	$contacto = "../modules/menuContacto.php";
-	$entidad = "../modules/menuEntidades.php";
-	$cerrar = "cerrar_sesion.php";
-	$usuarioRol = "nuevoUsuarioRol.php";	
-	?>
-	<?php include ('../modules/navbar.php'); ?>
+	<?php include ('modules/navbar.php'); ?>
     <div class="body-content container">
     	<div class="row">
         	<div class="col-md-12">
-            	<h1>Nuevo Usuario Paciente</h1>
+            	<h1>Nuevo Usuario Medico</h1>
                 <?php 
 				if(isset($_SESSION["errorRegistro"]))
 				{
 					$errorRegistro = $_SESSION["errorRegistro"];
-					echo "<h3>$errorRegistro</h3>";
+					echo '<h3 class="text-danger">$errorRegistro</h3>';
 				}
 				?>
             </div>
@@ -37,12 +28,12 @@
     	<div class="row">
         	<div class="col-md-6">
                 <div class="row">
-                <form action="nuevoUsuarioRegistro2.php" method="post">
+                <form action="nuevoUsuarioRegistro1.php" method="post">
                 	<div class="col-md-5">
                     	<p>Nombre</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="text" name="nombre" id="textfield4" pattern="[A-Za-z]+" required/>
+                    	<input class="form-control" type="text" name="nombre" id="textfield4" pattern="[A-Za-z ]+" required/>
                     </div>
                 </div>
                 <br />
@@ -51,7 +42,7 @@
                     	<p>Apellido</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="text" name="apellido" id="textfield5" pattern="[A-Za-z]+" required/>
+                    	<input class="form-control" type="text" name="apellido" id="textfield5" pattern="[A-Za-z ]+" required/>
                     </div>
                 </div>
                 <br />
@@ -60,7 +51,7 @@
                     	<p>Tipo de documento<p>
                     </div>
                     <div class="col-md-7">
-                      <select class="form-control" name="tipo" id="select">
+                    	<select class="form-control" name="tipo" id="select">
 						  <option value="Null"  selected="selected">Seleccionar</option>
 						  <option value="Tarjeta de identidad">Tarjeta de identidad</option>
 						  <option value="Cedula de ciudadania" >Cedula de ciudadania</option>
@@ -79,9 +70,8 @@
                     	<input class="form-control" type="text" name="documento" id="textfield8" pattern="[0-9]+" required/>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-            	<div class="row">
+                <br />
+                <div class="row">
                 	<div class="col-md-5">
                     	<p>Fecha de nacimiento</p>
                     </div>
@@ -89,7 +79,10 @@
                     	<input class="form-control" type="date" name="fecha" id="textfield7" />
                     </div>
                 </div>
-                <br />
+                <br />                
+            </div>
+            <div class="col-md-6">
+            	
             	<div class="row">
                 	<div class="col-md-5">
                     	<p>Correo Electronico</p>
@@ -117,23 +110,39 @@
                     </div>
                 </div>
                 <br />
+                <div class="row">
+                	<div class="col-md-5">
+                    	<p>Nombre Entidad Optica</p>
+                    </div>
+                    <div class="col-md-7">
+                    	<input class="form-control" type="text" name="nombreEntidad" id="textfield10" required/>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                	<div class="col-md-5">
+                    	<p>Codigo Entidad Optica</p>
+                    </div>
+                    <div class="col-md-7">
+                    	<input class="form-control" type="text" name="codigo" id="textfield10" required/>
+                    </div>
+                </div>
+                <br />
             </div>
             <br />
         </div>
         <div class="row">
         	<div class="col-md-5"></div>
             <div class="col-md-2">
-            	<input type="hidden" value="Paciente" name="rol" />
+            	<input type="hidden" value="Medico" name="rol" />
             	<input class="btn btn-primary" type="submit" name="registro" id="button2" value="Registrar" />
             </div>
             <div class="col-md-5"></div>
         </div>
-        <?php include ('../modules/footer.php'); ?>
+        <?php include ('modules/footer.php'); ?>
     </div></form>
     <?php 
-        unset($_SESSION["errorRegistro"]);
-		unset($_SESSION["reg"]);
-		unset($_SESSION["next"]);
+        unset($_SESSION["errorRegistro"]);unset($_SESSION["reg"]);unset($_SESSION["next"]);unset($_SESSION["entidad"]);
     ?>
 </body>
 <footer>

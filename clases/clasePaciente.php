@@ -4,7 +4,7 @@ class Paciente extends Usuario
 {
 	public function validarUsuario()
 	{
-		include('../database/conexion.php');
+		include('database/conexion.php');
 		$sql5="SELECT * FROM usuario WHERE tipoDocumento='$this->getTipoDocumento()' AND numeroDocumento='$this->getNumeroDocumento()'";
 		if(!$result5 = $db->query($sql5))
 		{

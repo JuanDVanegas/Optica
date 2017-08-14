@@ -14,7 +14,7 @@ class Registro
 	
 	public function agregarRegistro()
 	{
-		include('../../database/conexion.php');
+		include('database/conexion.php');
 		$sql = "INSERT INTO registro(descripcion,resultados,tratamiento)
 		VALUES ('$this->descripcion','$this->resultado','$this->tratamiento')";
 		if($db->query($sql) == true)

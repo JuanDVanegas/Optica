@@ -1,5 +1,5 @@
 <?php
-include ('../clases/claseLogin.php');
+include ('clases/claseLogin.php');
 session_start();
 
 if($_POST["nuevoPass"]==$_POST["confirmarPass"])
@@ -15,11 +15,11 @@ if($_POST["nuevoPass"]==$_POST["confirmarPass"])
 		$_SESSION["resultActualizar"] = "Contraseña actual incorrecta";
 		if($_SESSION["rolUsuario"] == "Medico")
 		{
-			header("Location: medico/cuentaMedicoPerfilPassword");
+			header("Location: cuentaMedicoPerfilPassword");
 		}
 		else
 		{
-			header("Location: paciente/cuentaPacientePerfilPassword");
+			header("Location: cuentaPacientePerfilPassword");
 		}
 		
 	}	
@@ -29,11 +29,11 @@ else
 	$_SESSION["resultActualizar"] = "Las contraseñas no coinciden";
 	if($_SESSION["rolUsuario"] == "Medico")
 	{
-		header("Location: medico/cuentaMedicoPerfilPassword");
+		header("Location: cuentaMedicoPerfilPassword");
 	}
 	else
 	{
-		header("Location: paciente/cuentaPacientePerfilPassword");
+		header("Location: cuentaPacientePerfilPassword");
 	}
 }
 ?>

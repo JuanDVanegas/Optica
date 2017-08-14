@@ -1,9 +1,9 @@
 <?php
 
 session_start();
-include('../../clases/claseHistorial.php');
-include('../../clases/claseRegistro.php');
-include('../../clases/claseUsuario.php');
+include('clases/claseHistorial.php');
+include('clases/claseRegistro.php');
+include('clases/claseUsuario.php');
 
 
 $usuario = new Usuario("","","",$_POST["tipoDocumento"],$_POST["numeroDocumento"],"","","");

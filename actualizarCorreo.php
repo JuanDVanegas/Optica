@@ -10,15 +10,6 @@
 <script type="text/javascript" src="../javascript/bootstrap.js"></script>
 </head>
 <body>
-	<?php
-	$logo = "../images/logo.png";
-	$inicio = "../index.php";
-	$acercade = "../modules/menuAcercade.php";
-	$contacto = "../modules/menuContacto.php";
-	$entidad = "../modules/menuEntidades.php";
-	$cerrar = "cerrar_sesion.php";
-	$usuarioRol = "nuevoUsuarioRol.php";	
-	?>
 	<?php include ('../modules/navbar.php'); ?>
     <div class="body-content container">
          <div class="row">
@@ -30,7 +21,7 @@
          </div>
          <div class="row">
             <div class="col-md-6">
-            	<form id="form1" name="form1" method="post" action="actualizandoCorreo.php">
+            	<form id="form1" name="form1" method="post" action="controlador_actualizarCorreo.php">
                 	<br />
                 	<div class="row">
                     	<div class="col-md-5">
