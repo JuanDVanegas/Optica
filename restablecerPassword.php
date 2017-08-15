@@ -18,6 +18,9 @@
            <div class="col-md-12"> 
              <h1>Restablecer Contraseña</h1>
              <p>Digite su correo electronico para enviar mensaje restablecer contraseña.</p>
+             <?php if(isset($_SESSION["error"])){echo "<br/><h4 class='text-danger'>".$_SESSION["error"]."</h4>";unset($_SESSION["error"]);}
+			 if(isset($_SESSION["success"])){echo "<br/><h4 class='text-success'>".$_SESSION["success"]."</h4>";unset($_SESSION["success"]);}
+			 ?>
            </div>
          </div>
          <div class="row">

@@ -137,7 +137,7 @@ class Login
 		if($result6->fetch_assoc())
 		{
 			$_SESSION["errorRegistro"] = "<b>Correo electronico no disponible, intenta con otro distinto</b>";
-			if(isset($_SESSION["reg"]==1));
+			if(isset($_SESSION["reg"]))
 			{
 				if($_SESSION["reg"]==1)
 				{
@@ -151,7 +151,7 @@ class Login
 			else;
 			if(isset($_SESSION["restablecer"]))
 			{
-				$_SESSION["next"] = 2;
+				$_SESSION["next"] = "confirmed";
 			}
 			
 		}
@@ -215,10 +215,6 @@ class Login
 				header("Location: usuarioConfirmarCorreo.php");
 			}
 		}
-		
-		
-		
-		
 	}
 }
 
