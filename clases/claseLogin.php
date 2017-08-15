@@ -152,6 +152,7 @@ class Login
 			if(isset($_SESSION["restablecer"]))
 			{
 				$_SESSION["next"] = "confirmed";
+				unset($_SESSION["restablecer"]);
 			}
 			
 		}
@@ -160,6 +161,7 @@ class Login
 	public function actualizarPassword()
 	{
 		include('database/conexion.php');
+		unset($_SESSION["keyLogger"]);
 		$sql="UPDATE login SET password = '$this->password' WHERE email = '$this->email'";
 		if($db->query($sql) == true)
 		{
@@ -175,13 +177,14 @@ class Login
 		}
 		else
 		{
+			$_SESSION["error"] = "FAIL";
 			$_SESSION["resultActualizar"] = "Error al actualizar la contraseña";
 			if($_SESSION["rolUsuario"] == "Medico")
 			{
 				header("Location: cuentaMedicoPerfilPassword.php");
 			}
 			else
-			{
+			{ 
 				header("Location: cuentaPacientePerfilPassword.php");
 			}
 		}

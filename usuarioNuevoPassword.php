@@ -25,7 +25,7 @@
          </div>
          <div class="row">
             <div class="col-md-6">
-            	<form id="form1" name="form1" method="post" action="controlador_.php">
+            	<form id="form1" name="form1" method="post" action="controlador_actualizarPassword.php">
                 	<br />
                 	<div class="row">
                     	<div class="col-md-5">
@@ -42,6 +42,7 @@
                         </div>
                     	<div class="col-md-7">
           					<input class="form-control" type="password" name="confirmarPass" id="textfield" />
+                            <input type="hidden" name="correoElectronico" value="<?php echo md5($_SESSION["keyLogger"]);?>"
                         </div>
                     </div>
                     <br />

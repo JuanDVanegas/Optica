@@ -2,7 +2,8 @@
 include('database/conexion.php');
 include('clases/claseLogin.php');
 include('clases/claseCodigo.php');
-
+session_start();
+$_SESSION["restablecer"] = 1;
 $correo = md5($_GET["trick"]);
 $codigo = $_GET["code"];
 $subject = "Restablecer Contraseña";
@@ -10,16 +11,18 @@ $validarCorreo = new Login($correo,"","");
 $validarCorreo->validarCorreoElectronico();
 if($_SESSION["next"] == "confirmed")
 {
-	$nuevoCodigo = new Codigo($numero,$subject,"");
+	$nuevoCodigo = new Codigo($codigo,$subject,"");
 	$nuevoCodigo->validarCodigo();
 	
 	if($_SESSION["next"] == "true")
 	{
 		$nuevoCodigo->eliminarCodigo();
+		echo $_SESSION["next"];
 		if($_SESSION["next"] == "deleted")
 		{
+			$_SESSION["keyLogger"] = md5($correo);
 			$_SESSION["key_password"] = "true";
-			header('Location: usuarioNuevoPassword.php');
+			header('Location: usuarioNuevoPassword.php?keyLogger='.$_SESSION["keyLogger"].'');
 		}
 		else
 		{
@@ -35,7 +38,7 @@ if($_SESSION["next"] == "confirmed")
 }
 else
 {
-	$_SESSION["error"] = "Correo electronico invalido";
+	$_SESSION["error"] = "Solicitud incorrecta, valores erroneos";
 	header("Location: restablecerPassword.php");
 }
 ?>

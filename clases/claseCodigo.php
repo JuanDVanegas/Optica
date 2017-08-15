@@ -31,7 +31,12 @@ class Codigo
 	{
 		include("database/conexion.php");
 		$sql = "SELECT * FROM codigo WHERE numero='$this->numero' AND tipo='$this->tipo'";
-		if($db->query($sql))
+		if(!$result = $db->query($sql))
+		{
+			die("Error database");
+		}
+		else;
+		if($result->fetch_assoc())
 		{
 			$_SESSION["next"]="true";
 		}
@@ -45,7 +50,8 @@ class Codigo
 	{
 		include("database/conexion.php");
 		$sql = "DELETE FROM codigo WHERE numero='$this->numero' AND tipo='$this->tipo'";
-		if($db->query($sql))
+		
+		if ($db->query($sql) == true)
 		{
 			$_SESSION["next"]="deleted";
 		}
