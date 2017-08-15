@@ -7,11 +7,13 @@ include("clases/claseLogin.php");
 include("clases/claseCodigo.php");
 
 $correo = $_POST["correo"];
+$numero = rand(1000000000,9999999999999);
+$trick = md5($correo);
 $subject = "Restablecer Contraseña";
-$message = "Haz Click en el siguiente enlace para continuar: http://www.optica-all.com/controlador-restablecerpassword.php?trick=$correo&code";
+$message = "Haz Click en el siguiente enlace para continuar: http://www.optica-all.com/controlador_restablecerPassword.php?trick=$trick&code=$numero";
 $header = "From: Soporte Optica<soporte@optica-all.com>/r/n";
 $header.= "Reply-to: opticaallinone@gmail.com"; 
-$numero = rand(1000000000,9999999999999);
+
 
 $validarCorreo = new Login($correo,"","");
 $validarCorreo->validarCorreoElectronico();
@@ -34,9 +36,9 @@ if($_SESSION["next"] == "confirmed")
 		}
 	}
 	else
-	{
-		$_SESSION["error"] = "No se ha podido generar serial";
-		//header("Location: restablecerPassword.php");
+	{		
+		$_SESSION["error"] = "No se ha podido generar serial $numero";
+		header("Location: restablecerPassword.php");
 	}
 }
 else

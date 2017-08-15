@@ -152,7 +152,6 @@ class Login
 			if(isset($_SESSION["restablecer"]))
 			{
 				$_SESSION["next"] = "confirmed";
-				
 			}
 			
 		}

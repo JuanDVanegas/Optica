@@ -1,9 +1,9 @@
 <?php
 class Codigo
 {
-	private $id_codigo;
-	private $numero;
-	private $tipo;
+	private $id_codigo = 0;
+	private $numero = 0;
+	private $tipo = 0;
 	
 	public function __construct($Numero,$Tipo,$Id_codigo)
 	{
@@ -14,7 +14,8 @@ class Codigo
 	
 	public function nuevoCodigo()
 	{
-		include("database/conexion.php");		
+		include("database/conexion.php");	
+		
 		$sql = "INSERT INTO codigo(numero,tipo) VALUES('$this->numero','$this->tipo')";
 		if($db->query($sql))
 		{
@@ -37,6 +38,20 @@ class Codigo
 		else
 		{
 			$_SESSION["next"]="false";
+		}
+	}
+	
+	public function eliminarCodigo()
+	{
+		include("database/conexion.php");
+		$sql = "DELETE FROM codigo WHERE numero='$this->numero' AND tipo='$this->tipo'";
+		if($db->query($sql))
+		{
+			$_SESSION["next"]="deleted";
+		}
+		else
+		{
+			$_SESSION["next"]="error";
 		}
 	}
 }
