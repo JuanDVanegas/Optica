@@ -18,7 +18,7 @@ $validarCorreo->validarCorreoElectronico();
 
 if($_SESSION["next"] == "confirmed")
 {
-	$nuevoCodigo = new Codigo($numero,$subject,'');
+	$nuevoCodigo = new Codigo($numero,$subject,"");
 	$nuevoCodigo->nuevoCodigo();
 	if($_SESSION["next"] == "inserted")
 	{
@@ -36,7 +36,7 @@ if($_SESSION["next"] == "confirmed")
 	else
 	{
 		$_SESSION["error"] = "No se ha podido generar serial";
-		header("Location: restablecerPassword.php");
+		//header("Location: restablecerPassword.php");
 	}
 }
 else

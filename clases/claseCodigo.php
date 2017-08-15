@@ -14,8 +14,8 @@ class Codigo
 	
 	public function nuevoCodigo()
 	{
-		include("../database/conexion.php");
-		$sql = "INSERT INTO codigo(numero,tipo) values('$this->numero','$this->tipo')";
+		include("database/conexion.php");		
+		$sql = "INSERT INTO codigo(numero,tipo) VALUES('$this->numero','$this->tipo')";
 		if($db->query($sql))
 		{
 			$_SESSION["next"]="inserted";
@@ -28,7 +28,7 @@ class Codigo
 	
 	public function validarCodigo()
 	{
-		include("../database/conexion.php");
+		include("database/conexion.php");
 		$sql = "SELECT * FROM codigo WHERE numero='$this->numero' AND tipo='$this->tipo'";
 		if($db->query($sql))
 		{

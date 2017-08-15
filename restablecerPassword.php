@@ -12,7 +12,8 @@
 <script type="text/javascript" src="javascript/bootstrap.js"></script>
 </head>
 <body>
-	<?php include ('modules/navbar.php'); ?>
+	<?php include ('modules/navbar.php'); 
+	session_start();?>
     <div class="body-content container">
          <div class="row">
            <div class="col-md-12"> 
@@ -25,14 +26,14 @@
          </div>
          <div class="row">
             <div class="col-md-6">
-            	<form id="form1" name="form1" method="post" action="controlador-enviarRestablecer.php">
+            	<form id="form1" name="form1" method="post" action="controlador_enviarRestablecer.php">
                 	<br />
                 	<div class="row">
                     	<div class="col-md-5">
                         	<p>Correo Electronico</p>
                         </div>
                     	<div class="col-md-7">
-          					<input class="form-control" type="mail" name="textfield" id="textfield" />
+          					<input class="form-control" type="mail" name="correo" id="textfield" />
                         </div>
                     </div>
                     <br />
