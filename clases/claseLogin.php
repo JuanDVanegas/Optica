@@ -162,31 +162,49 @@ class Login
 	{
 		include('database/conexion.php');
 		unset($_SESSION["keyLogger"]);
-		$sql="UPDATE login SET password = '$this->password' WHERE email = '$this->email'";
+		$sql="UPDATE login SET password='$this->password' WHERE email='$this->email'";
 		if($db->query($sql) == true)
 		{
-			$_SESSION["resultActualizar"] = "su contraseña ha sido modificada exitosamente";
-			if($_SESSION["rolUsuario"] == "Medico")
+			if(isset($_SESSION["rolUsuario"]))
 			{
-				header("Location: cuentaMedicoPerfilPassword.php");
+				$_SESSION["resultActualizar"] = "su contraseña ha sido modificada exitosamente";
+			
+				if($_SESSION["rolUsuario"] == "Medico")
+				{
+					header("Location: cuentaMedicoPerfilPassword.php");
+				}
+				else
+				{
+					header("Location: cuentaPacientePerfilPassword.php");
+				}
 			}
 			else
 			{
-				header("Location: cuentaPacientePerfilPassword.php");
-			}
+				header("Location: index.php");
+			}			
 		}
 		else
-		{
-			$_SESSION["error"] = "FAIL";
-			$_SESSION["resultActualizar"] = "Error al actualizar la contraseña";
-			if($_SESSION["rolUsuario"] == "Medico")
+		{			
+			if(isset($_SESSION["rolUsuario"]))
 			{
-				header("Location: cuentaMedicoPerfilPassword.php");
+				$_SESSION["error"] = "FAIL";
+				$_SESSION["resultActualizar"] = "Error al actualizar la contraseña";
+			
+				if($_SESSION["rolUsuario"] == "Medico")
+				{
+					header("Location: cuentaMedicoPerfilPassword.php");
+				}
+				else
+				{
+					header("Location: cuentaPacientePerfilPassword.php");
+				}
 			}
 			else
-			{ 
-				header("Location: cuentaPacientePerfilPassword.php");
+			{
+				$_SESSION["error"] = "Error al actualizar la contraseña";
+				header("Location: index.php");
 			}
+			
 		}
 	}
 	public function actualizarCorreo()

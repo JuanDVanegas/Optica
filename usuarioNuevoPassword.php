@@ -42,7 +42,7 @@
                         </div>
                     	<div class="col-md-7">
           					<input class="form-control" type="password" name="confirmarPass" id="textfield" />
-                            <input type="hidden" name="correoElectronico" value="<?php echo md5($_SESSION["keyLogger"]);?>"
+                            <input type="hidden" name="correoElectronico" value="<?php echo $_SESSION["keyLogger"];?>"
                         </div>
                     </div>
                     <br />

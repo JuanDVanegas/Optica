@@ -4,7 +4,7 @@ include('clases/claseLogin.php');
 include('clases/claseCodigo.php');
 session_start();
 $_SESSION["restablecer"] = 1;
-$correo = md5($_GET["trick"]);
+$correo = $_GET["trick"];
 $codigo = $_GET["code"];
 $subject = "Restablecer Contraseña";
 $validarCorreo = new Login($correo,"","");
@@ -20,7 +20,7 @@ if($_SESSION["next"] == "confirmed")
 		echo $_SESSION["next"];
 		if($_SESSION["next"] == "deleted")
 		{
-			$_SESSION["keyLogger"] = md5($correo);
+			$_SESSION["keyLogger"] = $correo;
 			$_SESSION["key_password"] = "true";
 			header('Location: usuarioNuevoPassword.php?keyLogger='.$_SESSION["keyLogger"].'');
 		}
