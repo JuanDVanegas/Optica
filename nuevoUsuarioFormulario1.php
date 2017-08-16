@@ -144,7 +144,9 @@
         <?php include ('modules/footer.php'); ?>
     </div></form>
     <?php 
-        unset($_SESSION["errorRegistro"]);unset($_SESSION["reg"]);unset($_SESSION["next"]);unset($_SESSION["entidad"]);
+       if(isset($_SESSION["errorRegistro"])){unset($_SESSION["errorRegistro"]);}
+	   if(isset($_SESSION["reg"])){unset($_SESSION["reg"]);}
+	   if(isset($_SESSION["next"])){unset($_SESSION["next"]);}
     ?>
 </body>
 <footer>
