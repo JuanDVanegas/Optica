@@ -24,7 +24,7 @@
                 <br />
                 <?php include('cuentaMedicoMenu.php')?>
             </div>
-            <?php include('modules/news.php');
+            <?php include('modules/news.php');?>
         </div><?php include ('modules/footer.php'); ?>
      </div>     
   </body>

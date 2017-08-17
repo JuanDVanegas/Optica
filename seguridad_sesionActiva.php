@@ -13,6 +13,11 @@ if (isset($_SESSION["status"]))
 		header("Location: cuentaPacienteInicio.php");
 	}
 	else;
+	if($_SESSION["status"]==3)
+	{
+		header("Location: cuentaAdminInicio.php");
+	}
+	else;
 }
 else;
 ?>

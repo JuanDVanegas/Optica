@@ -36,7 +36,7 @@
                                 <p>Nombre</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" name="nombre" value="<?php echo $_SESSION["nombre"];?>" />
+                                <input class="form-control" type="text" name="nombre" value="<?php echo $_SESSION["nombre"];?>" required/>
                             </div>
                         </div>
                         <br />
@@ -45,7 +45,7 @@
                                 <p>Apellido</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" name="apellido" value="<?php echo $_SESSION["apellido"];?>" />
+                                <input class="form-control" type="text" name="apellido" value="<?php echo $_SESSION["apellido"];?>" required/>
                             </div>
                         </div>
                         <br />
@@ -70,7 +70,7 @@
                                 <p>Documento</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" name="numeroDocumento" pattern="+[0-9]" value="<?php echo $_SESSION["numeroDocumento"];?>" />
+                                <input class="form-control" type="text" name="numeroDocumento" pattern="+[0-9]" value="<?php echo $_SESSION["numeroDocumento"];?>" required/>
                             </div>
                         </div>
                         <br />
@@ -79,7 +79,7 @@
                                 <p>Fecha de nacimiento</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="date" name="nacimiento" value="<?php echo $_SESSION["nacimiento"];?>" />
+                                <input class="form-control" type="date" name="nacimiento" value="<?php echo $_SESSION["nacimiento"];?>" required/>
                             </div>
                         </div>
                         <br />
@@ -88,7 +88,7 @@
                                 <p>Correo electronico</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="mail" name="correo" value="<?php echo $_SESSION["correoElectronico"];?>"/>
+                                <input class="form-control" type="mail" name="correo" value="<?php echo $_SESSION["correoElectronico"];?>" readonly="readonly"/>
                             </div>
                         </div>
                         <br />
@@ -97,7 +97,7 @@
                                 <p>Telefono</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" name="telefono" pattern="+[0-9]" value="<?php echo $_SESSION["telefono"];?>"/>
+                                <input class="form-control" type="text" name="telefono" pattern="+[0-9]" value="<?php echo $_SESSION["telefono"];?>"required/>
                             </div>
                         </div>
                         <br />

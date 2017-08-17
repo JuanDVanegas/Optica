@@ -138,13 +138,14 @@ class Usuario
 			$_SESSION["tipoDocumento"] = $this->tipoDocumento;
 			$_SESSION["numeroDocumento"]= $this->numeroDocumento;
 			$_SESSION["telefono"] = $this->telefono;
-			if($_SESSION["rolUsuario"] = "Medico")
+			
+			if($_SESSION["rolUsuario"] == "Medico")
 			{
-				header("Location: cuentaMedicoPerfil.php");
+			 	header("Location: cuentaMedicoPerfil.php");
 			}
 			else
 			{
-				if($_SESSION["rolUsuario"] = "Admin")
+				if($_SESSION["rolUsuario"] == "Admin")
 				{
 					header("Location: cuentaAdminPerfil.php");
 				}
@@ -160,14 +161,21 @@ class Usuario
 		{
 			$_SESSION["resultActualizar"] = "Error al actualizar sus información personal";
 			header("Location: index.php");
-			if($_SESSION["rolUsuario"] = "Admin")
+			if($_SESSION["rolUsuario"] == "Medico")
 			{
-				header("Location: cuentaAdminPerfil.php");
+				header("Location: cuentaMedicoPerfil.php");
 			}
 			else
 			{
-				header("Location: cuentaPacientePerfil.php");
-			}	
+				if($_SESSION["rolUsuario"] == "Admin")
+				{
+					header("Location: cuentaAdminPerfil.php");
+				}
+				else
+				{
+					header("Location: cuentaPacientePerfil.php");
+				}				
+			}
 			
 		}
 	}

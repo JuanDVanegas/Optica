@@ -24,7 +24,7 @@ class Login
 		}
 		else
 		{
-			$_SESSION["errorRegistro"] = "Error en el sistema 400, intentelo de nuevo";
+			$_SESSION["errorRegistro"] = "Error en el sistema 27, intentelo de nuevo";
 			if($_SESSION["reg"]==1)
 			{
 				header("Location: nuevoUsuarioFormulario1.php");
@@ -98,15 +98,23 @@ class Login
 					}
 					else;
 					
-					if($_SESSION["rolUsuario"]=="Medico")
+					if($_SESSION["rolUsuario"] == "Medico")
 					{
 						$_SESSION["status"]="1";
 						header("Location: index.php");
 					}
 					else
 					{
-						$_SESSION["status"]="2";
-						header("Location: index.php");
+						if($_SESSION["rolUsuario"] == "Admin")
+						{
+							$_SESSION["status"] = "3";
+							header("Location: index.php");
+						}
+						else
+						{
+							$_SESSION["status"] = "2";
+							header("Location: index.php");
+						}						
 					}
 				}
 				else;
@@ -152,7 +160,7 @@ class Login
 				}
 				else
 				{
-					if($_SESSION["reg"==3)
+					if($_SESSION["reg"==3])
 					{
 						header("Location: cuentaAdminNuevoUsuario.php");
 					}
