@@ -31,7 +31,14 @@ class Login
 			}
 			else
 			{
-				header("Location: nuevoUsuarioFormulario2.php");
+				if($_SESSION["reg"]==3)
+				{
+					header("Location: cuentaAdminNuevoUsuario.php");
+				}
+				else
+				{
+					header("Location: nuevoUsuarioFormulario2.php");
+				}
 			}
 		}
 		
@@ -145,7 +152,14 @@ class Login
 				}
 				else
 				{
-					header("Location: nuevoUsuarioFormulario2.php");
+					if($_SESSION["reg"==3)
+					{
+						header("Location: cuentaAdminNuevoUsuario.php");
+					}
+					else
+					{
+						header("Location: nuevoUsuarioFormulario2.php");
+					}
 				}
 			}
 			else;
@@ -175,7 +189,15 @@ class Login
 				}
 				else
 				{
-					header("Location: cuentaPacientePerfilPassword.php");
+					if($_SESSION["rolUsuario"] = "Admin")
+					{
+						header("Location: cuentaAdminPerfilPassword.php");
+					}
+					else
+					{
+						header("Location: cuentaPacientePerfilPassword.php");
+					}	
+		
 				}
 			}
 			else
@@ -196,7 +218,14 @@ class Login
 				}
 				else
 				{
-					header("Location: cuentaPacientePerfilPassword.php");
+					if($_SESSION["rolUsuario"] = "Admin")
+					{
+						header("Location: cuentaAdminPerfilPassword.php");
+					}
+					else
+					{
+						header("Location: cuentaPacientePerfilPassword.php");
+					}
 				}
 			}
 			else

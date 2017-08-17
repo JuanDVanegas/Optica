@@ -89,7 +89,14 @@ class Usuario
 			}
 			else
 			{
-				header("Location: nuevoUsuarioFormulario2.php");
+				if($_SESSION["reg"]==3)
+				{
+					header("Location: cuentaAdminNuevoUsuario.php");
+				}
+				else
+				{
+					header("Location: nuevoUsuarioFormulario2.php");
+				}				
 			}
 		}
 		else;
@@ -137,7 +144,14 @@ class Usuario
 			}
 			else
 			{
-				header("Location: cuentaPacientePerfil.php");
+				if($_SESSION["rolUsuario"] = "Admin")
+				{
+					header("Location: cuentaAdminPerfil.php");
+				}
+				else
+				{
+					header("Location: cuentaPacientePerfil.php");
+				}				
 			}
 			
 			
@@ -146,14 +160,14 @@ class Usuario
 		{
 			$_SESSION["resultActualizar"] = "Error al actualizar sus información personal";
 			header("Location: index.php");
-			if($_SESSION["rolUsuario"] = "Medico")
+			if($_SESSION["rolUsuario"] = "Admin")
 			{
-				header("Location: cuentaMedicoPerfil.php");
+				header("Location: cuentaAdminPerfil.php");
 			}
 			else
 			{
 				header("Location: cuentaPacientePerfil.php");
-			}
+			}	
 			
 		}
 	}
