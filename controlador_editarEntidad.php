@@ -7,5 +7,5 @@ $addres = $_POST["address"];
 $detalles = $_POST["detalles"];
 
 $editarEntidad = new Entidad($id_entidad,$nombre,$addres,"",$detalles);
-$editarEntidad->editarEntidad();
+$editarEntidad->editarEntidad();	
 ?>

@@ -28,8 +28,10 @@
                     <div class="row">
                         <div class="col-md-10">
                             <h2>Entidades Opticas u oftalmologicas</h2>
-                            <?php if(isset($_SESSION["success"])){echo "<h4 class='text-success'>".$_SESSION["success"]."</h4>";}
-							if(isset($_SESSION["error"])){echo "<h4 class='text-danger'>".$_SESSION["error"]."</h4>";}?>
+                            <?php if(isset($_SESSION["success"])){echo "<h4 class='text-success'>".$_SESSION["success"]."</h4>";
+							unset($_SESSION["success"]);}
+							if(isset($_SESSION["error"])){echo "<h4 class='text-danger'>".$_SESSION["error"]."</h4>";
+							unset($_SESSION["error"]);}?>
                             <h4>Lista de entidades vinculadas al sistema de información</h4>
                         </div>
                     </div>
@@ -102,13 +104,13 @@
                                         $detalles
                                     </td>
 									<td>
-										<a href='http:www.optica-all.com/controlador-eliminarEntidad.php?entidad='".$id."'>Eliminar</a>
+										<a href='controlador-eliminarEntidad.php?entidad=".$id."'>Eliminar</a>
 									</td>
 									<td>
-										<a href='http:www.optica-all.com/cuentaAdminEntidadesEditar?entidad='".$id."'>Editar</a>
+										<a href='cuentaAdminEntidadesEditar.php?entidad=".$id."'>Editar</a>
 									</td>
                                 </tr>";
-                                
+                                //http:www.optica-all.com/
                             }
                             echo "</table>";
                             ?>

@@ -23,12 +23,12 @@ class Entidad
 		if($db->query($sql) == true)
 		{
 			$_SESSION["success"] = "entidad eliminada &radic;";
-			header("cuentaAdminEntidades.php");
+			header("Location: cuentaAdminEntidades.php");
 		}
 		else
 		{
 			$_SESSION["error"] = "error al eliminar &Chi;";
-			header("cuentaAdminEntidades.php");
+			header("Location: cuentaAdminEntidades.php");
 		}
 	}
 	
@@ -39,12 +39,12 @@ class Entidad
 		if($db->query($sql) == true)
 		{
 			$_SESSION["success"] = "entidad actualizada &radic;";
-			header("cuentaAdminEntidades.php");
+				header("Location: cuentaAdminEntidades.php");
 		}
 		else
 		{
 			$_SESSION["error"] = "error al actualizar &Chi;";
-			header("cuentaAdminEntidades.php");
+			header("Location: cuentaAdminEntidades.php");
 		}
 	}
 }

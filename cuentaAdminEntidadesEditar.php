@@ -28,7 +28,7 @@
                     <div class="row">
                         <div class="col-md-10">
                             <h2>Entidades Opticas u oftalmologicas</h2>
-                            <h4>Editar Valores de la entidad/h4>
+                            <h4>Editar Valores de la entidad</h4>
                         </div>
                     </div>
                     
