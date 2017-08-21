@@ -1,15 +1,10 @@
 <?php
-
-class Medico
+include("claseUsuario.php");
+class Administrador extends Usuario
 {
-	
-	public function __construct()
-	{
-	}
 	
 	public function algo()
 	{
-		
 	}
 	
 	public function boom()

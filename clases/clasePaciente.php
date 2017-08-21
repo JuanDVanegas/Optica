@@ -1,4 +1,5 @@
 <?php
+include('claseUsuario.php');
 
 class Paciente extends Usuario
 {

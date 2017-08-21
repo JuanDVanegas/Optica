@@ -1,11 +1,14 @@
 <?php
+include('claseUsuario.php');
 
-class Medico
+class Medico extends Usuario
 {
 	public $nombreEntidad;
 	public $codigo;
+	
 	public function __construct($NombreEntidad,$Codigo)
 	{
+		parent::__construct($RolUsuario,$Nombre,$Apellido,$TipoDocumento,$NumeroDocumento,$Telefono,$Nacimiento,$Entidad);
 		$this->nombreEntidad = $NombreEntidad;
 		$this->codigo = $Codigo;
 	}

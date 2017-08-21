@@ -28,6 +28,8 @@
                     <div class="row">
                         <div class="col-md-10">
                             <h2>Entidades Opticas u oftalmologicas</h2>
+                            <?php if(isset($_SESSION["success"])){echo "<h4 class='text-success'>".$_SESSION["success"]."</h4>";}
+							if(isset($_SESSION["error"])){echo "<h4 class='text-danger'>".$_SESSION["error"]."</h4>";}?>
                             <h4>Lista de entidades vinculadas al sistema de información</h4>
                         </div>
                     </div>
@@ -103,7 +105,7 @@
 										<a href='http:www.optica-all.com/controlador-eliminarEntidad.php?entidad='".$id."'>Eliminar</a>
 									</td>
 									<td>
-										<a href='http:www.optica-all.com/controlador-editarEntidad.php?entidad='".$id."'>Editar</a>
+										<a href='http:www.optica-all.com/cuentaAdminEntidadesEditar?entidad='".$id."'>Editar</a>
 									</td>
                                 </tr>";
                                 
@@ -120,17 +122,17 @@
                                 echo "<nav aria-label='Page navigation'>
                                   <ul class='pagination'>
                                     <li>
-                                      <a href='menuEntidades.php?pagina=1' aria-label='Previous'>
+                                      <a href='cuentaAdminEntidades.php?pagina=1' aria-label='Previous'>
                                         <span aria-hidden='true'>&laquo;</span>
                                       </a>
                                     </li>";
                                     for($i=1; $i<=$total_pagina;$i++)
                                     {
-                                        echo"<li><a href='menuEntidades.php?pagina=".$i."'>".$i."</a> ";
+                                        echo"<li><a href='cuentaAdminEntidades.php?pagina=".$i."'>".$i."</a> ";
                                     }
                                     echo"							
                                     <li>
-                                      <a href='menuEntidades.php?pagina=$total_pagina' aria-label='Next'>
+                                      <a href='cuentaAdminEntidades.php?pagina=$total_pagina' aria-label='Next'>
                                         <span aria-hidden='true'>&raquo;</span>
                                       </a>
                                     </li>
