@@ -27,7 +27,7 @@
                 <!--Nueva Insersion-->
                     <div class="row">
                         <div class="col-md-10">
-                            <h2>Entidades Opticas u oftalmologicas</h2>
+                            <h2>Entidades &Oacute;pticas u oftalmologicas</h2>
                             <?php if(isset($_SESSION["success"])){echo "<h4 class='text-success'>".$_SESSION["success"]."</h4>";
 							unset($_SESSION["success"]);}
 							if(isset($_SESSION["error"])){echo "<h4 class='text-danger'>".$_SESSION["error"]."</h4>";
@@ -80,6 +80,9 @@
                                             <b>Detalles</b>
                                         </td>
 										<td>
+                                            <b>Codigo</b>
+                                        </td>
+										<td>
 										</td>
 										<td>
 										</td>
@@ -91,7 +94,6 @@
                                 $nombreEntidad = stripslashes($row1["nombre"]);
                                 $direccion = stripslashes($row1["address"]);
                                 $codigo = stripslashes($row1["codigo"]);
-                                $sedePrincipal = stripslashes($row1["sedePrincipal"]);
                                 $detalles = stripslashes($row1["detalles"]);
                                 echo "<tr>
                                     <td>
@@ -104,7 +106,10 @@
                                         $detalles
                                     </td>
 									<td>
-										<a href='controlador-eliminarEntidad.php?entidad=".$id."'>Eliminar</a>
+                                        $codigo
+                                    </td>
+									<td>
+										<a href='controlador_eliminarEntidad.php?entidad=".$id."'>Eliminar</a>
 									</td>
 									<td>
 										<a href='cuentaAdminEntidadesEditar.php?entidad=".$id."'>Editar</a>

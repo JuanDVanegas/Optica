@@ -53,7 +53,7 @@
                         <br />
                         <div class="col-md-10">
                          <form action="controlador_editarEntidad.php" method="post" name="editarEntidad">
-                         <input type="hidden" value="value="<?php echo $id_entidad;?>"" name="id_entidad" />
+                         <input type="hidden" value="<?php echo $id_entidad;?>" name="id_entidad" />
                         <div class="row">
                             <div class="col-sm-3">
                                 <p>Nombre</p>
@@ -85,6 +85,10 @@
                             <div class="col-sm-4">
                                 <br />
                                 <input class="btn btn-default" type="submit" name="confirmar" value="Actualizar" />
+                            </div>
+                            <div class="col-sm-offset-2 col-sm-4">
+                            	<br />	
+                            	<a href="cuentaAdminEntidades.php">Regresar</a>
                             </div>
                         </div>
                          </form>
