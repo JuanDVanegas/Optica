@@ -1,7 +1,7 @@
 <?php
 session_start();
 $_SESSION["reg"] = 3;
-include('clases/claseAdmin.php');
+include('clases/claseAdministrador.php');
 include('clases/claseUsuario.php');
 include('clases/claseLogin.php');
 
@@ -10,12 +10,12 @@ if($_POST["password"] == $_POST["confirmar"])
 	$correo = new Login($_POST["mail"],"",0);
 	$correo->validarCorreoElectronico();
 	
-	$doc = new Usuario("","","",$_POST["tipo"],$_POST["documento"],"","","");
+	$doc = new Usuario("","","",$_POST["tipo"],$_POST["documento"],"","","","");
 	$doc->validarDocumento();
 
 	if(!isset($_SESSION["errorRegistro"]))
 	{
-		$nuevoUsuario = new Usuario($_POST["rol"],$_POST["nombre"],$_POST["apellido"],$_POST["tipo"],$_POST["documento"],0,$_POST["fecha"],$_SESSION["entidad"]);
+		$nuevoUsuario = new Usuario($_POST["rol"],$_POST["nombre"],$_POST["apellido"],$_POST["tipo"],$_POST["documento"],0,$_POST["fecha"],$_POST["entidad"],$_POST["genero"]);
 		$nuevoUsuario->registrar();
 		
 		if($_SESSION["next"]==1)
@@ -31,7 +31,7 @@ if($_POST["password"] == $_POST["confirmar"])
 }
 else
 {
-	$_SESSION["errorRegistro"]= "<h2>Las contraseñas no coinciden</h2>";
+	$_SESSION["errorRegistro"]= "Las contraseñas no coinciden";
 	header('Location: cuentaAdminNuevoUsuario.php');
 }
 ?>

@@ -57,9 +57,6 @@
                             	<b>Nombre Entidad</b>
 							</td>
 							<td>
-								<b>Sede Principal</b>
-							</td>
-							<td>
 								<b>Dirección</b>
 							</td>
 							<td>
@@ -72,14 +69,10 @@
 					$nombreEntidad = stripslashes($row1["nombre"]);
 					$direccion = stripslashes($row1["address"]);
 					$codigo = stripslashes($row1["codigo"]);
-					$sedePrincipal = stripslashes($row1["sedePrincipal"]);
 					$detalles = stripslashes($row1["detalles"]);
 					echo "<tr>
 						<td>
 							$nombreEntidad
-						</td>
-						<td>
-							$sedePrincipal
 						</td>
 						<td>
 							$direccion

@@ -9,8 +9,9 @@ class Usuario
 	private $telefono;
 	private $nacimiento;
 	private $entidad;
+	private $genero;
 	
-	public function __construct($RolUsuario,$Nombre,$Apellido,$TipoDocumento,$NumeroDocumento,$Telefono,$Nacimiento,$Entidad)
+	public function __construct($RolUsuario,$Nombre,$Apellido,$TipoDocumento,$NumeroDocumento,$Telefono,$Nacimiento,$Entidad,$Genero)
 	{
 		$this->rolUsuario = $RolUsuario;
 		$this->nombre = $Nombre;
@@ -20,15 +21,16 @@ class Usuario
 		$this->telefono = $Telefono;
 		$this->nacimiento = $Nacimiento;
 		$this->entidad = $Entidad;
+		$this->genero = $Genero;
 	}	
 	
 	public function registrar()
 	{
 		
 		include('database/conexion.php');
-		$sql="INSERT INTO usuario (nombre,apellido,tipoDocumento,numeroDocumento,rolUsuario,nacimiento,entidad,telefono)
-		VALUES ('$this->nombre','$this->apellido','$this->tipoDocumento','$this->numeroDocumento','$this->rolUsuario','$this->nacimiento','$this->entidad','$this->telefono')";
-		if ($db->query($sql) === TRUE)
+		$sql="INSERT INTO usuario (nombre,apellido,tipoDocumento,numeroDocumento,rolUsuario,nacimiento,entidad,telefono,genero)
+		VALUES ('$this->nombre','$this->apellido','$this->tipoDocumento','$this->numeroDocumento','$this->rolUsuario','$this->nacimiento','$this->entidad','$this->telefono','$this->genero')";
+		if ($db->query($sql) == true)
 		{
 			$sql4="SELECT * FROM usuario WHERE tipoDocumento='$this->tipoDocumento' AND numeroDocumento='$this->numeroDocumento'";
 			if(!$result4 = $db->query($sql4))
@@ -52,7 +54,14 @@ class Usuario
 				}
 				else
 				{
-					header("Location: nuevoUsuarioFormulario2.php");
+					if($_SESSION["reg"]==3)
+					{
+						header("Location: cuentaAdminNuevoUsuario.php");
+					}
+					else
+					{
+						header("Location: nuevoUsuarioFormulario2.php");
+					}				
 				}
 			}
 		}
@@ -65,7 +74,14 @@ class Usuario
 			}
 			else
 			{
-				header("Location: nuevoUsuarioFormulario2.php");
+				if($_SESSION["reg"]==3)
+				{
+					header("Location: cuentaAdminNuevoUsuario.php");
+				}
+				else
+				{
+					header("Location: nuevoUsuarioFormulario2.php");
+				}				
 			}
 		}
 	}

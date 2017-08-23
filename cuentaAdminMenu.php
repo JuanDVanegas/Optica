@@ -3,4 +3,5 @@
  <a href="cuentaAdminPerfil.php" target="_parent">Perfil</a>
  <a href="cuentaAdminEntidades.php" target="_parent">Entidades</a>
  <a href="cuentaAdminNuevoUsuario.php" target="_parent">Nuevo Usuario</a>
+ <a href="cuentaAdminEliminarUsuario.php" target="_parent">Eliminar Usuario</a>
 </div>

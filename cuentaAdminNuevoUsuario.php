@@ -31,8 +31,7 @@
                             <?php 
                             if(isset($_SESSION["errorRegistro"]))
                             {
-                                $errorRegistro = $_SESSION["errorRegistro"];
-                                echo '<h3 class="text-danger">$errorRegistro</h3>';
+                                echo "<h3 class='text-danger'>".$_SESSION["errorRegistro"]."</h3>";
                             }
                             ?>
                         </div>
@@ -41,7 +40,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="row">
-                            <form action="" method="post" name="newUsuario">
+                            <form action="controlador_nuevoUsuarioAdmin.php" method="post" name="newUsuario">
                                 <div class="col-md-5">
                                     <p>Nombre</p>
                                 </div>
@@ -56,6 +55,19 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input class="form-control" type="text" name="apellido" id="textfield5" pattern="[A-Za-z ]+" required/>
+                                </div>
+                            </div>
+                            <br />
+                             <div class="row">
+                                <div class="col-md-5">
+                                    <p>Genero</p>
+                                </div>
+                                <div class="col-md-7">
+                                    <select class="form-control" name="genero" id="select_genre">
+                                      <option value="M" selected="selected">Masculino</option>
+                                      <option value="F" >Femenino</option>
+                                      <option value="O">Otro</option>
+                                  </select>
                                 </div>
                             </div>
                             <br />
@@ -115,7 +127,7 @@
                                     <p>Correo Electronico</p>
                                 </div>
                                 <div class="col-md-7">
-                                    <input class="form-control" type="mail" name="mail" id="textfield6" required/>
+                                    <input class="form-control" type="email" name="mail" id="textfield6" required/>
                                 </div>
                             </div>
                             <br />

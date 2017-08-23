@@ -61,7 +61,7 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <br />
-                            <a href="cuentaAdministradorPerfil.php" target="_parent">Regresar</a>
+                            <a href="cuentaAdminPerfil.php" target="_parent">Regresar</a>
                         </div>
                         <div class="col-sm-4">
                             <br />

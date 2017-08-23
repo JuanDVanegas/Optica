@@ -14,12 +14,19 @@ if($_POST["password"] == $_POST["confirmar"])
 	$correo = new Login($_POST["mail"],"",0);
 	$correo->validarCorreoElectronico();
 	
-	$doc = new Usuario("","","",$_POST["tipo"],$_POST["documento"],"","","");
+	$doc = new Usuario("","","",$_POST["tipo"],$_POST["documento"],"","","","");
 	$doc->validarDocumento();
 
 	if(!isset($_SESSION["errorRegistro"]))
 	{
-		include('nuevoUsuarioMedico.php');
+		$usuarioMedico = new Usuario($_POST["rol"],$_POST["nombre"],$_POST["apellido"],$_POST["tipo"],$_POST["documento"],0,$_POST["fecha"],$_SESSION["entidad"],"");
+		$usuarioMedico->registrar();
+		
+		if($_SESSION["next"]==1)
+		{
+			$registroFinal = new Login($_POST["mail"],$_POST["password"],$_SESSION["fk_user"]);
+			$registroFinal->registrar();
+		}
 	}
 	else
 	{

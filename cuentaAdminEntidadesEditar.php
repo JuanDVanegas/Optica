@@ -88,7 +88,7 @@
                             </div>
                             <div class="col-sm-offset-2 col-sm-4">
                             	<br />	
-                            	<a href="cuentaAdminEntidades.php">Regresar</a>
+                            	<a href="javascript:window.history.back();">Regresar</a>
                             </div>
                         </div>
                          </form>

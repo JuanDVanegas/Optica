@@ -85,6 +85,7 @@ class Login
 					$_SESSION["numeroDocumento"]=stripslashes($row1["numeroDocumento"]);
 					$_SESSION["id_entidad"]=stripslashes($row1["entidad"]);
 					$_SESSION["telefono"]=stripslashes($row1["telefono"]);
+					$_SESSION["genero"]=stripslashes($row1["genero"]);
 					
 					$sql2="SELECT * FROM entidad WHERE id_entidad='".$_SESSION["id_entidad"]."'";
 					if(!$result2 = $db->query($sql2))
@@ -160,7 +161,7 @@ class Login
 				}
 				else
 				{
-					if($_SESSION["reg"==3])
+					if($_SESSION["reg"]==3)
 					{
 						header("Location: cuentaAdminNuevoUsuario.php");
 					}
