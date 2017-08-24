@@ -105,7 +105,7 @@
 								$fecha
 							</td>
 							<td>
-								<a href=cuentaMedicoHistorialDetalle.php?idHistorial=$fk_registro >Ver</a>
+								<a href=cuentaPacienteHistorialDetalle.php?idHistorial=$fk_registro >Ver</a>
 							</td>
 						</tr>";
 					}

@@ -13,14 +13,14 @@
 	<?php include ('modules/navbar.php'); ?>
 	<div class="body-content container">
     	<div class="row">
-            <div class="col-md-8">
+            <div class="col-md-offset-1 col-md-8">
                 <h2>Entidades Opticas u oftalmologicas</h2>
                 <h4>Lista de entidades vinculadas al sistema de información</h4>
             </div>
         </div>
 		<div class="row">
         	<br />
-        	<div class="col-md-8">
+        	<div class="col-md-offset-1 col-md-6">
             	<?php 
 				sleep(2);
 				include('database/conexion.php');
@@ -114,7 +114,7 @@
                     ?>
                  </div>          
             </div>
-            <div class="col-md-4">
+            <div class="col-md-offset-1 col-md-3">
                     <h4 class="text-info">¿tu entidad de confianza no esta vinculada?</h4>
                     <p>Estoy interesado en agregar una nueva entidad optica u oftalmologica a este sitio web</p>
                     <a href="">Postular Nueva</a>

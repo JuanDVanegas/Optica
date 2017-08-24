@@ -13,28 +13,24 @@
 <body>
 	<?php include ('modules/navbar.php'); ?>
 	<div class="body-content container">
-		<h2>Acerca de</h2>
-		<h3>Introduccion</h3>
-		<p>Optical all in one es un sistema que tiene como función principal almacenar y gestionar las historias clinicas de los pacientes con problemas
-			visuales y enfermedades referentes a su sentido visual. En el sistema de información se puede compartir los reportes generados por cada entidad
-			asociada al proyecto, con el fin de encontrar un metodo más practico de transmitir una estadistica de las diferentes entidades, además, almacenar 
-			cada diagnostico con sus respectivos resultados obtenidos, en lo cuales encontramos la formula y tratamientos obtenidos.<br />
-		  <br />
-		  Disminuir el consumo de estadisticas concurrentes no es factible para un paciente, teniendo en cuenta un resultado obtenido recientemente proveniente
-	  de otra entidad optica, la cual genera un nuevo usuario con ninguna información respecto al paciente. </p>
-		
-		<h3>Misión</h3>
-		<p>Facilitar a los clientes un acceso simple de cada paciente con quíen cuenta actualmente proveniente de otra entidad óptica, </p>
-		
-		<h3>Visión</h3>
-		<p>Alcanzar la maxima cantidad de entidades asociadas en nuestro proyecto para promocionarlo, asi todos los usuarios con problemas visuales
-			tengan la oportunidad de utilizar los servicios que ofrece un Sistema de información tán practico como esté.</p>
-		
-		<h3>Grupo de desarrollo</h3>
-          <p>Leyder Mendieta Paéz<br/>
-          Jesus David Perdomo Mateus <br />
-          Katherine Gissell Rodriguez<br />
-          Juan David Vanegas Rodriguez</p>
+		<div class="row">
+            <div class="col-md-offset-2 col-md-4">
+            <h3>Correo Electronico</h3>
+            <p class="text-justify">soporte@optica-all.com<br />leiderpresiado@gmail.com<br />developer@optica-all.com</p>
+             </div>
+            <div class="col-md-offset-2 col-md-4">
+            <h3>Telefonos</h3>
+            <p class="text-justify">3213603778<br />3134689556<br />7115463<br />5478999</p>
+        </div>
+        <div class="row">
+        	<div class="col-md-offset-2 col-md-8 col-md-offset-2">
+        	<h3>Grupo de Desarrollo</h3>
+              <p>Leyder Mendieta Paéz ⌂ soporte en el sistema de información web<br/>
+              Juan David Vanegas Rodriguez ⌂ soporte basado en el cliente<br />
+              Katherine Gissell Rodriguez ⌂ componente enfocado en errores del sistema<br />
+              Jesus David Perdomo Mateus ⌂ delegado del cliente - servidor</p>
+            </div>
+        </div>
       <?php include ('modules/footer.php'); ?>
 	  </div>	
 </body>

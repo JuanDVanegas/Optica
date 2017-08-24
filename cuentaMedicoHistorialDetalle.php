@@ -29,6 +29,39 @@
                     <?php
 					include('database/conexion.php'); 
 					$idRegistro = $_GET["idHistorial"];
+					
+					$sql2 = "SELECT * FROM historial WHERE fk_medico='".$_SESSION["id_usuario"]."' AND fk_registro='$idRegistro'";
+					if(!$result2 = $db->query($sql2))
+					{
+						die('error al ejecutar la sentencia ['. $db->error.']');
+					}
+					else;
+					if($row2 = $result2->fetch_assoc())
+					{
+						$id_historial = stripslashes($row2["id_historial"]);
+						$fk_paciente = stripslashes($row2["fk_paciente"]);
+						$lugar = stripslashes($row2["lugar"]);
+						$fecha = stripslashes($row2["fecha"]);
+					}
+					else;
+					
+					
+					$sql3 = "SELECT * FROM usuario WHERE id_usuario='$fk_paciente'";
+					if(!$result3 = $db->query($sql3))
+					{
+						die('error al ejecutar la sentencia ['. $db->error.']');
+					}
+					else;
+					if($row3 = $result3->fetch_assoc())
+					{
+						$nombreMedico = stripslashes($row3["nombre"]);
+						$apellidoMedico = stripslashes($row3["apellido"]);
+						$paciente = $nombreMedico.' '.$apellidoMedico;
+					}
+					else;						
+					
+					
+					
 					$sql1 = "SELECT * FROM registro WHERE id_registro = '$idRegistro'";
 					if(!$result1 = $db->query($sql1))
 					{
@@ -43,37 +76,40 @@
 						$descripcion = stripslashes($row1["descripcion"]);
 						$resultado = stripslashes($row1["resultados"]);
 						$tratamiento = stripslashes($row1["tratamiento"]);
-						
-						echo "<table class=table table-hover>
-							<tr class=active>
-								<td>
-									<b>Descripcion</b>
-								</td>
-								<td>
-									<b>Resultado</b>
-								</td>
-								<td>
-									<b>Tratamiento</b>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									$descripcion
-								</td>
-								<td>
-									$resultado
-								</td>
-								<td>
-									$tratamiento
-								</td>
-							</tr>
-							</table>";
 					}
-					else
-					{
-						echo "Error al filtrar detalles del registro";
-					}
+					else;
 					?>
+                    <div class="row">
+                    	<div class="col-md-offset-1 col-md-8">
+                        	<h4 class="text-warning">Detalles del registro</h4><br />
+                            <table class="table table-bordered">
+                              <tr>
+                                <td class="active"><b>Fecha</b></td>
+                                <td><?php echo $fecha;?></td>
+                              </tr>
+                              <tr>
+                                <td class="active"><b>Lugar</b></td>
+                                <td><?php echo $lugar;?></td>
+                              </tr>
+                              <tr>
+                                <td class="active"><b>Paciente</b></td>
+                                <td><?php echo $paciente;?>;</td>
+                              </tr>
+                              <tr>
+                                <td class="active"><b>Descripción</b></td>
+                                <td><?php echo $descripcion;?></td>
+                              </tr>
+                              <tr>
+                                <td class="active"><b>Resultado</b></td>
+                                <td><?php echo $resultado;?></td>
+                              </tr>
+                              <tr>
+                                <td class="active"><b>Tratamiento</b></td>
+                                <td><?php echo $tratamiento;?></td>
+                              </tr>
+                            </table>
+                        </div>         
+              		</div>
 					<div class="row">
 						<div class="col-sm-offset-4 col-sm-3">
 							<a href="cuentaMedicoHistorial.php">Regresar</a>
