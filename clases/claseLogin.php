@@ -198,7 +198,7 @@ class Login
 				}
 				else
 				{
-					if($_SESSION["rolUsuario"] = "Admin")
+					if($_SESSION["rolUsuario"] == "Admin")
 					{
 						header("Location: cuentaAdminPerfilPassword.php");
 					}
@@ -211,6 +211,7 @@ class Login
 			}
 			else
 			{
+				$_SESSION["success"] = "su contraseña ha sido modificada";
 				header("Location: index.php");
 			}			
 		}
@@ -266,13 +267,99 @@ class Login
 			{
 				$_SESSION["resultActualizar"] = "su correo ha sido modificado exitosamente";
 				$_SESSION["correoElectronico"] = "$this->email";
-				header("Location: usuarioConfirmarCorreo.php");
+				if(isset($_SESSION["keyUser"]))
+				{
+					if($_SESSION["rolUsuario"] == "Medico")
+					{
+						header("Location: cuentaMedicoPerfil.php");
+					}
+					else
+					{
+						if($_SESSION["rolUsuario"] = "Admin")
+						{
+							header("Location: cuentaAdminPerfil.php");
+						}
+						else
+						{
+							header("Location: cuentaPacientePerfil.php");
+						}
+					}
+				}
+				else
+				{
+					header("Location: usuarioConfirmarCorreo.php");
+				}				
 			}
 			else
 			{
 				$_SESSION["resultActualizar"] = "Error al actualizar correo electronico";
-				header("Location: usuarioConfirmarCorreo.php");
+				if(isset($_SESSION["keyUser"]))
+				{
+					if($_SESSION["rolUsuario"] == "Medico")
+					{
+						header("Location: cuentaMedicoPerfil.php");
+					}
+					else
+					{
+						if($_SESSION["rolUsuario"] = "Admin")
+						{
+							header("Location: cuentaAdminPerfil.php");
+						}
+						else
+						{
+							header("Location: cuentaPacientePerfil.php");
+						}
+					}
+				}
+				else
+				{
+					header("Location: usuarioConfirmarCorreo.php");
+				}
 			}
+		}
+	}
+	
+	public function confirmarCorreo()
+	{
+		include('database/conexion.php');
+		$sql1="UPDATE login SET confirmMail = '1' WHERE email = '$this->email'";
+		if($db->query($sql1) == true)
+		{
+			$sql2="DELETE FROM codigo WHERE numero = '$this->fk_user'";
+		
+			if($db->query($sql2) == true)
+			{
+				$_SESSION["status"] = 0;
+				$_SESSION["success"] = "Se ha confirmado el correo electronico";
+				header("Location: index.php");
+			}
+			else
+			{
+				$_SESSION["status"] = 0;
+				$_SESSION["error"] = "Error modificar accesso code: confirmar correo 29CM";
+				header("Location: index.php");
+			}
+		}
+		else
+		{
+			$_SESSION["status"] = 0;
+			$_SESSION["error"] = "Error al confirmar Correo electronico36CM";
+			header("Location: index.php");
+		}
+	}
+	public function desconfirmarCorreo()
+	{
+		include('database/conexion.php');
+		$sql1="UPDATE login SET confirmMail = '0' WHERE fk_user = '$this->fk_user'";
+		if($db->query($sql1) == true)
+		{
+			$_SESSION["next"] = "1";
+			$_SESSION["estadoCorreo"] = 0;
+		}
+		else
+		{
+			$_SESSION["error"] = "Error al confirmar Correo electronico36CM";
+			header("Location: index.php");
 		}
 	}
 }

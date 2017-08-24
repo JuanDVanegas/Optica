@@ -15,11 +15,19 @@ if($_POST["nuevoPass"]==$_POST["confirmarPass"])
 		$_SESSION["resultActualizar"] = "Contraseña actual incorrecta";
 		if($_SESSION["rolUsuario"] == "Medico")
 		{
-			header("Location: cuentaMedicoPerfilPassword");
+			header("Location: cuentaMedicoPerfilPassword.php");
 		}
 		else
 		{
-			header("Location: cuentaPacientePerfilPassword");
+			if($_SESSION["rolUsuario"] == "Admin")
+			{
+				header("Location: cuentaAdminPerfilPassword.php");
+			}
+			else
+			{
+				header("Location: cuentaPacientePerfilPassword.php");
+			}
+			
 		}
 		
 	}	
@@ -28,12 +36,20 @@ else
 {
 	$_SESSION["resultActualizar"] = "Las contraseñas no coinciden";
 	if($_SESSION["rolUsuario"] == "Medico")
-	{
-		header("Location: cuentaMedicoPerfilPassword");
-	}
-	else
-	{
-		header("Location: cuentaPacientePerfilPassword");
-	}
+		{
+			header("Location: cuentaMedicoPerfilPassword.php");
+		}
+		else
+		{
+			if($_SESSION["rolUsuario"] == "Admin")
+			{
+				header("Location: cuentaAdminPerfilPassword.php");
+			}
+			else
+			{
+				header("Location: cuentaPacientePerfilPassword.php");
+			}
+			
+		}
 }
 ?>

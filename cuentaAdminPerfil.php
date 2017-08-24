@@ -103,7 +103,8 @@
                         <br />
                         <div class="row">
                             <div class="col-sm-3">
-                                <a href="cuentaAdminPerfilPassword.php" target="_parent">Cambiar Contraseña</a>
+                                <a href="cuentaAdminPerfilPassword.php" target="_parent">Cambiar Contraseña</a><br />
+                                <a href="cuentaAdminPerfilEmail.php" target="_parent">Modificar Correo Electronico</a>
                             </div>
                             <div class="col-sm-4">
                                 <br />

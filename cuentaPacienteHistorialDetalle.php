@@ -111,7 +111,7 @@
                               </tr>
                             </table>
                         </div>         
-              </div>
+              		</div>
 					<div class="row">
 						<div class="col-sm-offset-4 col-sm-3">
 							<a href="cuentaPacienteHistorial.php">Regresar</a>

@@ -89,7 +89,7 @@
                                 <p>Correo electronico</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="mail" name="correo" value="<?php echo $_SESSION["correoElectronico"];?>"/>
+                                <input class="form-control" type="mail" name="correo" value="<?php echo $_SESSION["correoElectronico"];?>" readonly="readonly"/>
                             </div>
                         </div>
                         <br />
@@ -104,7 +104,8 @@
                         <br />
                         <div class="row">
                             <div class="col-sm-3">
-                                <a href="cuentaMedicoPerfilPassword.php" target="_parent">Cambiar Contraseña</a>
+                                <a href="cuentaMedicoPerfilPassword.php" target="_parent">Modificar Contraseña</a><br />
+                                <a href="cuentaMedicoPerfilEmail.php" target="_parent">Modificar Correo Electronico</a>
                             </div>
                             <div class="col-sm-4">
                                 <br />

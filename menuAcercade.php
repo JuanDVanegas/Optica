@@ -11,7 +11,7 @@
 <script type="text/javascript" src="javascript/jquery.js"></script>
 <script type="text/javascript" src="javascript/bootstrap.js"></script>
 <body>
-	<?php include ('modules/navbar.php'); ?>
+	<?php session_start(); include ('modules/navbar.php'); ?>
 	<div class="body-content container">
         <div class="row">
             <div class="col-md-offset-1 col-md-4">
