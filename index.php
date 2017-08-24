@@ -90,7 +90,7 @@
                                 <p>Correo electronico</p>
                             </div>
                             <div class="col-md-8">
-                                <input class="form-control" type="text" name="mail" id="correo" placeholder="correo@ejemplo.com" required/>
+                                <input class="form-control" type="mail" name="mail" id="correo" placeholder="correo@ejemplo.com" required/>
                             </div>
                         </div>
                         <br />

@@ -35,7 +35,7 @@
                     	<p>Nombre</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="text" name="nombre" id="textfield4" pattern="[A-Za-z]+" required/>
+                    	<input class="form-control" type="text" name="nombre" id="textfield4" pattern="[A-Za-z ]+" required/>
                     </div>
                 </div>
                 <br />
@@ -44,7 +44,7 @@
                     	<p>Apellido</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="text" name="apellido" id="textfield5" pattern="[A-Za-z]+" required/>
+                    	<input class="form-control" type="text" name="apellido" id="textfield5" pattern="[A-Za-z ]+" required/>
                     </div>
                 </div>
                 <br />
