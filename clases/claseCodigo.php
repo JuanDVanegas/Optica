@@ -16,7 +16,7 @@ class Codigo
 	{
 		include("database/conexion.php");	
 		
-		$sql = "INSERT INTO codigo(numero,tipo) VALUES('$this->numero','$this->tipo')";
+		$sql = "INSERT INTO codigo(numero,tipo,fk_mail) VALUES('$this->numero','$this->tipo','$this->id_codigo')";
 		if($db->query($sql))
 		{
 			$_SESSION["next"]="inserted";
@@ -30,7 +30,7 @@ class Codigo
 	public function validarCodigo()
 	{
 		include("database/conexion.php");
-		$sql = "SELECT * FROM codigo WHERE numero='$this->numero' AND tipo='$this->tipo'";
+		$sql = "SELECT * FROM codigo WHERE numero='$this->numero' AND tipo='$this->tipo' AND fk_mail='$this->id_codigo'";
 		if(!$result = $db->query($sql))
 		{
 			die("Error database");

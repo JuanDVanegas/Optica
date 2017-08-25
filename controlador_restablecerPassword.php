@@ -11,7 +11,7 @@ $validarCorreo = new Login($correo,"","");
 $validarCorreo->validarCorreoElectronico();
 if($_SESSION["next"] == "confirmed")
 {
-	$nuevoCodigo = new Codigo($codigo,$subject,"");
+	$nuevoCodigo = new Codigo($codigo,$subject,$correo);
 	$nuevoCodigo->validarCodigo();
 	
 	if($_SESSION["next"] == "true")

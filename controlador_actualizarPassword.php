@@ -5,6 +5,7 @@ session_start();
 if($_POST["nuevoPass"]==$_POST["confirmarPass"])
 {
 	$_SESSION["success"] = "La contraseña ha sido modificada";
+	$_SESSION["key_password"] = "false";
 	$newPass = new Login($_POST["correoElectronico"],md5($_POST["nuevoPass"]),'');
 	$newPass->actualizarPassword();
 	

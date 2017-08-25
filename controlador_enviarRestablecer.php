@@ -10,7 +10,7 @@ $correo = $_POST["correo"];
 $numero = md5(rand(1,99));
 $subject = "Restablecer Contraseña";
 $message = "Haz Click en el siguiente enlace para continuar: http://www.optica-all.com/controlador_restablecerPassword.php?trick=$correo&code=$numero";
-$header = "From: Soporte Optica<soporte@optica-all.com>/r/n";
+$header = "From: Soporte Optica";
 $header.= "Reply-to: opticaallinone@gmail.com"; 
 
 
@@ -19,7 +19,7 @@ $validarCorreo->validarCorreoElectronico();
 
 if($_SESSION["next"] == "confirmed")
 {
-	$nuevoCodigo = new Codigo($numero,$subject,"");
+	$nuevoCodigo = new Codigo($numero,$subject,$correo);
 	$nuevoCodigo->nuevoCodigo();
 	if($_SESSION["next"] == "inserted")
 	{
