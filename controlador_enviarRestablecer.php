@@ -7,10 +7,9 @@ include("clases/claseLogin.php");
 include("clases/claseCodigo.php");
 
 $correo = $_POST["correo"];
-$numero = rand(1000000000,9999999999999);
-$trick = $correo;
+$numero = md5(rand(1,99));
 $subject = "Restablecer Contraseña";
-$message = "Haz Click en el siguiente enlace para continuar: http://www.optica-all.com/controlador_restablecerPassword.php?trick=$trick&code=$numero";
+$message = "Haz Click en el siguiente enlace para continuar: http://www.optica-all.com/controlador_restablecerPassword.php?trick=$correo&code=$numero";
 $header = "From: Soporte Optica<soporte@optica-all.com>/r/n";
 $header.= "Reply-to: opticaallinone@gmail.com"; 
 

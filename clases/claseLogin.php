@@ -171,15 +171,17 @@ class Login
 					}
 				}
 			}
-			else;
-			if(isset($_SESSION["restablecer"]))
+			else
 			{
 				$_SESSION["next"] = "confirmed";
-				unset($_SESSION["restablecer"]);
 			}
+				
 			
 		}
-		else;	
+		else
+		{
+			$_SESSION["next"] = "declined";
+		}	
 	}
 	public function actualizarPassword()
 	{

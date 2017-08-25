@@ -1,9 +1,9 @@
 <?php
+session_start();
 include('database/conexion.php');
 include('clases/claseLogin.php');
 include('clases/claseCodigo.php');
-session_start();
-$_SESSION["restablecer"] = 1;
+
 $correo = $_GET["trick"];
 $codigo = $_GET["code"];
 $subject = "Restablecer Contraseña";
@@ -17,7 +17,6 @@ if($_SESSION["next"] == "confirmed")
 	if($_SESSION["next"] == "true")
 	{
 		$nuevoCodigo->eliminarCodigo();
-		echo $_SESSION["next"];
 		if($_SESSION["next"] == "deleted")
 		{
 			$_SESSION["keyLogger"] = $correo;
