@@ -6,7 +6,7 @@ include('clases/claseRegistro.php');
 include('clases/claseUsuario.php');
 
 
-$usuario = new Usuario("","","",$_POST["tipoDocumento"],$_POST["numeroDocumento"],"","","");
+$usuario = new Usuario("","","",$_POST["tipoDocumento"],$_POST["numeroDocumento"],"","","","");
 $usuario->validarUsuario();
 if(isset($_SESSION["paciente"]))
 {

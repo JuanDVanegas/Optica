@@ -97,22 +97,27 @@ class Usuario
 		
 		if($row5 = $result5->fetch_assoc())
 		{
+			$_SESSION["error"] = "Documento no se encuentra disponible.";
 			$_SESSION["errorRegistro"] = "<b>Documento no se encuentra disponible.</b>";
-			if($_SESSION["reg"]==1)
+			if(isset($_SESSION["reg"]))
 			{
-				header("Location: nuevoUsuarioFormulario1.php");
-			}
-			else
-			{
-				if($_SESSION["reg"]==3)
+				if($_SESSION["reg"]==1)
 				{
-					header("Location: cuentaAdminNuevoUsuario.php");
+					header("Location: nuevoUsuarioFormulario1.php");
 				}
 				else
 				{
-					header("Location: nuevoUsuarioFormulario2.php");
-				}				
+					if($_SESSION["reg"]==3)
+					{
+						header("Location: cuentaAdminNuevoUsuario.php");
+					}
+					else
+					{
+						header("Location: nuevoUsuarioFormulario2.php");
+					}				
+				}
 			}
+			
 		}
 		else;
 	}

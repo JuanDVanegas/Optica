@@ -29,7 +29,12 @@
                     <form action="actualizarDatos.php" method="post" name="formActualizarDatos">
                         <div class="row">
                             <div class="col-sm-offset-3 col-sm-4">
-                                <p class="text-danger"><?php if(isset($_SESSION["resultActualizar"])){echo $_SESSION["resultActualizar"];unset($_SESSION["resultActualizar"]);}?></p>
+                                <?php if(isset($_SESSION["resultActualizar"]))
+								{echo "<h4 class='text-success'>".$_SESSION["resultActualizar"]."</h4>";
+								unset($_SESSION["resultActualizar"]);}?>
+                                <?php if(isset($_SESSION["error"]))
+								{echo "<h4 class='text-danger'>".$_SESSION["error"]."</h4>";
+								unset($_SESSION["error"]);}?>
                             </div>
                         </div>
                         <div class="row">
