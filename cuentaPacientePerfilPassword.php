@@ -29,7 +29,21 @@
                     <form action="actualizarPassword.php" method="post" name="formActualizarPassword">
                     <div class="row">
                         <div class="col-sm-offset-3 col-sm-4">
-                            <p class="text-danger"><?php if(isset($_SESSION["resultActualizar"])){echo $_SESSION["resultActualizar"];unset($_SESSION["resultActualizar"]);}?></p>
+                            <?php 
+							if(isset($_SESSION["resultActualizar"]))
+							{
+								if($_SESSION["resultActualizar"] == "su contraseña ha sido modificada exitosamente")
+								{
+									$result = "text-success";
+								}
+								else
+								{
+									$result = "text-danger";
+								}
+								echo "<p class='".$result."'>".$_SESSION["resultActualizar"]."</p>";
+								unset($_SESSION["resultActualizar"]);
+							}
+							?>
                         </div>
                     </div>
                     <div class="row">

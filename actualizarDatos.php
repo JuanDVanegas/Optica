@@ -4,27 +4,35 @@ include ('clases/claseUsuario.php');
 
 $usuario = new Usuario("rol",$_POST["nombre"],$_POST["apellido"],$_POST["tipoDocumento"],$_POST["numeroDocumento"],$_POST["telefono"],$_POST["nacimiento"],"entidad","");
 
-$usuario->validarDocumento();
-if(!isset($_SESSION["error"]))
+if($_POST["tipoDocumento"] == $_SESSION["tipoDocumento"] && $_POST["numeroDocumento"] == $_SESSION["numeroDocumento"])
 {
 	$usuario->actualizarDatos();
 }
 else
 {
-	if($_SESSION["rolUsuario"] == "Medico")
+	$usuario->validarDocumento();
+	if(!isset($_SESSION["error"]))
 	{
-		header("Location: cuentaMedicoPerfil.php");
+		$usuario->actualizarDatos();
 	}
 	else
 	{
-		if($_SESSION["rolUsuario"] == "Admin")
+		if($_SESSION["rolUsuario"] == "Medico")
 		{
-			header("Location: cuentaAdminPerfil.php");
+			header("Location: cuentaMedicoPerfil.php");
 		}
 		else
 		{
-			header("Location: cuentaPacientePerfil.php");
-		}				
+			if($_SESSION["rolUsuario"] == "Admin")
+			{
+				header("Location: cuentaAdminPerfil.php");
+			}
+			else
+			{
+				header("Location: cuentaPacientePerfil.php");
+			}				
+		}
 	}
 }
+
 ?>

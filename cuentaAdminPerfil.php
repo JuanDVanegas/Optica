@@ -29,10 +29,10 @@
                         <div class="row">
                             <div class="col-sm-offset-3 col-sm-4">
                                 <?php if(isset($_SESSION["resultActualizar"]))
-								{echo "<h4 class='text-success'>".$_SESSION["resultActualizar"]."</h4>";
+								{echo "<p class='text-success'>".$_SESSION["resultActualizar"]."</p>";
 								unset($_SESSION["resultActualizar"]);}?>
                                 <?php if(isset($_SESSION["error"]))
-								{echo "<h4 class='text-danger'>".$_SESSION["error"]."</h4>";
+								{echo "<p class='text-danger'>".$_SESSION["error"]."</p>";
 								unset($_SESSION["error"]);}?>
                             </div>
                         </div>
