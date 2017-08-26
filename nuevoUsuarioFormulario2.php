@@ -35,7 +35,7 @@
                     	<p>Nombre</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="text" name="nombre" id="textfield4" pattern="[A-Za-z ]+" required/>
+                    	<input class="form-control" type="text" name="nombre" pattern="[A-Za-z ]+" required/>
                     </div>
                 </div>
                 <br />
@@ -44,7 +44,7 @@
                     	<p>Apellido</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="text" name="apellido" id="textfield5" pattern="[A-Za-z ]+" required/>
+                    	<input class="form-control" type="text" name="apellido" pattern="[A-Za-z ]+" required/>
                     </div>
                 </div>
                 <br />
@@ -69,7 +69,20 @@
                     	<p>Numero de documento</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="text" name="documento" id="textfield8" pattern="[0-9]+" required/>
+                    	<input class="form-control" type="text" name="documento" pattern="[0-9]+" required/>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                	<div class="col-md-5">
+                    	<p>Genero</p>
+                    </div>
+                    <div class="col-md-7">
+                    	<select name="genero">
+                        	<option value="M" selected="selected">Masculino</option>
+                            <option value="F">Femenino</option>
+                            <option value="O">Otro</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -79,7 +92,7 @@
                     	<p>Fecha de nacimiento</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="date" name="fecha" id="textfield7" />
+                    	<input class="form-control" type="date" name="fecha" required/>
                     </div>
                 </div>
                 <br />
@@ -88,7 +101,7 @@
                     	<p>Correo Electronico</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="mail" name="mail" id="textfield6" required/>
+                    	<input class="form-control" type="email" name="mail" required/>
                     </div>
                 </div>
                 <br />
@@ -97,7 +110,7 @@
                     	<p>Contraseña</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="password" name="password" id="textfield9" required/>
+                    	<input class="form-control" type="password" name="password" required/>
                     </div>
                 </div>
                 <br />
@@ -106,7 +119,7 @@
                     	<p>Confirmar contraseña</p>
                     </div>
                     <div class="col-md-7">
-                    	<input class="form-control" type="password" name="confirmar" id="textfield10" required/>
+                    	<input class="form-control" type="password" name="confirmar" required/>
                     </div>
                 </div>
                 <br />

@@ -8,7 +8,7 @@ $asunto = "Confirmar Cuenta";
 $codigo = rand(1000000, 9999999999);
 $tipo = "Confirmar Cuenta";
 $body = "Haga click en el enlace para confirmar correo electronico "."http://www.optica-all.com/controlador_confirmarMail.php?usuario=$correo&encript=$codigo";
-$header="From: Soporte Optica<soporte@optica-all.com>";
+$header = "From: Soporte Optica <opticaallinone@gmail.com>";
 
 if(mail($correo,$asunto,$body,$header))
 {	

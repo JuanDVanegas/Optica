@@ -17,7 +17,7 @@ class Medico extends Usuario
 	{
 		
 		include('database/conexion.php');
-		$sql="SELECT * FROM entidad WHERE nombre='$this->nombreEntidad' AND codigo='$this->codigo'";
+		$sql="SELECT * FROM entidad WHERE codigo='$this->codigo'";
 		if(!$result = $db->query($sql))
 		{
 			die('error al ejecutar la sentencia '. $db->error.']');
@@ -31,7 +31,7 @@ class Medico extends Usuario
 		else
 		{
 			$_SESSION["errorRegistro"] = "<b>Esta entidad optica no esta vinculada al sistema</b>";
-			header('Location: ../usuario/nuevoUsuarioFormulario1.php');
+			header('Location: nuevoUsuarioFormulario1.php');
 		}
 	}
 	
