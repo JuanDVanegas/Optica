@@ -1,6 +1,7 @@
 <?php
 session_start();
 $_SESSION["reg"] = 1;
+include('clases/claseUsuario.php');
 include('clases/claseMedico.php');
 include('clases/claseLogin.php');
 

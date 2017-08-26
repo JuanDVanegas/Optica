@@ -1,7 +1,5 @@
 <?php
-include('claseUsuario.php');
-
-class Medico extends Usuario
+class Medico
 {
 	public $nombreEntidad;
 	public $codigo;

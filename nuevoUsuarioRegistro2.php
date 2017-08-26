@@ -15,7 +15,7 @@ if($_POST["password"] == $_POST["confirmar"])
 
 	if(!isset($_SESSION["errorRegistro"]))
 	{
-		$usuarioPaciente = new Usuario($_POST["rol"],$_POST["nombre"],$_POST["apellido"],$_POST["tipo"],$_POST["documento"],0,$_POST["fecha"],0,"");
+		$usuarioPaciente = new Usuario($_POST["rol"],$_POST["nombre"],$_POST["apellido"],$_POST["tipo"],$_POST["documento"],0,$_POST["fecha"],0,$_POST["genero"]);
 		$usuarioPaciente->registrar();
 		
 		if($_SESSION["next"]==1)
