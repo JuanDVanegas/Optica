@@ -36,12 +36,30 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-md-offset-1 col-md-3">
+                            <form action="cuentaAdminEntidades.php" method="post" name="form_buscador">
+                            <input class="form-control" type="search" name="busqueda" placeholder="Busqueda..." pattern="[A-Za-z ]+" 
+                            title="Letras exclusivamente"/>
+                        </div>
+                        <div class="col-md-4">
+                            <input class="btn btn-primary" type="submit" value="Buscar" />
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row">
                         <br />
                         <div class="col-md-10">
                             <?php 
                             sleep(1);
                             include('database/conexion.php');
-                            
+                            if(isset($_POST["busqueda"]))
+							{
+								$filtro = $_POST["busqueda"];
+							}
+							else
+							{
+								$filtro = "null";
+							}
                             $cant_pagina = 10;
                             if(isset($_GET["pagina"]))
                             {
@@ -54,8 +72,18 @@
                             //pagina empieza en 0
                             $empieza = ($pagina-1) * $cant_pagina;
                             
-                            $sql1 = "SELECT * FROM entidad LIMIT $empieza,$cant_pagina";
-                            $query = "SELECT * FROM entidad";
+                            if($filtro != "null")
+							{
+								$sql1 = "SELECT * FROM entidad WHERE nombre LIKE '%".$filtro."%' OR address
+								LIKE '%".$filtro."%' OR detalles LIKE '%".$filtro."%' LIMIT $empieza,$cant_pagina";
+								$query = "SELECT * FROM entidad WHERE nombre LIKE '%".$filtro."%' OR address
+								LIKE '%".$filtro."%' OR detalles LIKE '%".$filtro."%'";
+							}
+							else
+							{
+								$sql1 = "SELECT * FROM entidad LIMIT $empieza,$cant_pagina";
+								$query = "SELECT * FROM entidad";
+							}
                             $result = mysqli_query($db,$query);
                             $total_registro = mysqli_num_rows($result);
                             $total_pagina = ceil($total_registro/$cant_pagina);
@@ -90,6 +118,7 @@
                             $contador = 0;	
                             while($row1 = $result1->fetch_assoc())
                             {
+								$contador++;
 								$id = stripslashes($row1["id_entidad"]);
                                 $nombreEntidad = stripslashes($row1["nombre"]);
                                 $direccion = stripslashes($row1["address"]);
@@ -118,6 +147,10 @@
                                 //http:www.optica-all.com/
                             }
                             echo "</table>";
+							if($contador==0)
+							{
+								echo "<p class='text-info'>Sin resultados de busqueda</p>";
+							}
                             ?>
                             <div class="col-sm-offset-1 col-sm-8">
                             	<div class="col-sm-4"><a href="cuentaAdminNuevaEntidad.php">Nueva Entidad</a></div>

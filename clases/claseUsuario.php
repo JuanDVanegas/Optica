@@ -136,9 +136,11 @@ class Usuario
 		if($row5 = $result5->fetch_assoc())
 		{
 			$_SESSION["paciente"] = stripslashes($row5["id_usuario"]);
+			$_SESSION["keyRol"] = stripslashes($row5["rolUsuario"]);
 		}
 		else
 		{
+			$_SESSION["keyRol"] = "error";
 			$_SESSION["resultAgregar"] = "El usuario no se encuentra";
 			header("Location: cuentaMedicoHistorial.php");
 		}

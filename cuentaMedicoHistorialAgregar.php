@@ -30,7 +30,8 @@
                     <form action="agregarRegistro.php" method="post" name="formActualizarDatos">
                         <div class="row">
                             <div class="col-sm-offset-3 col-sm-4">
-                                <p class="text-danger"><?php if(isset($_SESSION["resultAgregar"])){echo $_SESSION["resultAgregar"];unset($_SESSION["resultAgregar"]);}?></p>
+                                <p class="text-danger"><?php if(isset($_SESSION["resultAgregar"])){echo $_SESSION["resultAgregar"];
+								unset($_SESSION["resultAgregar"]);}?></p>
                             </div>
                         </div>
                         <div class="row">
@@ -38,7 +39,7 @@
                                 <p>Lugar</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" name="lugar" required="required"/>
+                                <input class="form-control" type="text" name="lugar" required="required" title="Lugar"/>
                             </div>
                         </div>
                         <br />
@@ -71,7 +72,8 @@
                                 <p>Documento paciente</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" name="numeroDocumento" pattern="+[0-9]" required="required"/>
+                                <input class="form-control" type="text" name="numeroDocumento" pattern="[0-9]+" required="required"
+                                title="numeros exclusivamente"/>
                             </div>
                         </div>
                         <br />
@@ -80,7 +82,8 @@
                                 <p>Descripcion</p>
                             </div>
                             <div class="col-sm-9">
-                                <textarea class="form-control" rows="4" name="descripcion" pattern="+[a-zA-Z ]" required="required"></textarea>
+                                <textarea class="form-control" rows="4" name="descripcion" pattern="[a-zA-Z ]+" required="required"
+                                title="Letras mayusculas ó minusculas"></textarea>
                             </div>
                         </div>
                         <br />
@@ -89,7 +92,8 @@
                                 <p>Resultado</p>
                             </div>
                             <div class="col-sm-9">
-                                <textarea class="form-control" rows="4" name="resultado" pattern="+[a-zA-Z ]" required="required"></textarea>
+                                <textarea class="form-control" rows="4" name="resultado" pattern="[a-zA-Z ]+" required="required"
+                                title="Letras mayusculas ó minusculas"></textarea>
                             </div>
                         </div>
                         <br />
@@ -98,7 +102,8 @@
                                 <p>Tratamiento</p>
                             </div>
                             <div class="col-sm-9">
-                                <textarea class="form-control" rows="4" name="tratamiento" pattern="+[a-zA-Z ]" required="required"/></textarea>
+                                <textarea class="form-control" rows="4" name="tratamiento" pattern="[a-zA-Z ]+" required="required"
+                                title="Letras mayusculas ó minusculas"/></textarea>
                             </div>
                         </div>
                         <br />

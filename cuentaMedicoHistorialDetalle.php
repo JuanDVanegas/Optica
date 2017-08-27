@@ -1,5 +1,28 @@
 <?php include('seguridad_usuarioMedico.php');
-	include('seguridad_confirmarCorreo.php');?>
+	include('seguridad_confirmarCorreo.php');
+	include('database/conexion.php'); 
+	$idRegistro = $_GET["idHistorial"];
+	
+	$sql2 = "SELECT * FROM historial WHERE fk_medico='".$_SESSION["id_usuario"]."' AND fk_registro='$idRegistro'";
+	if(!$result2 = $db->query($sql2))
+	{
+		die('error al ejecutar la sentencia ['. $db->error.']');
+	}
+	else;
+	if($row2 = $result2->fetch_assoc())
+	{
+		$id_historial = stripslashes($row2["id_historial"]);
+		$fk_paciente = stripslashes($row2["fk_paciente"]);
+		$lugar = stripslashes($row2["lugar"]);
+		$fecha = stripslashes($row2["fecha"]);
+	}
+	else;
+	
+	if(!isset($fk_paciente))
+	{
+		header("Location: cuentaMedicoHistorial.php");
+	}else;
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -27,24 +50,6 @@
             <div class="col-md-9"> 
                 <!--Nueva Insersion-->
                     <?php
-					include('database/conexion.php'); 
-					$idRegistro = $_GET["idHistorial"];
-					
-					$sql2 = "SELECT * FROM historial WHERE fk_medico='".$_SESSION["id_usuario"]."' AND fk_registro='$idRegistro'";
-					if(!$result2 = $db->query($sql2))
-					{
-						die('error al ejecutar la sentencia ['. $db->error.']');
-					}
-					else;
-					if($row2 = $result2->fetch_assoc())
-					{
-						$id_historial = stripslashes($row2["id_historial"]);
-						$fk_paciente = stripslashes($row2["fk_paciente"]);
-						$lugar = stripslashes($row2["lugar"]);
-						$fecha = stripslashes($row2["fecha"]);
-					}
-					else;
-					
 					
 					$sql3 = "SELECT * FROM usuario WHERE id_usuario='$fk_paciente'";
 					if(!$result3 = $db->query($sql3))
@@ -56,6 +61,8 @@
 					{
 						$nombreMedico = stripslashes($row3["nombre"]);
 						$apellidoMedico = stripslashes($row3["apellido"]);
+						$tipo = stripslashes($row3["tipoDocumento"]);
+						$documento = stripslashes($row3["numeroDocumento"]);
 						$paciente = $nombreMedico.' '.$apellidoMedico;
 					}
 					else;						
@@ -93,7 +100,15 @@
                               </tr>
                               <tr>
                                 <td class="active"><b>Paciente</b></td>
-                                <td><?php echo $paciente;?>;</td>
+                                <td><?php echo $paciente;?></td>
+                              </tr>
+                              <tr>
+                                <td class="active"><b>Tipo de documento</b></td>
+                                <td><?php echo $tipo;?></td>
+                              </tr>
+                              <tr>
+                                <td class="active"><b>Numero de Documento</b></td>
+                                <td><?php echo $documento;?></td>
                               </tr>
                               <tr>
                                 <td class="active"><b>Descripción</b></td>

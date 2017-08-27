@@ -25,20 +25,51 @@
                 <br />
                 <?php include('cuentaMedicoMenu.php')?>
             </div>
-            <div class="col-md-9"> 
+            <div class="col-md-9">
             	<?php
 					if(isset($_SESSION["resultAgregar"]))
 					{
-						echo "<h3 class='text-success'>".$_SESSION["resultAgregar"]."</h3>";
+						echo "<p class='text-success'>".$_SESSION["resultAgregar"]."</p>";
 						unset($_SESSION["resultAgregar"]);
 					}
 				?>
-                
-                
+                <div class="row">
+                    <div class="col-md-offset-1 col-md-3">
+                        <form action="cuentaMedicoHistorial.php" method="post" name="form_buscador">
+                        <input class="form-control" type="search" name="busquedaP" placeholder="documento paciente"  
+                        title="Letras exclusivamente"/>
+                    </div>
+                    <div class="col-md-3">
+                    	<input class="form-control" type="date" name="busquedaF" />
+                    </div>
+                    <div class="col-md-4">
+                        <input class="btn btn-primary" type="submit" value="Buscar" />
+                        </form>
+                    </div>
+                </div>
+                <br />
                 <!--Nueva Insersion-->
                 <?php 
 				include('database/conexion.php');
-				
+				//----------------------------
+				if(isset($_POST["busquedaP"]))
+				{
+					$filtroP = $_POST["busquedaP"];
+				}
+				else
+				{
+					$filtroP = "null";
+				}
+				//---------------------------------
+				if(isset($_POST["busquedaF"]))
+				{
+					$filtro = $_POST["busquedaF"];
+				}
+				else
+				{
+					$filtro = "null";
+				}
+				//---------------------------------
 				$cant_pagina = 10;
 				if(isset($_GET["pagina"]))
 				{
@@ -50,9 +81,17 @@
 				}
 				//pagina empieza en 0
 				$empieza = ($pagina-1) * $cant_pagina;
-				
-				$sql1 = "SELECT * FROM historial WHERE fk_medico='".$_SESSION["id_usuario"]."' LIMIT $empieza,$cant_pagina";
-				$query = "SELECT * FROM historial WHERE fk_medico='".$_SESSION["id_usuario"]."'";
+				if($filtro != "null")
+				{
+					$sql1 = "SELECT * FROM historial WHERE fk_medico='".$_SESSION["id_usuario"]."' AND fecha LIKE '%".$filtro."%' 
+					LIMIT $empieza,$cant_pagina";
+					$query = "SELECT * FROM historial WHERE fk_medico='".$_SESSION["id_usuario"]."' AND fecha LIKE '%".$filtro."%'";
+				}
+				else
+				{
+					$sql1 = "SELECT * FROM historial WHERE fk_medico='".$_SESSION["id_usuario"]."' LIMIT $empieza,$cant_pagina";
+					$query = "SELECT * FROM historial WHERE fk_medico='".$_SESSION["id_usuario"]."'";
+				}	
 				$result = mysqli_query($db,$query);
 				$total_registro = mysqli_num_rows($result);
 				$total_pagina = ceil($total_registro/$cant_pagina);
@@ -89,15 +128,22 @@
 					$fk_registro = stripslashes($row1["fk_registro"]);
 					$lugar = stripslashes($row1["lugar"]);
 					$fecha = stripslashes($row1["fecha"]);
-					
-					$sql2 = "SELECT * FROM usuario WHERE id_usuario = '$fk_paciente'";
+					if($filtroP != "null")
+					{
+						$sql2 = "SELECT * FROM usuario WHERE id_usuario = '$fk_paciente' AND numeroDocumento LIKE '%".$filtroP."%'";
+					}
+					else
+					{
+						$sql2 = "SELECT * FROM usuario WHERE id_usuario = '$fk_paciente'";
+					}					
 					if(!$result2 = $db->query($sql2))
 					{
 						die('error al ejecutar la sentencia ['. $db->error.']');
 					}
 					else;
 					while($row2 = $result2->fetch_assoc())
-					{
+					{	
+						$contador++;					
 						$nombre = stripslashes($row2["nombre"]);
 						$apellido = stripslashes($row2["apellido"]);
 						$paciente = $nombre.' '.$apellido;
@@ -123,19 +169,19 @@
                 
 				<div class="row">
 					<div class="col-sm-offset-1  col-sm-4">
-						<?php if($total_registro == 0)
+						<?php if($contador == 0)
 						{
 							echo "No se encontraron resultados";
 						}
 						else
 						{
-							if($total_registro > 1)
+							if($contador > 1)
 							{
-								echo "Se han encontrado $total_registro resultados";
+								echo "Se han encontrado $contador resultados";
 							}
 							else
 							{
-								echo "Se ha encontrado $total_registro resultado";
+								echo "Se ha encontrado $contador resultado";
 							}
 						}
 						?>

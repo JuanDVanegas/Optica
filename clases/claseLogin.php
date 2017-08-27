@@ -54,7 +54,7 @@ class Login
 			die('error al ejecutar la sentencia '. $db->error.']');
 		}
 		
-		while($row = $result->fetch_assoc())
+		if($row = $result->fetch_assoc())
 		{
 			$usuario=stripslashes($row["fk_user"]);
 			$email=stripslashes($row["email"]);
