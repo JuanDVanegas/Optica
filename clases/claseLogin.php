@@ -63,7 +63,7 @@ class Login
 			$estadoCuenta=stripslashes($row["estado"]);
 			if($estadoCuenta == 0)
 			{
-				$_SESSION["sesionError"]="Usuario Inabilitado <a href='www.optica-all.com/menuContacto.php?help=inhabilitado'>Ayuda</a>";
+				$_SESSION["sesionError"]="Usuario Inabilitado <a href='menuContacto.php?help=inhabilitado'> Obtener Ayuda</a>";
 				header("Location: index.php");
 				exit();
 			}

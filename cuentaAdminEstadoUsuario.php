@@ -46,6 +46,9 @@
                     </div>
                      <br />
                     <div class="row">
+                    	<div class="col-md-4">
+                        	<a href="usuarioInhabilitado.php">Ver usuarios inhabilitados</a>
+                        </div>
                         <div class="col-md-offset-4 col-md-3">
                             <input class="btn btn-primary" type="submit" value="Buscar Usuario"/></form>
                         </div> 

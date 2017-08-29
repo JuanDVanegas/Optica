@@ -1,26 +1,37 @@
 <?php
-include('claseUsuario.php');
-
-class Paciente extends Usuario
+class Paciente
 {
-	public function validarUsuario()
+	private $id_usuario;
+	
+	public function __construct($Id_usuario)
+	{
+		$this->id_usuario = $Id_usuario;
+	}
+	public function cambiarEstado($action)
 	{
 		include('database/conexion.php');
-		$sql5="SELECT * FROM usuario WHERE tipoDocumento='$this->getTipoDocumento()' AND numeroDocumento='$this->getNumeroDocumento()'";
-		if(!$result5 = $db->query($sql5))
+		if($action == 1)
 		{
-			die('error al ejecutar la sentencia '. $db->error.']');
-		}
-		else;
-		
-		if($row5 = $result5->fetch_assoc())
-		{
+			$respuesta = "habilitar";
 		}
 		else
 		{
-			echo "sin resultados";
+			$respuesta = "inhabilitar";
 		}
+		
+		$sql2 = "UPDATE login SET estado = '$action' WHERE fk_user = '$this->id_usuario'";
+		if($db->query($sql2) == true)
+		{
+			$_SESSION["success"] = "Exito al ".$respuesta." usuario";
+			header("Location: cuentaAdminEstadoUsuario.php");
+		}
+		else
+		{
+			$_SESSION["error"] = "Error al ".$respuesta." usuario";
+			header("Location: cuentaAdminEstadoUsuario.php");
+		}
+		
+		
 	}
-	
 }
 ?>

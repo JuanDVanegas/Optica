@@ -10,6 +10,17 @@ else;
 if($row1 = $result1->fetch_assoc())
 {
 	$id_usuario = stripslashes($row1["fk_user"]);
+	$resultado = stripslashes($row1["estado"]);
+	if($resultado == 0)
+	{
+		$estado = "inhabilitado";
+		$action = "habilitar";
+	}
+	else
+	{
+		$estado = "habilitado";
+		$action = "inhabilitar";
+	}
 	
 	$sql2="SELECT * FROM usuario WHERE id_usuario='".$id_usuario."'";
 	if(!$result2 = $db->query($sql2))
@@ -83,6 +94,7 @@ else
 							echo "Numero Documento: ".$numeroDocumento."<br/>";
 							echo "Entidad: ".$entidad."<br/>";
 							echo "Rol de Usuario: ".$rolUsuario."<br/>";
+							echo "Estado: ".$estado."<br/><br/>";
 							?>
                             </h5>
                         </div>         
@@ -90,13 +102,10 @@ else
                      <br />
                     <div class="row">
                         <div class="col-md-offset-1 col-md-3">
-                        	<form action="controlador_eliminarUsuario.php" method="post" name="deleteUsuario">
-                            <input type="hidden" name="id_usuario" value="<?php echo $id_usuario;?>"/>
-                            <input class="btn btn-danger" type="submit" value="Eliminar Usuario"/>
-                            </form>
+                        	<a href="cuentaAdminEstadoUsuario.php">Regresar</a>
                         </div>
                         <div class="col-md-3">
-                            <a class="btn btn-default" href="cuentaAdminEliminarUsuario.php">Regresar</a>
+                        	<?php echo "<a class='btn btn-danger' href='controlador_estadoUsuario.php?id=$id_usuario&action=$action'>".$action."</a>"; ?>                            
                         </div> 
                     </div>
                  <!--Termina Insersion-->                 

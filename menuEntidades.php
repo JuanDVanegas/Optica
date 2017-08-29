@@ -62,15 +62,15 @@
 				
 				if($filtro != "null")
 				{
-					$sql1 = "SELECT * FROM entidad WHERE nombre LIKE '%".$filtro."%' OR address LIKE '%".$filtro."%' OR 
-					detalles LIKE '%".$filtro."%' LIMIT $empieza,$cant_pagina";
-					$query = "SELECT * FROM entidad WHERE nombre LIKE '%".$filtro."%' OR address LIKE '%".$filtro."%' OR 
-					detalles LIKE '%".$filtro."%'";
+					$sql1 = "SELECT * FROM entidad WHERE estado='1' AND (nombre LIKE '%".$filtro."%' OR address LIKE '%".$filtro."%' OR
+					detalles LIKE '%".$filtro."%') LIMIT $empieza,$cant_pagina";
+					$query = "SELECT * FROM entidad WHERE estado='1' AND (nombre LIKE '%".$filtro."%' OR address LIKE '%".$filtro."%' OR
+					detalles LIKE '%".$filtro."%')";
 				}
 				else
 				{
-					$sql1 = "SELECT * FROM entidad LIMIT $empieza,$cant_pagina";
-					$query = "SELECT * FROM entidad";
+					$sql1 = "SELECT * FROM entidad WHERE estado='1' LIMIT $empieza,$cant_pagina";
+					$query = "SELECT * FROM entidad WHERE estado='1'";
 				}				
 				$result = mysqli_query($db,$query);
 				$total_registro = mysqli_num_rows($result);
