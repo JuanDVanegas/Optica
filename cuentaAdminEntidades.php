@@ -124,6 +124,15 @@
                                 $direccion = stripslashes($row1["address"]);
                                 $codigo = stripslashes($row1["codigo"]);
                                 $detalles = stripslashes($row1["detalles"]);
+								$estado = stripslashes($row1["estado"]);
+								if($estado == 0)
+								{
+									$link = "habilitar";
+								}
+								if($estado == 1)
+								{
+									$link = "inhabilitar";
+								}
                                 echo "<tr>
                                     <td>
                                         $nombreEntidad
@@ -138,7 +147,7 @@
                                         $codigo
                                     </td>
 									<td>
-										<a href='controlador_eliminarEntidad.php?entidad=".$id."'>Eliminar</a>
+										<a href='estadoEntidad.php?entidad=".$id."&action=".$link."'>".$link."</a>
 									</td>
 									<td>
 										<a href='cuentaAdminEntidadesEditar.php?entidad=".$id."'>Editar</a>

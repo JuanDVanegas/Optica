@@ -15,8 +15,8 @@ class Login
 	public function registrar()	
 	{
 		include('database/conexion.php');
-		$sql5="INSERT INTO login (fk_user,email,password,confirmMail)
-		VALUES ('$this->fk_user', '$this->email', '".md5($this->password)."','0')";
+		$sql5="INSERT INTO login (fk_user,email,password,confirmMail,estado)
+		VALUES ('$this->fk_user', '$this->email', '".md5($this->password)."','0','1')";
 		if ($db->query($sql5) === TRUE)
 		{
 			$_SESSION["success"] = "Se ha registrado el nuevo usuario";
@@ -60,6 +60,14 @@ class Login
 			$email=stripslashes($row["email"]);
 			$password=stripslashes($row["password"]);
 			$confirmarCorreo=stripslashes($row["confirmMail"]);
+			$estadoCuenta=stripslashes($row["estado"]);
+			if($estadoCuenta == 0)
+			{
+				$_SESSION["sesionError"]="Usuario Inabilitado <a href='www.optica-all.com/menuContacto.php?help=inhabilitado'>Ayuda</a>";
+				header("Location: index.php");
+				exit();
+			}
+			
 			$contador = 1;
 			if(md5($this->password)==$password)
 			{
@@ -123,14 +131,12 @@ class Login
 			else
 			{
 				$_SESSION["sesionError"]="Usuario y/o Contrasena incorrecto";
-				echo $_SESSION["sesionError"];
 				header("Location: index.php");
 			}
 		}
 		if(!isset($contador))
 		{
 			$_SESSION["sesionError"]="Usuario y/o Contrasena incorrecto";
-			echo $_SESSION["sesionError"];
 			header("Location: index.php");
 		}
 		else;

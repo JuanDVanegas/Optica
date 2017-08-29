@@ -16,20 +16,15 @@ class Entidad
 		$this->detalles = $Detalles;
 	}
 	
-	public function eliminarEntidad()
+	public function cambiarEstadoEntidad($estado)
 	{
 		include('database/conexion.php');
-		$sql = "DELETE FROM entidad WHERE id_entidad = '$this->id_entidad'";
+		$sql = "UPDATE entidad SET estado = '".$estado."' WHERE id_entidad = '$this->id_entidad'";
 		if($db->query($sql) == true)
 		{
-			$_SESSION["success"] = "Entidad eliminada &radic;";
-			header("Location: cuentaAdminEntidades.php");
+			$_SESSION["next"] = "Entidad";
 		}
-		else
-		{
-			$_SESSION["error"] = "Error al eliminar &Chi;";
-			header("Location: cuentaAdminEntidades.php");
-		}
+		else;
 	}
 	
 	public function editarEntidad()
