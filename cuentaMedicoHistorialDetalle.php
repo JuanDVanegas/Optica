@@ -126,7 +126,10 @@
                         </div>         
               		</div>
 					<div class="row">
-						<div class="col-sm-offset-4 col-sm-3">
+                    	<div class="col-sm-offset-2 col-sm-3">
+                        	<p class='text-info'>Generar Reporte</p><a href="controlador_generarReporte.php?id_registro=<?php echo $idRegistro;?>&id_medico=<?php echo $_SESSION["id_usuario"];?>&action=view"><img title="Ver Online PDF"src="images/pdf_generar.png" width="20%" height="20%"/></a><a href="controlador_generarReporte.php?id_registro=<?php echo $idRegistro;?>&id_medico=<?php echo $_SESSION["id_usuario"];?>&action=download"><img title="Descargar PDF" src="images/pdf_down.png" width="20%" height="20%"/></a>
+                        </div>
+						<div class="col-sm-3">
 							<a href="cuentaMedicoHistorial.php">Regresar</a>
 						</div>
 					</div>

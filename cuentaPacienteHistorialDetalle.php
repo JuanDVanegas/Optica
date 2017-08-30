@@ -54,6 +54,7 @@
 					else;
 					if($row3 = $result3->fetch_assoc())
 					{
+						$id_medico = stripslashes($row3["id_usuario"]);
 						$nombreMedico = stripslashes($row3["nombre"]);
 						$apellidoMedico = stripslashes($row3["apellido"]);
 						$medico = $nombreMedico.' '.$apellidoMedico;
@@ -113,6 +114,9 @@
                         </div>         
               		</div>
 					<div class="row">
+                    <div class="col-sm-offset-2 col-sm-3">
+                        	<p class='text-info'>Generar Reporte</p><a href="controlador_generarReporte.php?id_registro=<?php echo $idRegistro;?>&id_medico=<?php echo $id_medico;?>&action=view"><img title="Ver Online PDF"src="images/pdf_generar.png" width="20%" height="20%"/></a><a href="controlador_generarReporte.php?id_registro=<?php echo $idRegistro;?>&id_medico=<?php echo $id_medico;?>&action=download"><img title="Descargar PDF" src="images/pdf_down.png" width="20%" height="20%"/></a>
+                        </div>
 						<div class="col-sm-offset-4 col-sm-3">
 							<a href="cuentaPacienteHistorial.php">Regresar</a>
 						</div>
