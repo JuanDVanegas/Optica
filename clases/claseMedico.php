@@ -53,7 +53,7 @@ class Medico
 		}
 	}
 	
-	public function cambiarEstadoMedicoVinculado($action)
+	public function cambiarEstadoMedicoVinculado($action,$from)
 	{
 		include('database/conexion.php');
 		if($action == 1)
@@ -84,19 +84,19 @@ class Medico
 			else
 			{
 				$_SESSION["error"] = "Error al ".$respuesta." medico";
-				header($this->nombreEntidad);
+				header($from);
 			}
 		}
 		if($contador > 0)
 		{
-			$_SESSION["success"] = " exito ál ".$respuesta." entidad y afiliados";
-			header($this->nombreEntidad);
+			$_SESSION["success"] = "Exito ál ".$respuesta." entidad y afiliados";
+			header($from);
 			
 		}
 		else
 		{
-			$_SESSION["success"] .= "exito ál ".$respuesta." entidad sín afiliados";
-			header($this->nombreEntidad);
+			$_SESSION["success"] = "Exito ál ".$respuesta." entidad sín afiliados";
+			header($from);
 		}
 		
 	}

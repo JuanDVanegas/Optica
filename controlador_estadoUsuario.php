@@ -2,6 +2,7 @@
 session_start();
 include('clases/claseEntidad.php');
 include('clases/clasePaciente.php');
+$from = 'Location: administrar_estado.php';
 $id = $_GET["id"];
 $action1 = $_GET["action"];
 
@@ -18,6 +19,6 @@ else
 }
 
 $cambiarEstado = new Paciente($id);
-$cambiarEstado->cambiarEstado($action);
+$cambiarEstado->cambiarEstado($action,$from);
 
 ?>

@@ -24,7 +24,7 @@ if($row1 = $result1->fetch_assoc())
 else
 {
 	$_SESSION["error"] = "Entidad no se encuentra disponible";
-	header("Location: cuentaAdminEntidad.php");
+	header("Location: entidad.php");
 }
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -33,7 +33,7 @@ else
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/logo.png" />
-  <title>Medico <?php $_SESSION["nombre"];?> Optica All in One</title>
+  <title>Estado Entidad - Optica All in One</title>
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="css/overwrite.css" type="text/css" />
   <link rel="stylesheet" href="css/site.css" type="text/css" />
@@ -86,7 +86,8 @@ else
                      <br />
                     <div class="row">
                         <div class="col-md-offset-1 col-md-3">
-                        	<form action="controlador_estadoEntidad.php" method="post" name="cambiarEstadoUsuario">
+                        	<form action="controlador_estadoEntidad.php?page=<?php echo $_GET["page"];?>" method="post" 
+                            name="cambiarEstadoUsuario">
                             <input type="hidden" name="cambiar" value="<?php echo $action;?>" />
                             <input type="hidden" name="entidad" value="<?php echo $_GET["entidad"];?>"/>
                             <input class="btn <?php echo $btn;?> " type="submit" value="<?php echo $action;?> Entidad y Afiliados"/>

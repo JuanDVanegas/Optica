@@ -7,7 +7,7 @@ class Paciente
 	{
 		$this->id_usuario = $Id_usuario;
 	}
-	public function cambiarEstado($action)
+	public function cambiarEstado($action,$from)
 	{
 		include('database/conexion.php');
 		if($action == 1)
@@ -23,12 +23,12 @@ class Paciente
 		if($db->query($sql2) == true)
 		{
 			$_SESSION["success"] = "Exito al ".$respuesta." usuario";
-			header("Location: cuentaAdminEstadoUsuario.php");
+			header($from);
 		}
 		else
 		{
 			$_SESSION["error"] = "Error al ".$respuesta." usuario";
-			header("Location: cuentaAdminEstadoUsuario.php");
+			header($from);
 		}
 		
 		

@@ -48,7 +48,7 @@
                     </div>
                     <div class="row">
                         <br />
-                        <div class="col-md-10">
+                        <div class="col-md-12">
                             <?php 
                             sleep(1);
                             include('database/conexion.php');
@@ -147,10 +147,10 @@
                                         $codigo
                                     </td>
 									<td>
-										<a href='estadoEntidad.php?entidad=".$id."&action=".$link."'>".$link."</a>
+										<a href='estadoEntidad.php?entidad=".$id."&action=".$link."&page=".$pagina."'>".$link."</a>
 									</td>
 									<td>
-										<a href='modificar_entidad.php?entidad=".$id."'>Editar</a>
+										<a href='modificar_entidad.php?entidad=".$id."&page=".$pagina."'>Editar</a>
 									</td>
                                 </tr>";
                             }
@@ -161,8 +161,8 @@
 							}
                             ?>
                             <div class="col-sm-offset-1 col-sm-8">
-                            	<div class="col-sm-4"><a href="cuentaAdminNuevaEntidad.php">Nueva Entidad</a></div>
-                                <div class="col-sm-6"><a href="cuentaAdminPostulaciones.php">Bandeja de postulación</a></div>
+                            	<div class="col-sm-4"><a href="nueva_entidad.php">Nueva Entidad</a></div>
+                                <div class="col-sm-6"><a href="administrar_postulacion.php">Bandeja de postulación</a></div>
                             </div>
                             <div class="col-sm-offset-5  col-sm-5">
                                 <?php
@@ -170,17 +170,17 @@
                                 echo "<nav aria-label='Page navigation'>
                                   <ul class='pagination'>
                                     <li>
-                                      <a href='cuentaAdminEntidades.php?pagina=1' aria-label='Previous'>
+                                      <a href='entidad.php?pagina=1' aria-label='Previous'>
                                         <span aria-hidden='true'>&laquo;</span>
                                       </a>
                                     </li>";
                                     for($i=1; $i<=$total_pagina;$i++)
                                     {
-                                        echo"<li><a href='cuentaAdminEntidades.php?pagina=".$i."'>".$i."</a> ";
+                                        echo"<li><a href='entidad.php?pagina=".$i."'>".$i."</a> ";
                                     }
                                     echo"							
                                     <li>
-                                      <a href='cuentaAdminEntidades.php?pagina=$total_pagina' aria-label='Next'>
+                                      <a href='entidad.php?pagina=$total_pagina' aria-label='Next'>
                                         <span aria-hidden='true'>&raquo;</span>
                                       </a>
                                     </li>

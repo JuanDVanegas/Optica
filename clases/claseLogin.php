@@ -12,7 +12,7 @@ class Login
 		$this->fk_user = $Fk_user;
 	}
 	
-	public function registrar()	
+	public function registrar($from)	
 	{
 		include('database/conexion.php');
 		$sql5="INSERT INTO login (fk_user,email,password,confirmMail,estado)
@@ -20,26 +20,12 @@ class Login
 		if ($db->query($sql5) === TRUE)
 		{
 			$_SESSION["success"] = "Se ha registrado el nuevo usuario";
-			header("Location: index.php");				
+			header($from);				
 		}
 		else
 		{
 			$_SESSION["errorRegistro"] = "Error en el sistema 27, intentelo de nuevo";
-			if($_SESSION["reg"]==1)
-			{
-				header("Location: nuevoUsuarioFormulario1.php");
-			}
-			else
-			{
-				if($_SESSION["reg"]==3)
-				{
-					header("Location: cuentaAdminNuevoUsuario.php");
-				}
-				else
-				{
-					header("Location: nuevoUsuarioFormulario2.php");
-				}
-			}
+			header($from);
 		}
 		
 	}
@@ -158,7 +144,7 @@ class Login
 				{
 					if($_SESSION["reg"]==3)
 					{
-						header("Location: cuentaAdminNuevoUsuario.php");
+						header($this->password);
 					}
 					else
 					{

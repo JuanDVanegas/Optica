@@ -31,7 +31,11 @@
                             <?php 
                             if(isset($_SESSION["errorRegistro"]))
                             {
-                                echo "<h3 class='text-danger'>".$_SESSION["errorRegistro"]."</h3>";
+                                echo "<h3 class='text-danger'>".$_SESSION["errorRegistro"]."</h3>";unset($_SESSION["errorRegistro"]);
+                            }
+							if(isset($_SESSION["success"]))
+                            {
+                                echo "<h3 class='text-success'>".$_SESSION["success"]."</h3>";unset($_SESSION["success"]);
                             }
                             ?>
                         </div>

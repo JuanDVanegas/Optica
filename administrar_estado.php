@@ -27,7 +27,7 @@
                 <!--Nueva Insersion-->
                     <div class="row">
                         <div class="col-md-12">
-                            <h1>Eliminar Usuario</h1>
+                            <h1>Habilitar y/o Inhabilitar Usuario</h1>
                             <br />
                             <h4 class="text-info">Digite el correo electronico del usuario</h4>
                             <h4 class="text-danger"><?php if(isset($_SESSION["error"])){echo $_SESSION["error"];unset($_SESSION["error"]);}?></h4>
@@ -46,10 +46,10 @@
                     </div>
                      <br />
                     <div class="row">
-                    	<div class="col-md-4">
-                        	<a href="usuarioInhabilitado.php">Ver usuarios inhabilitados</a>
+                    	<div class="col-md-offset-1 col-md-3">
+                        	<a href="usuarioInhabilitado.php" class="text-danger">Listado inhabilitados</a>
                         </div>
-                        <div class="col-md-offset-4 col-md-3">
+                        <div class="col-md-offset-1 col-md-3">
                             <input class="btn btn-primary" type="submit" value="Buscar Usuario"/></form>
                         </div> 
                     </div>

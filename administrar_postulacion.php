@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/logo.png" />
-  <title>Postulación <?php $_SESSION["nombre"];?> Optica All in One</title>
+  <title>Postulación - Optica All in One</title>
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="css/overwrite.css" type="text/css" />
   <link rel="stylesheet" href="css/site.css" type="text/css" />
@@ -28,7 +28,7 @@
                     <img width="80%" height="80%" src="images/mantenimiento.png"/>
                     <div class="row">
                     	<div class="col-md-offset-3">
-                        	<a href="administrar_entidades.php">Regresar</a>
+                        	<a href="entidad.php">Regresar</a>
                         </div>
                     </div>
                     

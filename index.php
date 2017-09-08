@@ -30,26 +30,14 @@
 
       <div class="item active">
         <img src="images/vision20-20.jpg" alt="vision20-20" style="width:100%;">
-        <div class="carousel-caption">
-          <h3>Vision 20/20</h3>
-          <p>LA is always so much fun!</p>
-        </div>
       </div>
 
       <div class="item">
         <img src="images/abc-opticas.jpg" alt="Chicago" style="width:100%;">
-        <div class="carousel-caption">
-          <h3>Chicago</h3>
-          <p>Thank you, Chicago!</p>
-        </div>
       </div>
     
       <div class="item">
         <img src="images/ny.jpg" alt="New York" style="width:100%;">
-        <div class="carousel-caption">
-          <h3>New York</h3>
-          <p>We love the Big Apple!</p>
-        </div>
       </div>
   
     </div>

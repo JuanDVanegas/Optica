@@ -24,7 +24,7 @@ class Usuario
 		$this->genero = $Genero;
 	}	
 	
-	public function registrar()
+	public function registrar($from)
 	{
 		
 		include('database/conexion.php');
@@ -55,7 +55,7 @@ class Usuario
 				{
 					if($_SESSION["reg"]==3)
 					{
-						header("Location: cuentaAdminNuevoUsuario.php");
+						header($from);
 					}
 					else
 					{
@@ -109,7 +109,7 @@ class Usuario
 				{
 					if($_SESSION["reg"]==3)
 					{
-						header("Location: cuentaAdminNuevoUsuario.php");
+						header($this->genero);
 					}
 					else
 					{

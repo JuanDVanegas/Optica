@@ -24,27 +24,14 @@
             <div class="col-md-6">
                 <div class="row">
                 	<div class="col-md-5">
-                    	<p>Seleccionar rol para continuar</p>
+                    	<p>Seleccioné un Rol para continuar</p>
                     </div>
                     <div class="col-md-7">
-                    <form method="post" action="soporteRol.php">
-                    	<select class="form-control" name="rol" id="rol" >
-                          <option value="Medico" >Medico</option>
-                          <option value="Paciente" selected="selected">Paciente</option>
-                      </select>
+                          <a class="btn btn-primary" href="nuevo_usuario.php?type=Medico">Medico</a>
+                          <a class="btn btn-primary"href="nuevo_usuario.php?type=Paciente">Paciente</a>
                     </div>
-                </div> 
-                <br />
-                <div class="row">
-            <div class="col-md-4">
-            	<input class="btn btn-default" type="submit" name="registro" id="button2" value="Continuar"/>
-                </form>
-            </div>
-            <div class="col-md-5"></div>
-        </div>
-            </div>
-            <br />
-        </div>
+                </div>
+         </div>
         <?php include ('modules/footer.php'); ?>
     </div>
 </body>

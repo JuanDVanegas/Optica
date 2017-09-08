@@ -55,7 +55,7 @@ else
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/logo.png" />
-  <title>Medico <?php $_SESSION["nombre"];?> Optica All in One</title>
+  <title>Estado Usuario <?php $_SESSION["nombre"];?> Optica All in One</title>
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="css/overwrite.css" type="text/css" />
   <link rel="stylesheet" href="css/site.css" type="text/css" />
@@ -66,12 +66,12 @@ else
     <?php include ('modules/navbar.php'); ?>
     <div class="body-content container">
          <div class="row">
-         	<?php include('cuentaAdminBanner.php');?>
+         	<?php include('banner_principal.php');?>
          </div>
         <div class="row">
             <div class="col-md-3">
                 <br />
-                <?php include('cuentaAdminMenu.php')?>
+                <?php include('menu_principal.php')?>
             </div>
             <div class="col-md-9"> 
                 <!--Nueva Insersion-->
@@ -102,10 +102,20 @@ else
                      <br />
                     <div class="row">
                         <div class="col-md-offset-1 col-md-3">
-                        	<a href="cuentaAdminEstadoUsuario.php">Regresar</a>
+                        	<a href="administrar_estado.php">Regresar</a>
                         </div>
                         <div class="col-md-3">
-                        	<?php echo "<a class='btn btn-danger' href='controlador_estadoUsuario.php?id=$id_usuario&action=$action'>".$action."</a>"; ?>                            
+                        	<?php
+							if($action == "habilitar")
+							{
+								$btn = "btn-success";
+							}
+							else
+							{
+								$btn = "btn-danger";
+								
+							}
+							 echo "<a class='btn $btn' href='controlador_estadoUsuario.php?id=$id_usuario&action=$action'>".$action."</a>"; 							?>                            
                         </div> 
                     </div>
                  <!--Termina Insersion-->                 

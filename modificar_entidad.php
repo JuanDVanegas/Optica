@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/logo.png" />
-  <title>Medico <?php $_SESSION["nombre"];?> Optica All in One</title>
+  <title>Modificar Entidad <?php $_SESSION["nombre"];?> Optica All in One</title>
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="css/overwrite.css" type="text/css" />
   <link rel="stylesheet" href="css/site.css" type="text/css" />
@@ -16,12 +16,12 @@
     <?php include ('modules/navbar.php'); ?>
     <div class="body-content container">
          <div class="row">
-         	<?php include('cuentaAdminBanner.php');?>
+         	<?php include('banner_principal.php');?>
          </div>
         <div class="row">
             <div class="col-md-3">
                 <br />
-                <?php include('cuentaAdminMenu.php')?>
+                <?php include('menu_principal.php')?>
             </div>
             <div class="col-md-9"> 
                 <!--Nueva Insersion-->
@@ -42,7 +42,7 @@
 					}
 					if($row = $result->fetch_assoc())
 					{
-						$nombre = stripslashes($row["nombre"]);
+						$nombre = stripslashes($row["nombreEntidad"]);
 						$address = stripslashes($row["address"]);
 						$detalles = stripslashes($row["detalles"]);
 					}
@@ -52,7 +52,7 @@
                     <div class="row">
                         <br />
                         <div class="col-md-10">
-                         <form action="controlador_editarEntidad.php" method="post" name="editarEntidad">
+                         <form action="controlador_editarEntidad.php?page=<?php echo $_GET["page"];?>" method="post" name="editarEntidad">
                          <input type="hidden" value="<?php echo $id_entidad;?>" name="id_entidad" />
                         <div class="row">
                             <div class="col-sm-3">
@@ -84,11 +84,11 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <br />
-                                <input class="btn btn-default" type="submit" name="confirmar" value="Actualizar" />
+                                <input class="btn btn-default" type="submit" name="confirmar" value="Modificar Valores" />
                             </div>
                             <div class="col-sm-offset-2 col-sm-4">
                             	<br />	
-                            	<a href="javascript:window.history.back();">Regresar</a>
+                            	<a href="entidad.php">Regresar</a>
                             </div>
                         </div>
                          </form>
