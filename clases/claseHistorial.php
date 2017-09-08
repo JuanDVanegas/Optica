@@ -23,14 +23,13 @@ class Historial
 		VALUES ('$this->fk_paciente','$this->fk_medico','$this->fk_registro','$this->lugar','$this->fecha')";
 		if($db->query($sql) == true)
 		{
-			$_SESSION["resultAgregar"] = "Se ha agregar el nuevo registro al usuario";
-			header("Location: cuentaMedicoHistorial.php");
-			
+			$_SESSION["success"] = "Se ha agregar el nuevo registro al usuario";
+			header($_SESSION["keyRol"]);			
 		}
 		else
 		{
-			$_SESSION["resultAgregar"] = 'error H32 agregar reporte ['. $db->error.']';
-			header('Location: cuentaMedicoHistorial.php');
+			$_SESSION["error"] = 'error H32 agregar reporte ['. $db->error.']';
+			header($_SESSION["keyRol"]);
 		}		
 	}
 	

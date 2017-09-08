@@ -235,9 +235,9 @@
 					</div>
                     <div class="col-sm-offset-3  col-sm-3">
                     <?php
-                    	if($user == "keyMedico")
+                    	if($user == "fk_paciente")
                         {
-                        	echo "<a href='historial_agregar.php'>Agregar Registro</a>";
+                        	echo "<a href='nuevo_registro.php?target_user=".$_GET["target_user"]."'>Agregar Registro</a>";
                        	}
 						else;
 					?>

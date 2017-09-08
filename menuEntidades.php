@@ -62,15 +62,15 @@
 				
 				if($filtro != "null")
 				{
-					$sql1 = "SELECT * FROM entidad WHERE estado='1' AND (nombre LIKE '%".$filtro."%' OR address LIKE '%".$filtro."%' OR
-					detalles LIKE '%".$filtro."%') LIMIT $empieza,$cant_pagina";
-					$query = "SELECT * FROM entidad WHERE estado='1' AND (nombre LIKE '%".$filtro."%' OR address LIKE '%".$filtro."%' OR
-					detalles LIKE '%".$filtro."%')";
+					$sql1 = "SELECT * FROM entidad WHERE estadoEntidad='1' AND (nombre LIKE '%".$filtro."%' 
+					OR address LIKE '%".$filtro."%' OR	detalles LIKE '%".$filtro."%') LIMIT $empieza,$cant_pagina";
+					$query = "SELECT * FROM entidad WHERE estadoEntidad='1' AND (nombre LIKE '%".$filtro."%' 
+					OR address LIKE '%".$filtro."%' OR detalles LIKE '%".$filtro."%')";
 				}
 				else
 				{
-					$sql1 = "SELECT * FROM entidad WHERE estado='1' LIMIT $empieza,$cant_pagina";
-					$query = "SELECT * FROM entidad WHERE estado='1'";
+					$sql1 = "SELECT * FROM entidad WHERE estadoEntidad='1' LIMIT $empieza,$cant_pagina";
+					$query = "SELECT * FROM entidad WHERE estadoEntidad='1'";
 				}				
 				$result = mysqli_query($db,$query);
 				$total_registro = mysqli_num_rows($result);
@@ -102,7 +102,7 @@
 				while($row1 = $result1->fetch_assoc())
 				{
 					$contador++;
-					$nombreEntidad = stripslashes($row1["nombre"]);
+					$nombreEntidad = stripslashes($row1["nombreEntidad"]);
 					$direccion = stripslashes($row1["address"]);
 					$codigo = stripslashes($row1["codigo"]);
 					$detalles = stripslashes($row1["detalles"]);

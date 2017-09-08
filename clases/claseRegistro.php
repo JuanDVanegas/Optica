@@ -28,17 +28,7 @@ class Registro
 			{
 				$_SESSION["id_registro"]=stripslashes($row1["id_registro"]);
 			}
-			else
-			{
-				$_SESSION["resultAgregar"] = 'error R33 agregar reporte ['. $db->error.']';
-				header('Location: cuentaMedicoHistorial.php');
-			}
 			
-		}
-		else
-		{
-			$_SESSION["resultAgregar"] = 'error R39 agregar reporte ['. $db->error.']';
-			header('Location: cuentaMedicoHistorial.php');
 		}		
 	}
 	

@@ -17,11 +17,11 @@
 		}
 		else
 		{
-			echo "<a href='cuentaAdminEntidades.php' target='_parent'>Entidades<span class='glyphicon glyphicon-edit pull-right'
+			echo "<a href='entidad.php' target='_parent'>Entidades<span class='glyphicon glyphicon-edit pull-right'
 			 aria-hidden='true' /></a>
-			 <a href='cuentaAdminNuevoUsuario.php' target='_parent'>Nuevo Usuario<span class='glyphicon glyphicon-edit pull-right' 
+			 <a href='administrar_nuevo_usuario.php' target='_parent'>Nuevo Usuario<span class='glyphicon glyphicon-edit pull-right' 
 			 aria-hidden='true' /></a>
- 			<a href='cuentaAdminEstadoUsuario.php' target='_parent'>Estado Usuario<span class='glyphicon glyphicon-edit pull-right'
+ 			<a href='administrar_estado.php' target='_parent'>Estado Usuario<span class='glyphicon glyphicon-edit pull-right'
 			aria-hidden='true' /></a>";
 		}
 	}?>

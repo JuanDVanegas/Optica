@@ -141,8 +141,6 @@ class Usuario
 		else
 		{
 			$_SESSION["keyRol"] = "error";
-			$_SESSION["resultAgregar"] = "El usuario no se encuentra";
-			header("Location: cuentaMedicoHistorial.php");
 		}
 	}
 	

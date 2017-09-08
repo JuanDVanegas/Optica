@@ -16,7 +16,7 @@ if(!$result1 = $db->query($sql1))
 else;
 if($row1 = $result1->fetch_assoc())
 {
-	$nombre = stripslashes($row1["nombre"]);
+	$nombre = stripslashes($row1["nombreEntidad"]);
 	$address = stripslashes($row1["address"]);
 	$codigo = stripslashes($row1["codigo"]);
 	$detalles = stripslashes($row1["detalles"]);
@@ -44,18 +44,18 @@ else
     <?php include ('modules/navbar.php'); ?>
     <div class="body-content container">
          <div class="row">
-         	<?php include('cuentaAdminBanner.php');?>
+         	<?php include('banner_principal.php');?>
          </div>
         <div class="row">
             <div class="col-md-3">
                 <br />
-                <?php include('cuentaAdminMenu.php')?>
+                <?php include('menu_principal.php')?>
             </div>
             <div class="col-md-9"> 
                 <!--Nueva Insersion-->
                     <div class="row">
                         <div class="col-md-12">
-                            <h1>Eliminar Usuario</h1>
+                            <h2><?php echo $action;?> Entidad</h2>
                             <br />
                             <h4 class="text-info">¿Esta seguro de <?php echo $action;?> la siguiente entidad del sistema de información?</h4>
                         </div>
@@ -71,6 +71,14 @@ else
 							echo "Dirección: ".$address."<br/>";
 							echo "detalles: ".$detalles."<br/>";
 							echo "codigo: ".$codigo."<br/>";
+							if($action =="inhabilitar")
+							{
+								$btn = "btn-danger";
+							}
+							else
+							{
+								$btn = "btn-success";							
+							}
 							?>
                             </h5>
                         </div>         
@@ -81,11 +89,11 @@ else
                         	<form action="controlador_estadoEntidad.php" method="post" name="cambiarEstadoUsuario">
                             <input type="hidden" name="cambiar" value="<?php echo $action;?>" />
                             <input type="hidden" name="entidad" value="<?php echo $_GET["entidad"];?>"/>
-                            <input class="btn btn-danger" type="submit" value="<?php echo $action;?> Entidad y Afiliados"/>
+                            <input class="btn <?php echo $btn;?> " type="submit" value="<?php echo $action;?> Entidad y Afiliados"/>
                             </form>
                         </div>
                         <div class="col-md-3">
-                            <a class="btn btn-default" href="cuentaAdminEntidades.php">Regresar</a>
+                            <a class="btn btn-default" href="entidad.php">Regresar</a>
                         </div> 
                     </div>
                  <!--Termina Insersion-->                 

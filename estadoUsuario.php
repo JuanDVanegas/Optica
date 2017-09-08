@@ -77,15 +77,15 @@ else
                 <!--Nueva Insersion-->
                     <div class="row">
                         <div class="col-md-12">
-                            <h1>Eliminar Usuario</h1>
+                            <h1><?php echo $action;?> Usuario</h1>
                             <br />
-                            <h4 class="text-info">Confirme los datos del usuario para proceder con la eliminación</h4>
+                            <h4 class="text-info">Confirme los datos del usuario para continuar</h4>
                         </div>
                     </div>
                     <br />                     
                     <div class="row">
                     	<div class="col-md-offset-1 col-md-8">
-                        	<h4 class="text-warning">¿Esta seguro de eliminar el siguiente usuario?</h4>
+                        	<h4 class="text-warning">¿Esta seguro de <?php echo $action;?> el siguiente usuario?</h4>
                             <h5 class='text-info'>Información del usuario<br /><br />
                             <?php
 							echo "Nombre: ".$nombre."<br/>";

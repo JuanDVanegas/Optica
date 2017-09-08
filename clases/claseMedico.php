@@ -84,19 +84,19 @@ class Medico
 			else
 			{
 				$_SESSION["error"] = "Error al ".$respuesta." medico";
-				header("Location: cuentaAdminEntidades.php");
+				header($this->nombreEntidad);
 			}
 		}
 		if($contador > 0)
 		{
 			$_SESSION["success"] = " exito ál ".$respuesta." entidad y afiliados";
-			header("Location: cuentaAdminEntidades.php");
+			header($this->nombreEntidad);
 			
 		}
 		else
 		{
 			$_SESSION["success"] .= "exito ál ".$respuesta." entidad sín afiliados";
-			header("Location: cuentaAdminEntidades.php");
+			header($this->nombreEntidad);
 		}
 		
 	}
