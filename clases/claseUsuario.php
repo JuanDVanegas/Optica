@@ -149,56 +149,19 @@ class Usuario
 	public function actualizarDatos()
 	{
 		include('database/conexion.php');
-		$sql="UPDATE `usuario` SET nombre = '$this->nombre', apellido = '$this->apellido', tipoDocumento = '$this->tipoDocumento', numeroDocumento = '$this->numeroDocumento', telefono = '$this->telefono', nacimiento = '$this->nacimiento' WHERE id_usuario = '".$_SESSION["id_usuario"]."'";
+		$sql="UPDATE `usuario` SET nombre = '$this->nombre', apellido = '$this->apellido', telefono = '$this->telefono' WHERE id_usuario = '".$_SESSION["id_usuario"]."'";
 		if($db->query($sql) == true)
 		{
-			$_SESSION["resultActualizar"] = "su información personal ha sido modificada";
-			
-			$_SESSION["nacimiento"] = $this->nacimiento;
+			$_SESSION["resultActualizar"] = "su información personal ha sido modificada";			
 			$_SESSION["nombre"] = $this->nombre;
 			$_SESSION["apellido"] = $this->apellido;
-			$_SESSION["tipoDocumento"] = $this->tipoDocumento;
-			$_SESSION["numeroDocumento"]= $this->numeroDocumento;
 			$_SESSION["telefono"] = $this->telefono;
-			
-			if($_SESSION["rolUsuario"] == "Medico")
-			{
-			 	header("Location: cuentaMedicoPerfil.php");
-			}
-			else
-			{
-				if($_SESSION["rolUsuario"] == "Admin")
-				{
-					header("Location: cuentaAdminPerfil.php");
-				}
-				else
-				{
-					header("Location: cuentaPacientePerfil.php");
-				}				
-			}
-			
-			
+			header($this->genero);
 		}
 		else
 		{
-			$_SESSION["resultActualizar"] = "Error al actualizar sus información personal";
-			header("Location: index.php");
-			if($_SESSION["rolUsuario"] == "Medico")
-			{
-				header("Location: cuentaMedicoPerfil.php");
-			}
-			else
-			{
-				if($_SESSION["rolUsuario"] == "Admin")
-				{
-					header("Location: cuentaAdminPerfil.php");
-				}
-				else
-				{
-					header("Location: cuentaPacientePerfil.php");
-				}				
-			}
-			
+			$_SESSION["error"] = "Error al actualizar sus información personal";
+			header($this->genero);
 		}
 	}
 	

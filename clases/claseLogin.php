@@ -76,7 +76,7 @@ class Login
 				$_SESSION["id_usuario"]=$usuario;
 				$_SESSION["contrasena"]=$password;
 				
-				$sql1="SELECT * FROM usuario WHERE id_usuario='$usuario'";
+				$sql1="SELECT * FROM usuario u INNER JOIN entidad e ON u.entidad = e.id_entidad WHERE id_usuario='$usuario'";
 				if(!$result1 = $db->query($sql1))
 				{
 					die('error al ejecutar la sentencia '. $db->error.']');
@@ -94,18 +94,7 @@ class Login
 					$_SESSION["id_entidad"]=stripslashes($row1["entidad"]);
 					$_SESSION["telefono"]=stripslashes($row1["telefono"]);
 					$_SESSION["genero"]=stripslashes($row1["genero"]);
-					
-					$sql2="SELECT * FROM entidad WHERE id_entidad='".$_SESSION["id_entidad"]."'";
-					if(!$result2 = $db->query($sql2))
-					{
-						die('error al ejecutar la sentencia ['. $db->error.']');
-					}
-					
-					if($row2 = $result2->fetch_assoc())
-					{
-						$_SESSION["nombreEntidad"]=stripslashes($row2["nombre"]);
-					}
-					else;
+					$_SESSION["nombreEntidad"]=stripslashes($row1["nombreEntidad"]);
 					
 					if($_SESSION["rolUsuario"] == "Medico")
 					{
@@ -198,25 +187,9 @@ class Login
 		{
 			if(isset($_SESSION["rolUsuario"]))
 			{
-				$_SESSION["resultActualizar"] = "su contraseña ha sido modificada exitosamente";
-			
-				if($_SESSION["rolUsuario"] == "Medico")
-				{
-					header("Location: cuentaMedicoPerfilPassword.php");
-				}
-				else
-				{
-					if($_SESSION["rolUsuario"] == "Admin")
-					{
-						header("Location: cuentaAdminPerfilPassword.php");
-					}
-					else
-					{
-						header("Location: cuentaPacientePerfilPassword.php");
-					}	
-		
-				}
-			}
+				$_SESSION["resultActualizar"] = "su contraseña ha sido modificada exitosamente";	
+				header($this->fk_user);
+			}	
 			else
 			{
 				$_SESSION["success"] = "su contraseña ha sido modificada";
@@ -227,24 +200,8 @@ class Login
 		{			
 			if(isset($_SESSION["rolUsuario"]))
 			{
-				$_SESSION["error"] = "FAIL";
-				$_SESSION["resultActualizar"] = "Error al actualizar la contraseña";
-			
-				if($_SESSION["rolUsuario"] == "Medico")
-				{
-					header("Location: cuentaMedicoPerfilPassword.php");
-				}
-				else
-				{
-					if($_SESSION["rolUsuario"] = "Admin")
-					{
-						header("Location: cuentaAdminPerfilPassword.php");
-					}
-					else
-					{
-						header("Location: cuentaPacientePerfilPassword.php");
-					}
-				}
+				$_SESSION["resultActualizar"] = "Error al actualizar la contraseña";			
+				header($this->fk_user);
 			}
 			else
 			{
@@ -265,8 +222,8 @@ class Login
 		
 		if($result6->fetch_assoc())
 		{
-			$_SESSION["errorActualizar"] = "Correo electronico no disponible, intenta con otro distinto";
-			header("Location: usuarioConfirmarCorreo.php");
+			$_SESSION["error"] = "Correo electronico no disponible, intenta con otro distinto";
+			header($this->password);
 		}
 		else
 		{
@@ -275,54 +232,13 @@ class Login
 			{
 				$_SESSION["resultActualizar"] = "su correo ha sido modificado exitosamente";
 				$_SESSION["correoElectronico"] = "$this->email";
-				if(isset($_SESSION["keyUser"]))
-				{
-					if($_SESSION["rolUsuario"] == "Medico")
-					{
-						header("Location: cuentaMedicoPerfil.php");
-					}
-					else
-					{
-						if($_SESSION["rolUsuario"] = "Admin")
-						{
-							header("Location: cuentaAdminPerfil.php");
-						}
-						else
-						{
-							header("Location: cuentaPacientePerfil.php");
-						}
-					}
-				}
-				else
-				{
-					header("Location: usuarioConfirmarCorreo.php");
-				}				
+				header($this->password);
+							
 			}
 			else
 			{
-				$_SESSION["resultActualizar"] = "Error al actualizar correo electronico";
-				if(isset($_SESSION["keyUser"]))
-				{
-					if($_SESSION["rolUsuario"] == "Medico")
-					{
-						header("Location: cuentaMedicoPerfil.php");
-					}
-					else
-					{
-						if($_SESSION["rolUsuario"] = "Admin")
-						{
-							header("Location: cuentaAdminPerfil.php");
-						}
-						else
-						{
-							header("Location: cuentaPacientePerfil.php");
-						}
-					}
-				}
-				else
-				{
-					header("Location: usuarioConfirmarCorreo.php");
-				}
+				$_SESSION["error"] = "Error al actualizar correo electronico";
+				header($this->password);
 			}
 		}
 	}
@@ -361,13 +277,12 @@ class Login
 		$sql1="UPDATE login SET confirmMail = '0' WHERE fk_user = '$this->fk_user'";
 		if($db->query($sql1) == true)
 		{
-			$_SESSION["next"] = "1";
 			$_SESSION["estadoCorreo"] = 0;
 		}
 		else
 		{
-			$_SESSION["error"] = "Error al confirmar Correo electronico36CM";
-			header("Location: index.php");
+			$_SESSION["error"] = "Error al confirmar Correo electronico";
+			header($this->password);
 		}
 	}
 }

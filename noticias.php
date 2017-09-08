@@ -1,5 +1,4 @@
-<?php include('seguridad_usuarioMedico.php');
-	 include('seguridad_confirmarCorreo.php');?>
+<?php include('seguridad_usuario.php');?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -17,15 +16,15 @@
     <?php include ('modules/navbar.php'); ?>
     <div class="body-content container">
          <div class="row">
-         	<?php include('cuentaMedicoBanner.php');?>
+         	<?php include('banner_principal.php');?>
          </div>
         <div class="row">
             <div class="col-md-3">
                 <br />
-                <?php include('cuentaMedicoMenu.php')?>
+                <?php include('menu_principal.php')?>
             </div>
             <?php include('modules/news.php');?>
-        </div><?php include ('modules/footer.php'); ?>
+        </div> <?php include ('modules/footer.php'); ?>
      </div>     
   </body>
 </html>

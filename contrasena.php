@@ -1,5 +1,5 @@
-<?php include('seguridad_usuarioMedico.php');
-		  include('seguridad_confirmarCorreo.php');?>
+<?php include('seguridad_usuario.php');
+	include('seguridad_confirmarCorreo.php');?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -17,12 +17,12 @@
     <?php include ('modules/navbar.php'); ?>
     <div class="body-content container">
          <div class="row">
-         	<?php include('cuentaMedicoBanner.php');?>
+         	<?php include('configuracion_banner.php');?>
          </div>
         <div class="row">
             <div class="col-md-3">
                 <br />
-                <?php include('cuentaMedicoMenu.php')?>
+                <?php include("configuracion_menu.php");?>
             </div>
             <div class="col-md-9"> 
                 <!--Nueva Insersion-->
@@ -74,13 +74,9 @@
                     </div>
                     <br />
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-offset-3 col-sm-4">
                             <br />
-                            <a href="cuentaMedicoPerfil.php" target="_parent">Regresar</a>
-                        </div>
-                        <div class="col-sm-4">
-                            <br />
-                            <input class="btn btn-default" type="submit" name="confirmar" value="Actualizar" />
+                            <input class="btn btn-default" type="submit" name="confirmar" value="Actualizar Contraseña" />
                         </div>
                     </div>
                 </form>

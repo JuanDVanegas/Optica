@@ -1,5 +1,5 @@
-<?php include('seguridad_usuarioPaciente.php');
-		  include('seguridad_confirmarCorreo.php');?>
+<?php include('seguridad_usuario.php');
+	include('seguridad_confirmarCorreo.php');?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -17,40 +17,51 @@
     <?php include ('modules/navbar.php'); ?>
     <div class="body-content container">
          <div class="row">
-         	<?php include('cuentaPacienteBanner.php');?>
+         	<?php include('configuracion_banner.php');?>
          </div>
         <div class="row">
             <div class="col-md-3">
                 <br />
-                <?php include('cuentaPacienteMenu.php')?>
+                <?php include('configuracion_menu.php');?>
             </div>
             <div class="col-md-9"> 
                 <!--Nueva Insersion-->
-                    <div class="row">
+                     <div class="row">
                        <div class="col-md-12"> 
-                         <h1>Actualizar correo electronico</h1>
-                         
-                         <p>digite su nuevo correo electronico</p>
+                         <h2>Actualizar correo electronico</h2><br />
+                         <p class="text-info">Digite su nueva dirección de correo electronico</p>                     
                        </div>
                      </div>
                      <div class="row">
                         <div class="col-md-6">
-                            <form id="form1" name="form1" method="post" action="controlador_actualizarCorreo.php">
+                            <form id="form1" name="form1" method="post" 
+                            action="actualizarCorreo.php<?php if($_SESSION["rolUsuario"] == "Admin"){
+								echo "?keyAdmin=".md5($_SESSION["id_usuario"])."";}?>">
                                 <br />
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <?php if(isset($_SESSION["resultActualizar"]))
+                                        {echo "<p class='text-success'>".$_SESSION["resultActualizar"]."</p>";
+                                        unset($_SESSION["resultActualizar"]);}?>
+                                        <?php if(isset($_SESSION["error"]))
+                                        {echo "<p class='text-danger'>".$_SESSION["error"]."</p>";
+                                        unset($_SESSION["error"]);}?>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-5">
                                         <p>Correo Electronico</p>
                                     </div>
                                     <div class="col-md-7">
-                                    	<input type="hidden" name="keyWord" value="true" />
-                                        <input class="form-control" type="text" name="correoElectronico" value="<?php echo $_SESSION["correoElectronico"];?>"/>
+                                        <input class="form-control" type="mail" name="correoElectronico" 
+                                        value="<?php echo $_SESSION["correoElectronico"];?>"/>
                                     </div>
                                 </div>
                                 <br />
                                 <div class="row">
                                     <div class="col-md-8"></div>
                                     <div class="col-md-4">
-                                        <input name="send" type="submit" class="btn btn-primary" id="send" value="Actualizar" />
+                                        <input name="send" type="submit" class="btn btn-primary" value="Actualizar" />
                                     </div>
                                 </div>
                             </form>

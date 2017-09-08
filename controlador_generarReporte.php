@@ -41,11 +41,11 @@ class PDF extends FPDF
 		return $data;
 	}
 	// Tabla coloreada
-	function FancyTable($idRegistro,$id_medico)
+	function FancyTable($id_registro,$id_medico)
 	{
 		include('database/conexion.php');
 
-		$sql2 = "SELECT * FROM historial WHERE fk_medico='$id_medico' AND fk_registro='$idRegistro'";
+		$sql2 = "SELECT * FROM historial INNER JOIN registro ON historial.fk_registro=registro.id_registro WHERE fk_medico='$id_medico' AND fk_registro='$id_registro'";
 		if(!$result2 = $db->query($sql2))
 		{
 			die('error al ejecutar la sentencia ['. $db->error.']');
@@ -57,6 +57,10 @@ class PDF extends FPDF
 			$fk_paciente = stripslashes($row2["fk_paciente"]);
 			$lugar = stripslashes($row2["lugar"]);
 			$fecha = stripslashes($row2["fecha"]);
+			$id_registro = stripslashes($row2["id_registro"]);
+			$descripcion = stripslashes($row2["descripcion"]);
+			$resultado = stripslashes($row2["resultados"]);
+			$tratamiento = stripslashes($row2["tratamiento"]);
 		}
 		else
 		{
@@ -78,7 +82,7 @@ class PDF extends FPDF
 		}
 		else;
 
-		$sql4 = "SELECT * FROM usuario WHERE id_usuario='$id_medico'";
+		$sql4 = "SELECT * FROM usuario INNER JOIN entidad ON usuario.entidad = entidad.id_entidad WHERE id_usuario='$id_medico'";
 		if(!$result4 = $db->query($sql4))
 		{
 			die('error al ejecutar la sentencia ['. $db->error.']');
@@ -86,33 +90,15 @@ class PDF extends FPDF
 		else;
 		if($row4 = $result4->fetch_assoc())
 		{
+			$nombreEntidad = stripslashes($row4["nombreEntidad"]);
+			$address = stripslashes($row4["address"]);
 			$nombreM = stripslashes($row4["nombre"]);
 			$apellidoM = stripslashes($row4["apellido"]);
 			$tipoM = stripslashes($row4["tipoDocumento"]);
 			$documentoM = stripslashes($row4["numeroDocumento"]);
 		}
-		else;						
-		
-		
-		
-		$sql1 = "SELECT * FROM registro WHERE id_registro = '$idRegistro'";
-		if(!$result1 = $db->query($sql1))
-		{
-			die('error al ejecutar la sentencia ['. $db->error.']');
-		}
 		else;
 		
-		
-		if($row1 = $result1->fetch_assoc())
-		{
-			$id_registro = stripslashes($row1["id_registro"]);
-			$descripcion = stripslashes($row1["descripcion"]);
-			$resultado = stripslashes($row1["resultados"]);
-			$tratamiento = stripslashes($row1["tratamiento"]);
-		}
-		else;
-
-
 		$this->SetFillColor(102,173,255);
 		$this->SetTextColor(255,255,255);
 		$this->SetDrawColor(128,0,0);
@@ -166,6 +152,12 @@ class PDF extends FPDF
 		$this->Ln();
 		$this->Cell($ancho1,6,'Numero de Documento',1,'','L',true);
 		$this->Cell($ancho,6,$documentoM,1,'','L',false);
+		$this->Ln();
+		$this->Cell($ancho1,6,utf8_decode('Entidad Óptica u Oftalmologíca'),1,'','L',true);
+		$this->Cell($ancho,6,$nombreEntidad,1,'','L',false);
+		$this->Ln();
+		$this->Cell($ancho1,6,utf8_decode('Dirección Entidad'),1,'','L',true);
+		$this->Cell($ancho,6,$address,1,'','L',false);
 		$this->Ln();
 		$this->Ln();
 		$this->MultiCell($ancho1,6,'Descripcion',1,'J',true);
