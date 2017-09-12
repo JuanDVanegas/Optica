@@ -40,48 +40,19 @@ class Usuario
 			
 			if($row4 = $result4->fetch_assoc())
 			{
-				$idUsuario=stripslashes($row4["id_usuario"]);
-				$_SESSION["fk_user"] = $idUsuario;
+				$_SESSION["fk_user"]=stripslashes($row4["id_usuario"]);
 				$_SESSION["next"] = 1;
 			}
 			else
 			{
-				$_SESSION["errorRegistro"] = "<b>Error en el sistema 402, intentelo de nuevo</b>";
-				if($_SESSION["reg"]==1)
-				{
-					header("Location: nuevoUsuarioFormulario1.php");
-				}
-				else
-				{
-					if($_SESSION["reg"]==3)
-					{
-						header($from);
-					}
-					else
-					{
-						header("Location: nuevoUsuarioFormulario2.php");
-					}				
-				}
+				$_SESSION["errorRegistro"] = "Error en el sistema 402, intentelo de nuevo";
+				header($from);
 			}
 		}
 		else
 		{
-			$_SESSION["errorRegistro"] = "<b>Error en el sistema 401, intentelo de nuevo</b>";
-			if($_SESSION["reg"]==1)
-			{
-				header("Location: nuevoUsuarioFormulario1.php");
-			}
-			else
-			{
-				if($_SESSION["reg"]==3)
-				{
-					header("Location: cuentaAdminNuevoUsuario.php");
-				}
-				else
-				{
-					header("Location: nuevoUsuarioFormulario2.php");
-				}				
-			}
+			$_SESSION["errorRegistro"] = "Error al registrar intentelo de nuevo";
+			header($from);
 		}
 	}
 	
@@ -97,27 +68,11 @@ class Usuario
 		
 		if($row5 = $result5->fetch_assoc())
 		{
-			$_SESSION["error"] = "Documento no se encuentra disponible.";
-			$_SESSION["errorRegistro"] = "<b>Documento no se encuentra disponible.</b>";
+			$_SESSION["errorRegistro"] = "Documento no se encuentra disponible";
 			if(isset($_SESSION["reg"]))
 			{
-				if($_SESSION["reg"]==1)
-				{
-					header("Location: nuevoUsuarioFormulario1.php");
-				}
-				else
-				{
-					if($_SESSION["reg"]==3)
-					{
-						header($this->genero);
-					}
-					else
-					{
-						header("Location: nuevoUsuarioFormulario2.php");
-					}				
-				}
-			}
-			
+				header($this->genero);
+			}		
 		}
 		else;
 	}

@@ -10,7 +10,7 @@ class Medico
 		$this->codigo = $Codigo;
 	}
 	
-	public function confirmarEntidad()
+	public function confirmarEntidad($from)
 	{
 		
 		include('database/conexion.php');
@@ -27,8 +27,8 @@ class Medico
 		}
 		else
 		{
-			$_SESSION["errorRegistro"] = "<b>Esta entidad optica no esta vinculada al sistema</b>";
-			header('Location: nuevoUsuarioFormulario1.php');
+			$_SESSION["errorRegistro"] = "Esta entidad optica no esta vinculada al sistema";
+			header($from);
 		}
 	}
 	

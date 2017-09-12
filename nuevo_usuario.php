@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(isset($_GET["type"]))
 {
 	$type = $_GET["type"];
@@ -9,8 +10,15 @@ if(isset($_GET["type"]))
 	}
 	else
 	{
-		$style="none";
-		$code=0;
+		if($type == "Paciente")
+		{
+			$style="none";
+			$code=0;
+		}
+		else
+		{
+			header("Location: nuevoUsuarioRol.php");
+		}
 	}
 } 
 else
@@ -32,15 +40,26 @@ else
 <script type="text/javascript" src="javascript/bootstrap.js"></script>
 </head>
 <body>
-	<?php session_start();include ('modules/navbar.php'); ?>
+	<?php include ('modules/navbar.php'); ?>
     <div class="body-content container">
     	<div class="row">
+        <br />
+            <div class="col-md-7">
+                  <a class="btn btn-primary" href="nuevo_usuario.php?type=Medico">Medico</a>
+                  <a class="btn btn-primary"href="nuevo_usuario.php?type=Paciente">Paciente</a>
+            </div>
         	<div class="col-md-12">
-            	<h2>Crear cuenta</h2>
+            	<h2>Crear cuenta</h2><h3 class="text-info"><?php echo $type;?></h3>
                 <?php 
 				if(isset($_SESSION["errorRegistro"]))
 				{
-					echo '<h3 class="text-danger">'.$_SESSION["errorRegistro"].'</h3>';
+					echo '<p class="text-danger">'.$_SESSION["errorRegistro"].'</p>';
+					unset($_SESSION["errorRegistro"]);
+				}
+				if(isset($_SESSION["success"]))
+				{
+					echo '<p class="text-success">'.$_SESSION["success"].'</p>';
+					unset($_SESSION["success"]);
 				}
 				?>
             </div>
@@ -49,7 +68,7 @@ else
     	<div class="row">
         	<div class="col-md-6">
                 <div class="row">
-                <form action="controlador_nuevo_usuario.php?type=<?php echo $_GET["type"];?>" method="post">
+                <form action="controlador_nuevo_usuario.php?userType=<?php echo md5($type);?>" method="post">
                 	<div class="col-md-5">
                     	<p>Nombre</p>
                     </div>
@@ -73,9 +92,8 @@ else
                     </div>
                     <div class="col-md-7">
                     	<select class="form-control" name="tipo" id="select">
-						  <option value="Null"  selected="selected">Seleccionar</option>
-						  <option value="Tarjeta de identidad">Tarjeta de identidad</option>
-						  <option value="Cedula de ciudadania" >Cedula de ciudadania</option>
+						  <option value="Tarjeta de identidad" >Tarjeta de identidad</option>
+						  <option value="Cedula de ciudadania" selected="selected">Cedula de ciudadania</option>
 						  <option value="Cedula extrajera">Cedula extrajera</option>
 						  <option value="Pasaporte">Pasaporte</option>
 						  <option value="Libreta Militar">Libreta Militar</option>
@@ -158,7 +176,7 @@ else
         <div class="row">
         	<div class="col-md-5"></div>
             <div class="col-md-2">
-            	<input type="hidden" value="Medico" name="rol" />
+            	<input type="hidden" value="<?php echo $type;?>" name="rol" />
             	<input class="btn btn-primary" type="submit" name="registro" id="button2" value="Registrar" />
             </div>
             <div class="col-md-5"></div>
