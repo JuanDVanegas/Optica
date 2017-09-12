@@ -51,7 +51,7 @@
                                 <p>Fecha</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="date" name="fecha" required="required"/>
+                                <input class="form-control" type="text" name="fecha" value="<?php echo date('d/m/Y');?>" readonly="readonly"/>
                             </div>
                         </div>
                         <br />

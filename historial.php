@@ -4,6 +4,27 @@
 	{
 		header('Location: noticias.php');
 	}
+	$target_user = $_GET["target_user"];
+	if($target_user == md5("Paciente") && $_SESSION["rolUsuario"] == "Paciente")
+	{
+		$user = "fk_medico";
+		$fk_usuario_target = "fk_paciente";
+		$user_to = "Medico";
+	}
+	else
+	{
+		if($target_user == md5("Medico") && $_SESSION["rolUsuario"] == "Medico")
+		{
+			$user = "fk_paciente";
+			$fk_usuario_target = "fk_medico";
+			$user_to = "Paciente";
+		}
+		else
+		{
+			$user = "null";
+			header("Location: noticias.php");						
+		}
+	}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -42,26 +63,7 @@
 						echo "<p class='text-danger'>".$_SESSION["error"]."</p>";
 						unset($_SESSION["error"]);
 					}
-					$target_user = $_GET["target_user"];
-					if($target_user == md5("Paciente") && $_SESSION["rolUsuario"] == "Paciente")
-					{
-						$user = "fk_medico";
-						$fk_usuario_target = "fk_paciente";
-						$user_to = "Medico";
-					}
-					else
-					{
-						if($target_user == md5("Medico") && $_SESSION["rolUsuario"] == "Medico")
-						{
-							$user = "fk_paciente";
-							$fk_usuario_target = "fk_medico";
-							$user_to = "Paciente";
-						}
-						else
-						{
-							$user = "null";						
-						}
-					}
+					
 				?>
                 <div class="row">
                     <div class="col-md-offset-1 col-md-3">
