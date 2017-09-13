@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="images/logo.png" />
-  <title>Medico <?php $_SESSION["nombre"];?> Optica All in One</title>
+  <title>Nuevo Usuario Optica All in One</title>
   <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
   <link rel="stylesheet" href="css/overwrite.css" type="text/css" />
   <link rel="stylesheet" href="css/site.css" type="text/css" />
@@ -170,7 +170,7 @@
                                 while($row1 = $result1->fetch_assoc())
                                 {
                                     $id_entidad = stripslashes($row1["id_entidad"]);
-                                    $nombre = stripslashes($row1["nombre"]);
+                                    $nombre = stripslashes($row1["nombreEntidad"]);
                                 ?>	
                                     
                                           <option value="<?php echo $id_entidad;?>"><?php echo $nombre;?></option>

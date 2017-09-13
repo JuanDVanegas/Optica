@@ -17,12 +17,16 @@ if(isset($_GET["type"]))
 		}
 		else
 		{
+			$style="none";
+			$code=0;
 			header("Location: nuevoUsuarioRol.php");
 		}
 	}
 } 
 else
 {
+	$style="none";
+	$code=0;
 	header("Location: nuevoUsuarioRol.php");
 }
 ?>
