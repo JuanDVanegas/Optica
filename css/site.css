@@ -19,7 +19,7 @@ iframe{
 	border:0;	
 }
 .fondo{
-	background-image: url(http://www.artleo.com/pic/201106/1920x1080/artleo.com-4243.jpg);
+	background-image: url("images/fondo.jpg");
 	background-size:100%;
 }
 

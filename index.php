@@ -12,7 +12,7 @@
 <script type="text/javascript" src="javascript/jquery.js"></script>
 <script type="text/javascript" src="javascript/bootstrap.js"></script>
 </head>
-<body class="fondo">
+<body>
 	<?php include("modules/navbar.php");?>    
     <div class="container body-content white-transparent">
     	<div class="row">
