@@ -51,18 +51,18 @@ INSERT INTO `codigo` (`id_codigo`, `numero`, `tipo`, `fk_mail`) VALUES
 
 CREATE TABLE `entidad` (
   `id_entidad` int(11) NOT NULL,
-  `nombre` varchar(200) COLLATE utf8_bin NOT NULL,
+  `nombreEntidad` varchar(200) COLLATE utf8_bin NOT NULL,
   `address` varchar(200) COLLATE utf8_bin NOT NULL,
   `codigo` varchar(200) COLLATE utf8_bin NOT NULL,
   `detalles` varchar(250) COLLATE utf8_bin DEFAULT NULL,
-  `estado` tinyint(1) NOT NULL
+  `estadoEntidad` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `entidad`
 --
 
-INSERT INTO `entidad` (`id_entidad`, `nombre`, `address`, `codigo`, `detalles`, `estado`) VALUES
+INSERT INTO `entidad` (`id_entidad`, `nombreEntidad`, `address`, `codigo`, `detalles`, `estadoEntidad`) VALUES
 (0, 'Ninguno', 'Ninguno', '', 'Ninguno', 1),
 (1000, 'vision 20/20', 'cra 23 - 19 NQS bis 4', 'kh25J45SS', 'reuniendo', 1),
 (1001, 'abc opticas', 'Cr 86 6-37 L-242', '3001186', 'new inspiration to you', 1),
