@@ -1,7 +1,7 @@
 <?php
 include ('clases/claseLogin.php');
 session_start();
-$from = "Location: contrasena.php";
+$from = "Location: contrasena";
 if($_POST["nuevoPass"]==$_POST["confirmarPass"])
 {
 	if($_SESSION["contrasena"] == md5($_POST["actualPass"]))

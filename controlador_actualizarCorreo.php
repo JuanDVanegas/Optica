@@ -18,7 +18,4 @@ else
 {
 	header($from);
 }
-	
-
-}
 ?>

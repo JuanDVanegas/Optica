@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Optical All in One</title>
+<link rel="icon" type="image/png" href="images/logo.png" />
+<title>Entidades Vinculadas</title>
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 <link rel="stylesheet" href="css/overwrite.css" type="text/css" />
 <link rel="stylesheet" href="css/site.css" type="text/css" />
@@ -132,17 +133,17 @@
                     echo "<nav aria-label='Page navigation'>
                       <ul class='pagination'>
                         <li>
-                          <a href='menuEntidades.php?pagina=1' aria-label='Previous'>
+                          <a href='entidades.php?pagina=1' aria-label='Previous'>
                             <span aria-hidden='true'>&laquo;</span>
                           </a>
                         </li>";
                         for($i=1; $i<=$total_pagina;$i++)
                         {
-                            echo"<li><a href='menuEntidades.php?pagina=".$i."'>".$i."</a> ";
+                            echo"<li><a href='entidades.php?pagina=".$i."'>".$i."</a> ";
                         }
                         echo"							
                         <li>
-                          <a href='menuEntidades.php?pagina=$total_pagina' aria-label='Next'>
+                          <a href='entidades.php?pagina=$total_pagina' aria-label='Next'>
                             <span aria-hidden='true'>&raquo;</span>
                           </a>
                         </li>

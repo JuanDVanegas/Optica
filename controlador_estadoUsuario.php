@@ -2,7 +2,7 @@
 session_start();
 include('clases/claseEntidad.php');
 include('clases/clasePaciente.php');
-$from = 'Location: administrar_estado.php';
+$from = 'Location: administrar_estado';
 $id = $_GET["id"];
 $action1 = $_GET["action"];
 

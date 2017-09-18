@@ -5,7 +5,7 @@ include("clases/claseLogin.php");
 $correo=$_GET["usuario"];
 $codigo=$_GET["encript"];
 $confirmMail=1;
-
+$_SESSION["status"] = 0;
 echo $correo;
 echo "<br/>";
 echo $codigo;
@@ -19,8 +19,7 @@ if($db->query($sql) == true)
 }
 else
 {
-    $_SESSION["status"] = 0;
-    $_SESSION["error"] = "Error al confirmar Correo electronico 43CM";
-    header("Location: index.php");
+   	$solicitud = "Error al confirmar correo electronico";
+	header("Location: solicitud?peticion=".$solicitud);
 }			
 ?>

@@ -3,7 +3,7 @@ session_start();
 include('database/conexion.php');
 include('clases/claseLogin.php');
 include('clases/claseCodigo.php');
-
+$from = "Location: restablecerPassword";
 $correo = $_GET["trick"];
 $codigo = $_GET["code"];
 $subject = "Restablecer Contraseña";
@@ -21,23 +21,23 @@ if($_SESSION["next"] == "confirmed")
 		{
 			$_SESSION["keyLogger"] = $correo;
 			$_SESSION["key_password"] = "true";
-			header('Location: usuarioNuevoPassword.php?keyLogger='.$_SESSION["keyLogger"].'');
+			header('Location: nuevo_password?keyLogger='.$_SESSION["keyLogger"].'');
 		}
 		else
 		{
 			$_SESSION["error"] = "Error en la solicitud";
-			header("Location: restablecerPassword.php");
+			header($from);
 		}		
 	}
 	else
 	{		
 		$_SESSION["error"] = "Esta solicitud ha expirado";
-		header("Location: restablecerPassword.php");
+		header($from);
 	}
 }
 else
 {
 	$_SESSION["error"] = "Solicitud incorrecta, valores erroneos";
-	header("Location: restablecerPassword.php");
+	header($from);
 }
 ?>

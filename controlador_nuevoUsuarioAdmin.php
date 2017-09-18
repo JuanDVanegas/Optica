@@ -1,6 +1,6 @@
 <?php
 session_start();
-$from = 'Location: administrar_nuevo_usuario.php';
+$from = 'Location: administrar_nuevo_usuario';
 $_SESSION["reg"] = 2;
 include('clases/claseAdministrador.php');
 include('clases/claseUsuario.php');

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$from = 'Location: entidad.php';
+$from = 'Location: entidad';
 include('clases/claseEntidad.php');
 $nombre = $_POST["nombre"];
 $address = $_POST["address"];

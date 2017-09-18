@@ -6,7 +6,7 @@ class Administrador
 	{
 		$this->id_usuario = $Id_usuario;
 	}	
-	public function eliminarUsuario()
+	public function eliminarUsuario($from)
 	{
 		include('database/conexion.php');
 		$sql = "DELETE FROM usuario WHERE id_usuario = '$this->id_usuario'";
@@ -16,20 +16,14 @@ class Administrador
 			if($db->query($sql2) == true)
 			{
 				$_SESSION["success"] = "El usuario se ha eliminado exitosamente";
-				header("Location: cuentaAdminEliminarUsuario.php");
+				header($from);
 			}			
 		}	
 		else
 		{
 			$_SESSION["error"] = "Error en el proceso, intente nuevamente";
-			header("Location: cuentaAdminEliminarUsuario.php");
+			header($from);
 		}	
-	}
-	
-	public function boom()
-	{
-		
-	}
-}
+	}}
 
 ?>

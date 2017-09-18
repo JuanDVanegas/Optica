@@ -7,13 +7,13 @@
                     <span class="icon-bar"></span>
                 </button>
                 <img src="images/logo.png" class="img-logo"/>
-                <a href="index.php" class="navbar-brand">Optica all in One</a>
+                <a href="index" class="navbar-brand">Optica all in One</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="menuAcercade.php">Acerca de</a></li>
-                    <li><a href="menuContacto.php">Contacto</a></li>
-                    <li><a href="menuEntidades.php">Entidades</a></li>
+                    <li><a href="acerca-de">Acerca de</a></li>
+                    <li><a href="contacto">Contacto</a></li>
+                    <li><a href="entidades">Entidades</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                 <?php
@@ -26,12 +26,12 @@
 						}
 						else
 						{
-							echo"<li><a class=navbar-right href='nuevoUsuarioRol.php'>Registrarse</a></li>";					
+							echo"<li><a class=navbar-right href='nuevoUsuarioRol'>Registrarse</a></li>";					
 						}
 					}
 					else
 					{
-						echo"<li><a class=navbar-right href='nuevoUsuarioRol.php'>Registrarse</a></li>";
+						echo"<li><a class=navbar-right href='nuevoUsuarioRol'>Registrarse</a></li>";
 					}					
 				?>
                 </ul>

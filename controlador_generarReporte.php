@@ -28,7 +28,7 @@ class PDF extends FPDF
 		$this->Cell(0,20,utf8_decode('Pagina '.$this->PageNo().' / {nb}'),0,0,'C');
 		$this->Cell(0,20,utf8_decode('Fecha de expedición: '.date('d:m:Y')),0,0,'R'); 
 		$this->SetY(-15);
-		$this->Cell(0,20,utf8_decode('http://www.optica-all.com/menuAcercade.php'),0,0,'L'); 
+		$this->Cell(0,20,utf8_decode('http://www.optica-all.com/acerca-de'),0,0,'L'); 
 	}
 	// Cargar los datos
 	function LoadData($file)

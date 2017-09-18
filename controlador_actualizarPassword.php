@@ -13,6 +13,6 @@ if($_POST["nuevoPass"]==$_POST["confirmarPass"])
 else
 {
 	$_SESSION["error"] = "Las contraseñas no coinciden";
-	header('Location: usuarioNuevoPassword.php');
+	header('Location: nuevo_password?keyLogger='.$_SESSION["keyLogger"].'');
 }
 ?>

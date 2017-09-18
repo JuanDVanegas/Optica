@@ -1,8 +1,8 @@
 <?php sleep(1); include('seguridad_sesionActiva.php');?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head><meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="images/logo.png" />
 <title>Optical All in One</title>
@@ -108,7 +108,7 @@
                         <br />
                         <div class="row">
                             <div class="col-md-5">
-                                <a href="nuevoUsuarioRol.php">¿No estas registrado?</a><br /><br /><a href="restablecerPassword.php">Olvide mi Contraseña</a>
+                                <a href="nuevoUsuarioRol">¿No estas registrado?</a><br /><br /><a href="restablecerPassword">Olvide mi Contraseña</a>
                             </div>
                             <div class="col-md-4">
                             	<br />

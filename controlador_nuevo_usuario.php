@@ -1,6 +1,6 @@
 <?php
 session_start();
-$from = 'Location: nuevo_usuario.php?type=';
+$from = 'Location: nuevo_usuario?type=';
 $userType = $_GET["userType"];
 $_SESSION["reg"] = 1;
 include('clases/claseUsuario.php');

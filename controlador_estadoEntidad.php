@@ -4,7 +4,7 @@ include('clases/claseEntidad.php');
 include('clases/claseMedico.php');
 $action1 = $_POST["cambiar"];
 
-$from = "Location: entidad.php?pagina=".$_GET["page"];
+$from = "Location: entidad?pagina=".$_GET["page"];
 if($action1 == "habilitar")
 {
 	$action = 1;

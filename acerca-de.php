@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="images/logo.png" />
-<title>Optical All in One</title>
+<title>Acerca de</title>
 <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
 <link rel="stylesheet" href="css/overwrite.css" type="text/css" />
 <link rel="stylesheet" href="css/site.css" type="text/css" />

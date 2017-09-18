@@ -6,7 +6,7 @@ if (isset($_SESSION["status"]))
 {
     if($_SESSION["status"]!=0)
 	{
-		header("Location: noticias.php");
+		header("Location: noticias");
 	}
 }
 else;

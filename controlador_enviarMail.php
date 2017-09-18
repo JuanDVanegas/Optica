@@ -7,7 +7,7 @@ $correo = $_POST["correoElectronico"];
 $asunto = "Confirmar Cuenta";
 $codigo = rand(1000000, 9999999999);
 $tipo = "Confirmar Cuenta";
-$body = "Haga click en el enlace para confirmar correo electronico "."http://www.optica-all.com/controlador_confirmarMail.php?usuario=$correo&encript=$codigo";
+$body = "Haga click en el enlace para confirmar correo electronico "."https://www.mundos-virtual.com/confirmar_mail?usuario=$correo&encript=$codigo";
 $header = "From: Soporte Optica <soporte@optica-all.com>";
 
 if(mail($correo,$asunto,$body,$header))
@@ -15,13 +15,14 @@ if(mail($correo,$asunto,$body,$header))
 	$sql2="INSERT INTO codigo (numero,tipo)
 	VALUES ('$codigo','$tipo')";
 	$db->query($sql2);	
-	$_SESSION["success"] = "Mensaje enviado con exito, importante chequear la bandeja de spam";	
-	header("Location: index.php");
+	$resultado = "El mensaje de confirmación ha sido enviado con exito<br>Importante revisar la bandeja de Spam si aún no recibe 
+	el correo electronico";	
+	header("Location: solicitud?peticion=".$resultado);
 }
 else
 {
-	$_SESSION["error"] = "Error al enviar confirmacion";
-	header("Location: index.php");
+	$resultado = "Error al enviar mensaje de confirmación<br>Es posible que su dirección de correo electronico no exista<br>Error con el cliente - servidor";
+	header("Location: solicitud?peticion=".$resultado);;
 }
 ?>
 

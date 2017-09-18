@@ -106,13 +106,13 @@ class Login
 			else
 			{
 				$_SESSION["sesionError"]="Usuario y/o Contrasena incorrecto";
-				header("Location: index.php");
+				header("Location: index");
 			}
 		}
 		if(!isset($contador))
 		{
 			$_SESSION["sesionError"]="Usuario y/o Contrasena incorrecto";
-			header("Location: index.php");
+			header("Location: index");
 		}
 		else;
 	}
@@ -120,7 +120,11 @@ class Login
 	{
 		session_start();
 		$_SESSION["status"]="0";
-		header("Location: index.php");
+		unset($_SESSION["rolUsuario"]);
+		unset($_SESSION["nacimiento"]);
+		unset($_SESSION["nombre"]);
+		unset($_SESSION["apellido"]);
+		header("Location: index");
 	}
 	public function validarCorreoElectronico()
 	{
@@ -164,8 +168,8 @@ class Login
 			}	
 			else
 			{
-				$_SESSION["success"] = "su contraseña ha sido modificada";
-				header("Location: index.php");
+				$solicitud = "su contraseña ha sido modificada con exito";
+				header("Location: solicitud?peticion=".$solicitud);
 			}			
 		}
 		else
@@ -225,22 +229,20 @@ class Login
 		
 			if($db->query($sql2) == true)
 			{
-				$_SESSION["status"] = 0;
-				$_SESSION["success"] = "Se ha confirmado el correo electronico";
-				header("Location: index.php");
+				$solicitud = "Se ha confirmado el correo electronico";
+				header("Location: solicitud?peticion=".$solicitud);
 			}
 			else
 			{
-				$_SESSION["status"] = 0;
-				$_SESSION["error"] = "Error modificar accesso code: confirmar correo 29CM";
-				header("Location: index.php");
+				$solicitud = "Error al confirmar correo electronico";
+				header("Location: solicitud?peticion=".$solicitud);
 			}
 		}
 		else
 		{
 			$_SESSION["status"] = 0;
 			$_SESSION["error"] = "Error al confirmar Correo electronico36CM";
-			header("Location: index.php");
+			header("Location: index");
 		}
 	}
 	public function desconfirmarCorreo()

@@ -58,7 +58,7 @@
             <p class="text-justify">3213603778<br />3134689556<br />7115463<br />5478999</p>
         </div>
         <div class="row" <?php echo $status;?>>
-        	<div class="col-md-offset-2 col-md-8 col-md-offset-2">
+        	<div class="col-md-offset-2 col-md-8">
         	<h3>Grupo de Desarrollo</h3>
               <p>Leyder Mendieta Paéz ⌂ soporte en el sistema de información web<br/>
               Juan David Vanegas Rodriguez ⌂ soporte basado en el cliente<br />

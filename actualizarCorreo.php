@@ -2,7 +2,7 @@
 session_start();
 include("clases/claseLogin.php");
 
-$from = 'Location: correo_electronico.php';
+$from = 'Location: correo_electronico';
 $correo = $_POST["correoElectronico"];
 
 if($_SESSION["correoElectronico"] == $correo)
