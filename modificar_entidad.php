@@ -84,11 +84,11 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <br />
-                                <input class="btn btn-default" type="submit" name="confirmar" value="Modificar Valores" />
+                                <input class="btn btn-success" type="submit" name="confirmar" value="Modificar Valores" />
                             </div>
                             <div class="col-sm-offset-2 col-sm-4">
                             	<br />	
-                            	<a href="entidad.php">Regresar</a>
+                            	<a class="btn btn-default" href="entidad">Regresar</a>
                             </div>
                         </div>
                          </form>

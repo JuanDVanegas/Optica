@@ -128,10 +128,12 @@
 								if($estado == 0)
 								{
 									$link = "habilitar";
+                                    $button = "btn-success";
 								}
 								if($estado == 1)
 								{
 									$link = "inhabilitar";
+                                    $button = "btn-danger";
 								}
                                 echo "<tr>
                                     <td>
@@ -147,10 +149,10 @@
                                         $codigo
                                     </td>
 									<td>
-										<a href='estadoEntidad.php?entidad=".$id."&action=".$link."&page=".$pagina."'>".$link."</a>
+										<a class='btn $button' href='estadoEntidad?entidad=".$id."&action=".$link."&page=".$pagina."'>".$link."</a>
 									</td>
 									<td>
-										<a href='modificar_entidad.php?entidad=".$id."&page=".$pagina."'>Editar</a>
+										<a class='btn btn-info' href='modificar_entidad?entidad=".$id."&page=".$pagina."'>Editar</a>
 									</td>
                                 </tr>";
                             }
@@ -161,8 +163,8 @@
 							}
                             ?>
                             <div class="col-sm-offset-1 col-sm-8">
-                            	<div class="col-sm-4"><a href="nueva_entidad.php">Nueva Entidad</a></div>
-                                <div class="col-sm-6"><a href="administrar_postulacion.php">Bandeja de postulación</a></div>
+                            	<div class="col-sm-4"><a class="btn btn-primary" href="nueva_entidad">Nueva Entidad</a></div>
+                                <div class="col-sm-6"><a clAss="btn btn-primary" href="administrar_postulacion">Bandeja de postulación</a></div>
                             </div>
                             <div class="col-sm-offset-5  col-sm-5">
                                 <?php
@@ -170,17 +172,17 @@
                                 echo "<nav aria-label='Page navigation'>
                                   <ul class='pagination'>
                                     <li>
-                                      <a href='entidad.php?pagina=1' aria-label='Previous'>
+                                      <a href='entidad?pagina=1' aria-label='Previous'>
                                         <span aria-hidden='true'>&laquo;</span>
                                       </a>
                                     </li>";
                                     for($i=1; $i<=$total_pagina;$i++)
                                     {
-                                        echo"<li><a href='entidad.php?pagina=".$i."'>".$i."</a> ";
+                                        echo"<li><a href='entidad?pagina=".$i."'>".$i."</a> ";
                                     }
                                     echo"							
                                     <li>
-                                      <a href='entidad.php?pagina=$total_pagina' aria-label='Next'>
+                                      <a href='entidad?pagina=$total_pagina' aria-label='Next'>
                                         <span aria-hidden='true'>&raquo;</span>
                                       </a>
                                     </li>

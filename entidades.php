@@ -21,7 +21,7 @@
         </div>
         <div class="row">
             <div class="col-md-offset-1 col-md-3">
-                <form action="menuEntidades.php" method="post" name="form_buscador">
+                <form action="entidades" method="post" name="form_buscador">
                 <input class="form-control" type="search" name="busqueda" placeholder="Busqueda..." pattern="[A-Za-z ]+" 
                 title="Letras exclusivamente"/>
             </div>
@@ -63,9 +63,9 @@
 				
 				if($filtro != "null")
 				{
-					$sql1 = "SELECT * FROM entidad WHERE estadoEntidad='1' AND (nombre LIKE '%".$filtro."%' 
+					$sql1 = "SELECT * FROM entidad WHERE estadoEntidad='1' AND (nombreEntidad LIKE '%".$filtro."%' 
 					OR address LIKE '%".$filtro."%' OR	detalles LIKE '%".$filtro."%') LIMIT $empieza,$cant_pagina";
-					$query = "SELECT * FROM entidad WHERE estadoEntidad='1' AND (nombre LIKE '%".$filtro."%' 
+					$query = "SELECT * FROM entidad WHERE estadoEntidad='1' AND (nombreEntidad LIKE '%".$filtro."%' 
 					OR address LIKE '%".$filtro."%' OR detalles LIKE '%".$filtro."%')";
 				}
 				else
@@ -133,7 +133,7 @@
                     echo "<nav aria-label='Page navigation'>
                       <ul class='pagination'>
                         <li>
-                          <a href='entidades.php?pagina=1' aria-label='Previous'>
+                          <a href='entidades?pagina=1' aria-label='Previous'>
                             <span aria-hidden='true'>&laquo;</span>
                           </a>
                         </li>";
@@ -143,7 +143,7 @@
                         }
                         echo"							
                         <li>
-                          <a href='entidades.php?pagina=$total_pagina' aria-label='Next'>
+                          <a href='entidades?pagina=$total_pagina' aria-label='Next'>
                             <span aria-hidden='true'>&raquo;</span>
                           </a>
                         </li>

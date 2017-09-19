@@ -94,7 +94,7 @@ else
                             </form>
                         </div>
                         <div class="col-md-3">
-                            <a class="btn btn-default" href="entidad.php">Regresar</a>
+                            <a class="btn btn-default" href="entidad">Regresar</a>
                         </div> 
                     </div>
                  <!--Termina Insersion-->                 
