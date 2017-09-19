@@ -139,7 +139,7 @@
                         </li>";
                         for($i=1; $i<=$total_pagina;$i++)
                         {
-                            echo"<li><a href='entidades.php?pagina=".$i."'>".$i."</a> ";
+                            echo"<li><a href='entidades?pagina=".$i."'>".$i."</a> ";
                         }
                         echo"							
                         <li>
