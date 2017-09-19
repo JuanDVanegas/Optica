@@ -134,10 +134,10 @@ $sql2 = "SELECT * FROM historial INNER JOIN registro ON historial.fk_registro = 
               		</div>
 					<div class="row">
                     <div class="col-sm-offset-2 col-sm-3">
-                        	<p class='text-info'>Generar Reporte</p><a href="generar_reporte.php?id_registro=<?php echo $id_registro;?>&id_medico=<?php echo $id_medico;?>&action=view"><img title="Ver Online PDF"src="images/pdf_generar.png" width="20%" height="20%"/></a><a href="controlador_generarReporte.php?id_registro=<?php echo $id_registro;?>&id_medico=<?php echo $id_medico;?>&action=download"><img title="Descargar PDF" src="images/pdf_down.png" width="20%" height="20%"/></a>
+                        	<p class='text-info'>Generar Reporte</p><a href="generar_reporte?id_registro=<?php echo $id_registro;?>&id_medico=<?php echo $id_medico;?>&action=view"><img title="Ver Online PDF"src="images/pdf_generar.png" width="20%" height="20%"/></a><a href="controlador_generarReporte.php?id_registro=<?php echo $id_registro;?>&id_medico=<?php echo $id_medico;?>&action=download"><img title="Descargar PDF" src="images/pdf_down.png" width="20%" height="20%"/></a>
                         </div>
 						<div class="col-sm-offset-4 col-sm-3">
-							<a href="historial.php?target_user=<?php echo $_GET["redirect"];?>">Regresar</a>
+							<a href="historial?target_user=<?php echo $_GET["redirect"];?>">Regresar</a>
 						</div>
 					</div>
                     <!-- --------- -->

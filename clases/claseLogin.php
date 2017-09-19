@@ -81,7 +81,7 @@ class Login
 					$_SESSION["telefono"]=stripslashes($row1["telefono"]);
 					$_SESSION["genero"]=stripslashes($row1["genero"]);
 					$_SESSION["nombreEntidad"]=stripslashes($row1["nombreEntidad"]);
-					
+					$_SESSION["direccionEntidad"]=stripslashes($row1["address"]);
 					if($_SESSION["rolUsuario"] == "Medico")
 					{
 						$_SESSION["status"]="1";

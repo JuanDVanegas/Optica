@@ -42,7 +42,7 @@
                                 <p>Lugar</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" name="lugar" required="required" title="Lugar"/>
+                                <input class="form-control" type="text" name="lugar" value="<?php echo $_SESSION["direccionEntidad"];?>" readonly="readonly" />
                             </div>
                         </div>
                         <br />
@@ -51,7 +51,7 @@
                                 <p>Fecha</p>
                             </div>
                             <div class="col-sm-9">
-                                <input class="form-control" type="text" name="fecha" value="<?php echo date('d/m/Y');?>" readonly="readonly"/>
+                                <input class="form-control" type="date" name="fecha" value="<?php echo date("Y-m-d");?>" readonly="readonly" />
                             </div>
                         </div>
                         <br />

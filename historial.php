@@ -67,7 +67,7 @@
 				?>
                 <div class="row">
                     <div class="col-md-offset-1 col-md-3">
-                        <form action="historial.php?target_user=<?php echo $_GET["target_user"];?>" method="post" name="form_buscador">
+                        <form action="historial?target_user=<?php echo $_GET["target_user"];?>" method="post" name="form_buscador">
                         <input class="form-control" type="search" name="busquedaP" placeholder="N° Documento <?php echo $user_to;?>" pattern="[0-9]+" 
                         title="Numero de documento a buscar"/>
                     </div>
@@ -145,7 +145,7 @@
 								<b>$user_to</b>
 							</td>
 							<td>
-								<b>Lugar</b>
+								<b>Dirección</b>
 							</td>
 							<td>
 								<b>Fecha</b>
@@ -207,7 +207,7 @@
 								$fecha
 							</td>
 							<td>
-								<a href='historial_detalle.php?id_registro=".$fk_registro."&target_user=".$user."&key=".$id_usuario."&from=".$fk_usuario_target."&redirect=".$_GET["target_user"]."'>Ver</a>
+								<a href='historial_detalle?id_registro=".$fk_registro."&target_user=".$user."&key=".$id_usuario."&from=".$fk_usuario_target."&redirect=".$_GET["target_user"]."'>Ver</a>
 							</td>
 						</tr>";
 					}
@@ -239,7 +239,7 @@
                     <?php
                     	if($user == "fk_paciente")
                         {
-                        	echo "<a href='nuevo_registro.php?target_user=".$_GET["target_user"]."'>Agregar Registro</a>";
+                        	echo "<a href='nuevo_registro?target_user=".$_GET["target_user"]."'>Agregar Registro</a>";
                        	}
 						else;
 					?>
@@ -252,17 +252,17 @@
 						echo "<nav aria-label='Page navigation'>
 						  <ul class='pagination'>
 							<li>
-							  <a href='historial.php?pagina=1&target_user=".$_GET["target_user"]."' aria-label='Previous'>
+							  <a href='historial?pagina=1&target_user=".$_GET["target_user"]."' aria-label='Previous'>
 								<span aria-hidden='true'>&laquo;</span>
 							  </a>
 							</li>";
 							for($i=1; $i<=$total_pagina;$i++)
 							{
-								echo"<li><a href='historial.php?pagina=".$i."&target_user=".$_GET["target_user"]."'>".$i."</a> ";
+								echo"<li><a href='historial?pagina=".$i."&target_user=".$_GET["target_user"]."'>".$i."</a> ";
 							}
 							echo"							
 							<li>
-							  <a href='historial.php?pagina=$total_pagina&target_user=".$_GET["target_user"]."' aria-label='Next'>
+							  <a href='historial?pagina=$total_pagina&target_user=".$_GET["target_user"]."' aria-label='Next'>
 								<span aria-hidden='true'>&raquo;</span>
 							  </a>
 							</li>
