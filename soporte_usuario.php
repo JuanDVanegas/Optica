@@ -11,20 +11,11 @@
   <link rel="stylesheet" href="css/site.css" type="text/css" />
 	<script type="text/javascript" src="javascript/jquery.js"></script>
 	<script type="text/javascript" src="javascript/bootstrap.js"></script>
-  <script type="text/javascript">
-  function ajax()
-  {
-    var req = new XMLHttpRequest();
-    req.onreadystatechange = function(){
-      if(req.readyState == 4 && req.status == 200)
-      {
-        document.getElementById("chat").innerHTML = req.responseText;
-      }
-    }
-    req.open("GET","conversation.php",true);
-    req.send();
-  }
-  setInterval(function(){ajax();}, 1000);
+ <script type="text/javascript">
+  $(document).ready(function(){
+   var refreshId = setInterval((#chat), 1000);
+   $.ajaxSetup({ cache: false });
+  });
 
   </script>
   </head>
@@ -39,15 +30,28 @@
                 <br />
                 <?php include('configuracion_menu.php');
                 include("database/conexion.php");
+                $usuario1 = $_SESSION["id_usuario"];
+                $sqlAmigos = "SELECT * FROM amigo INNER JOIN usuario ON amigo.usuario1 = usuario.id_usuario WHERE usuario1 = '$usuario1' OR categoria = 'default'";
+                $resultado = mysqli_query($db,$sqlAmigos);
                 ?>
             </div>
             <div class="col-md-9"> 
                 <!--Nueva Insersion-->
-                    <section  style="padding: 10%;">
                       <div class="row">
-                          <div class="form-group" id="chat">
-                          </div><br/>
-                          <form  method="POST" action="soporte_usuario">
+                          <div class="col-md-4" style="float:right;">
+                              <?php 
+                              while($rowAmigo = $resultado->fetch_assoc())
+                              {
+                                $id = $rowAmigo["usuario2"];
+                                $nombreAmigo = $rowAmigo["nombreAmigo"];
+                                echo "<a class='btn btn-default' href='soporte_usuario?target=$id'>$nombreAmigo</a><br/>";
+                              }
+                              ?>
+                          </div>
+                          <div class="col-md-9" id="chat">
+                              <?php include('conversation.php');?>
+                          </div>
+                          <form  method="POST" action="soporte_usuario?target=<?php echo $_GET["target"];?>">
                           <div class="col-md-6">
                             <input type="text" class="form-control" name="texto" placeholder="Escriba Mensaje"/>
                           </div>
@@ -56,14 +60,13 @@
                            </div>    
                         </form>
                       </div>
-                    </section>
                 <?php
-                if(isset($_POST["enviar"]))
+                if(isset($_POST["enviar"]) && $_POST["texto"] != "")
                 {
-                    $emisor = $_SESSION["nombre"]." ".$_SESSION["apellido"];
+                    $emisor = $_SESSION["id_usuario"];
                     $texto = $_POST["texto"];
-
-                    $sql2 = "INSERT INTO mensaje(emisor,texto,fecha) VALUES ('$emisor','$texto',NOW())";
+                    $receptor = $_GET['target'];
+                    $sql2 = "INSERT INTO mensaje(emisor,receptor,texto,fecha) VALUES ('$emisor','$receptor','$texto',NOW())";
                     $ejecutar = $db->query($sql2);
                     if($ejecutar == true)
                     {
